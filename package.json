@@ -1,0 +1,23 @@
+{
+  "name": "maxwebsitefinalbuild",
+  "version": "1.0.0",
+  "description": "Maxwell Cole's Personal Developer Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EatYoCharms9/MaxColeWebsite.git"
+  },
+  "author": "Maxwell Cole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EatYoCharms9/MaxColeWebsite/issues"
+  },
+  "homepage": "https://github.com/EatYoCharms9/MaxColeWebsite#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
