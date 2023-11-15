@@ -3,27 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaxColeWebsite</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>MaxColeWebsite</title>
 </head>
-<body>
-    <div id="code-background"></div>
-    <div id="code-background-2"></div>
-    <div id="blur-background"></div>
 
-    <% include ./partials/header %>
+<div id="blur-background"></div>
+<div id="code-background"></div>
+<div id="code-background-2"></div>
+
+<header id="main-header">
+    <nav>
+        <ul>
+            <li><a href="./index">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">About</a>
+                <div class="dropdown-content">
+                    <a href="views/bio">Bio</a>
+                    <a href=#Technical_Experience>Technical Experience</a>
+                    <a href="#Resume">Resume</a>
+                </div>
+            </li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
     
     <!-- Main content will go here -->
     <main>
-        <%= body %>
+        <%- body %>
     </main>
 
-    <% include ./partials/footer %>
-
-    <script src="typingEffect.js"></script>
 </body>
+
+<script src="typingEffect.js"></script>
 </html>

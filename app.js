@@ -1,21 +1,25 @@
-const express = require('express');
-const app = express();
-const path = require('path');
+const express = require('express')
+const expressLayouts = require('express-ejs-layouts')
 
-// Set EJS as the view engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+const app = express ()
+const port = 5000
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
+app.use('./css', express.static(__dirname + 'public/css'))
+app.use('./js', express.static(__dirname + 'public/js'))
 
-// Define routes
-app.get('/', (req, res) => {
-    res.render('pages/index'); // This will render views/pages/index.ejs within your layout.ejs
-});
+app.use(expressLayouts)
+app.set('layout', './layouts/full-width')
+app.set('view engine', 'ejs')
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.get('',(req, res) => {
+    res.render('index')
+})
+
+app.get('/bio',(req, res) => {
+    res.render('bio')
+})
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
