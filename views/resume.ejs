@@ -1,0 +1,16 @@
+<main id="resume">
+    <h1>Resume</h1> <!-- New title -->
+    <a href="./MaxwellColeResume2023.01.pdf" download="ColeMax_Resume_2023" class="resume-title">
+        DOWNLOAD
+    </a>
+</main>
+
+<script>
+    document.querySelector('.resume-title').addEventListener('mouseenter', function() {
+        this.textContent = '[DOWNLOAD]';
+    });
+
+    document.querySelector('.resume-title').addEventListener('mouseleave', function() {
+        this.textContent = 'DOWNLOAD';
+    });
+</script>

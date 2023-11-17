@@ -8,20 +8,25 @@ body {
     line-height: 1.6;
     background-color: #B0B5BF;
     display: flex;
-    flex-direction: column; /* Keep this as is */
-    align-items: center; /* Add this line */
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    /* justify-content: center; */ /* Add this line to center vertically */
+    height: 100vh; /* Add this line to make the body take full viewport height */
+    position: relative;
 }
 
+
 #blur-background {
-    position: fixed; /* Fixed position to cover the whole screen */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(1px); /* Adjust the blur intensity as needed */
-    -webkit-backdrop-filter: blur(1px); /* For Safari */
-    z-index: 1; /* Ensures it stays behind other content */
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: -1;
 }
+
 
 #code-background {
     font-family: 'Fira Code', monospace;
@@ -32,7 +37,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%; /* Adjust height to compensate for the shifted top */
-    z-index: 0;
+    z-index: -2;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -46,11 +51,22 @@ body {
     left: 0;
     width: 100%;
     height: 100%; /* Adjust height to compensate for the shifted top */
-    z-index: 0;
+    z-index: -2;
     overflow: hidden;
     white-space: nowrap;
 }
 
+/* DROPDOWN CONTENT */
+
+#main-header {
+    z-index: 2;
+    display: flex;
+    flex-direction: column; /* Change to column to stack items vertically */
+    align-items: center; /* Center align the items horizontally */
+    justify-content: center; /* Center align the items vertically */
+    color: #0D0D0D;
+    width: 100%; /* Ensure it takes full width */
+}
 
 nav {
     background-color: rgba(165, 171, 182, 0.25);
@@ -61,7 +77,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensures the nav bar stays above other content */
+    z-index: 4; /* Ensures the nav bar stays above other content */
 }
 
 header ul {
@@ -130,17 +146,13 @@ nav li.dropdown {
     display: block; /* Display the dropdown */
 }
 
-/* DROPDOWN CONTENT */
+/* TITLE + TITLE EFFECTS  + INFO SUBHEADER FOR MAIN PAGE */
 
-#main-header {
-    z-index: 2;
-    display: flex;
-    flex-direction: column; /* Change to column to stack items vertically */
-    align-items: center; /* Center align the items horizontally */
-    justify-content: center; /* Center align the items vertically */
-    color: #0D0D0D;
-    width: 100%; /* Ensure it takes full width */
-    height: 95vh; /* Make header take full viewport height */
+#title-info {
+    position: absolute; /* Take it out of the normal flow */
+    top: 50%; /* Position half way down the parent */
+    left: 50%; /* Position half way across the parent */
+    transform: translate(-50%, -50%);
 }
 
 #typing {
@@ -162,19 +174,28 @@ nav li.dropdown {
     50% { opacity: 0; }
 }
 
-#header-info p {
+#title-info p {
     font-family: 'Fira Sans', sans-serif;
     font-size: 25px;    
     margin-top: -40px;
     margin-bottom: 10px; /* Adjust space below the title */
 }
 
-main h1 {
+/* MAIN CONTENT */
+
+#subtitle h1 {
     z-index: 2;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
     font-size: 30px;
-    justify-content: center; /* Center align the items vertically */    
+    position: absolute; /* Position the element absolutely */
+    bottom: 0; /* Align it to the bottom */
+    left: 0; /* Align it to the left */
+    width: 100%; /* Stretch it across the full width */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    height: 100px; /* Adjust the height as needed */   
 }
 
 header {
@@ -191,19 +212,19 @@ header {
 #bio {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
-    color: #0D0D0D;
     
-    z-index: 2;
+    z-index: 4;
     display: flex;
     flex-direction: column; /* Change to column to stack items vertically */
     align-items: left; /* Center align the items horizontally */
     margin-left: 150px;
     margin-right: 150px;
-    margin-top: 100px;
     justify-content: flex-start; /* Center align the items vertically */
+    padding-top: 30px;
 }
 
 #bio p{
+    margin-top: -40px;
     font-size: 25px;
 }
 
@@ -213,24 +234,47 @@ header {
     font-size: 150px;
 }
 
-.download-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #BFD9D4; /* Change as needed */
+#resume {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
     color: #0D0D0D;
+    
+    z-index: 2;
+    display: flex;
+    flex-direction: column; /* Change to column to stack items vertically */
+    margin-bottom: 150px;
+    justify-content: flex-start; /* Center align the items vertically */
+}
+
+#resume h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px; /* Example spacing */
+}
+
+#resume a {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.resume-title {
+    display: inline-block;
+    background-color: #BFD9D4; /* Background color for resume title */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    margin-top: 20px; /* Adjust as needed */
+    color: #0D0D0D;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    width: 300px; /* Set a fixed width larger than the text */
+    overflow: hidden; /* Ensures content does not exceed button boundaries */
 }
 
-.download-button:hover {
-    background-color: #B6F2D6;
-}
-
-.download-button i {
-    margin-right: 5px;
+.resume-title:hover {
+    content: "[DOWNLOAD]"; /* This won't work in CSS; see explanation below */
 }
 
 footer {

@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const characters = '01';
         let result = '';
         const charactersLength = characters.length;
-        const lineLength = Math.floor(Math.random() * (75 - 25  + 1)) + 25;
+        const lineLength = Math.floor(Math.random() * (90 - 40  + 1)) + 10;
     
         for (let i = 0; i < lineLength; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function typeCodeSnippet(codeSnippet, code, callback) {
         let typed = '';
         let index = 0;
-        const typingSpeed = 50  // Adjust typing speed (lower is faster)
+        const typingSpeed = 40  // Adjust typing speed (lower is faster)
 
         function typeCharacter() {
             if (index < code.length) {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 index++;
                 setTimeout(typeCharacter, typingSpeed);
             } else if (callback) {
-                setTimeout(() => callback(codeSnippet), 2000); // Wait a bit before starting to untype
+                setTimeout(() => callback(codeSnippet), 2500); // Wait a bit before starting to untype
             }
         }
 
