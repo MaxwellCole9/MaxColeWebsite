@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (i < text.length) {
             textElement.textContent += text.charAt(i);
             i++;
-            setTimeout(typeCharacter, typingDelay);
+            // Generate a random typing delay for each character
+            let randomTypingDelay = typingDelay + Math.floor(Math.random() * 200) - 50; // Adjust the range as needed
+            setTimeout(typeCharacter, randomTypingDelay);
         } else {
             setTimeout(untypeCharacter, endDelay);
         }
@@ -40,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const codeSnippets = [];
     
     function generateRandomCode() {
-        const characters = '01';
+        const characters = '010101 ';
         let result = '';
         const charactersLength = characters.length;
-        const lineLength = Math.floor(Math.random() * (90 - 40  + 1)) + 10;
+        const lineLength = Math.floor(Math.random() * (70 - 40  + 1)) + 10;
     
         for (let i = 0; i < lineLength; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function untypeCodeSnippet(codeSnippet) {
         let content = codeSnippet.textContent;
-        const untypingSpeed = 100; // Adjust untyping speed (lower is faster)
+        const untypingSpeed = 80; // Adjust untyping speed (lower is faster)
 
         function untypeCharacter() {
             if (content.length > 0) {
@@ -137,6 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
         typeCodeSnippet(codeSnippet, generateRandomCode(), untypeCodeSnippet);
     }
     
-    setInterval(addCodeSnippet, 350); // Adjust time as needed for new lines
-    setInterval(addCodeSnippetFromRight, 350); // New typing effect from right
+    setInterval(addCodeSnippet, 250); // Adjust time as needed for new lines
+    setInterval(addCodeSnippetFromRight, 250); // New typing effect from right
 });

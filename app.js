@@ -28,7 +28,21 @@ app.get('/contact',(req, res) => {
     res.render('contact')
 })
 
+app.get('/a-life',(req, res) => {
+    res.render('a-life')
+})
 
+app.get('/smallsh',(req, res) => {
+    res.render('smallsh')
+})
+
+app.get('/recipes',(req, res) => {
+    res.render('recipes')
+})
+
+app.get('/masm',(req, res) => {
+    res.render('masm')
+})
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

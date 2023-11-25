@@ -6,11 +6,10 @@ body, h1, h2, p, ul, li {
 body {
     font-family: 'Fira Code', monospace;
     line-height: 1.6;
-    background-color: #B0B5BF;
+    background-color: #9AA0AC;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers horizontally */
-    /* justify-content: center; */ /* Add this line to center vertically */
     height: 100vh; /* Add this line to make the body take full viewport height */
     position: relative;
 }
@@ -22,7 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(0.5px);
     -webkit-backdrop-filter: blur(1px);
     z-index: -1;
 }
@@ -31,6 +30,11 @@ body {
 #code-background {
     font-family: 'Fira Code', monospace;
     color: #BFD9D4;
+
+    text-shadow: 
+    0 0 5px #BFD9D4, /* Small glow */
+    0 0 10px #BFD9D4; /* Medium glow */
+
     font-size: 20px;
     position: fixed;
     top: 0; /* Adjust this value to push the code below the nav bar */
@@ -45,6 +49,11 @@ body {
 #code-background-2 {
     font-family: 'Fira Code', monospace;
     color: #BFD9D4;
+
+    text-shadow: 
+    0 0 5px #BFD9D4, /* Small glow */
+    0 0 10px #BFD9D4; /* Medium glow */
+
     font-size: 20px;
     position: fixed;
     top: 0; /* Adjust this value to push the code below the nav bar */
@@ -59,25 +68,12 @@ body {
 /* DROPDOWN CONTENT */
 
 #main-header {
-    z-index: 2;
-    display: flex;
+    z-index: 100;
     flex-direction: column; /* Change to column to stack items vertically */
     align-items: center; /* Center align the items horizontally */
     justify-content: center; /* Center align the items vertically */
     color: #0D0D0D;
     width: 100%; /* Ensure it takes full width */
-}
-
-nav {
-    background-color: rgba(165, 171, 182, 0.25);
-    display: inline-block; /* Or inline-flex depending on your layout */
-    padding: 10px 0;
-    text-align: center;
-    position: fixed; /* This makes the nav bar fixed at the top */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 4; /* Ensures the nav bar stays above other content */
 }
 
 header ul {
@@ -99,11 +95,23 @@ header a {
     transition: color 0.3s;
 }
 
+/* DROPDOWN CONTENT */
+
+nav {
+    background-color: rgba(165, 171, 182, 0.35);
+    display: inline-block; /* Or inline-flex depending on your layout */
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101; /* Ensures the nav bar stays above other content */
+}
+
 nav ul li a:hover {
     color: #B6F2D6;
 }
-
-/* DROPDOWN CONTENT */
 
 nav li {
     float: left;
@@ -123,7 +131,7 @@ nav li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(165, 171, 182, 0.75); /* Or your preferred dropdown background color */
+    background-color: rgba(165, 171, 182, 0.90); /* Or your preferred dropdown background color */
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
@@ -209,6 +217,8 @@ header {
     height: 100px; /* Make header take full viewport height */
 }
 
+/* BIO PAGE */
+
 #bio {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
@@ -220,64 +230,173 @@ header {
     margin-left: 150px;
     margin-right: 150px;
     justify-content: flex-start; /* Center align the items vertically */
-    padding-top: 30px;
 }
 
 #bio p{
-    margin-top: -40px;
+    margin-top: -20px;
     font-size: 25px;
 }
 
 #bio h1 {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
-    font-size: 150px;
+    font-size: 100px;
 }
 
+/* RESUME PAGE */
+
 #resume {
+    z-index: 4;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
     color: #0D0D0D;
-    
-    z-index: 2;
     display: flex;
-    flex-direction: column; /* Change to column to stack items vertically */
-    margin-bottom: 150px;
-    justify-content: flex-start; /* Center align the items vertically */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+iframe {
+    /* Styles for the iframe */
+    width: 200%; /* Adjust the width as needed */
+    margin-top: 20px; /* Space above the iframe */
 }
 
 #resume h1 {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 20px; /* Example spacing */
+    font-size: 100px;
 }
 
 #resume a {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 400;
-    font-size: 50px;
+    font-size: 20px;
 }
 
 .resume-title {
-    display: inline-block;
+    margin-top: -10px;
     background-color: #BFD9D4; /* Background color for resume title */
     padding: 10px 20px;
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
     color: #0D0D0D;
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
-    width: 300px; /* Set a fixed width larger than the text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 125px; /* Set a fixed width larger than the text */
     overflow: hidden; /* Ensures content does not exceed button boundaries */
 }
 
 .resume-title:hover {
-    content: "[DOWNLOAD]"; /* This won't work in CSS; see explanation below */
+    background-color: #A0C0B0; /* Slightly different background color on hover */
+    color: #FFFFFF;
 }
 
-footer {
+/* CONTACT PAGE */
+
+#contact {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    
+    z-index: 4;
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+
+.indiv-contact{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(165, 171, 182, 0.5);
+}
+
+.small-info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#contact h2{
+    margin-right: 250px;
+    margin-left: 250px;
+    margin-top: -20px;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#contact a{
+    padding-left: 10px;
+}
+
+#contact h1{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    font-size: 100px;
+}
+
+#contact h3{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    z-index: 4;
+    margin-bottom: -5px;
+}
+
+/* Portfolio-Page */
+
+#portfolio-page {
+    background-color: rgba(165, 171, 182, 0.5);
+    padding: 10px 10px 10px 10px;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    margin-top: 10px;
+    width: 800px;
+    
+    z-index: 4;
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+#portfolio-page h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 50px;
+}
+
+#portfolio-page h2 {
+    font-family: 'Fira Code', monospace;
+    margin-bottom: 20px;
+}
+
+#portfolio-page p {
+    margin-bottom: 20px;
+}
+
+#portfolio-page a {
+    margin-left: 5px;
+}
+
+.link-info{
+    display: flex;
+    align-items: left;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+#footer {
     background-color: #B0B5BF; /* Your chosen color */
     color: #0D0D0D;
     text-align: center;
