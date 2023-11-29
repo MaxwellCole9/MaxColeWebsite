@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const codeSnippets = [];
     
     function generateRandomCode() {
-        const characters = '010101 ';
+        const characters = '01';
         let result = '';
         const charactersLength = characters.length;
-        const lineLength = Math.floor(Math.random() * (70 - 40  + 1)) + 10;
+        const lineLength = Math.floor(Math.random() * (15)) + 20;
     
         for (let i = 0; i < lineLength; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function untypeCodeSnippet(codeSnippet) {
         let content = codeSnippet.textContent;
-        const untypingSpeed = 80; // Adjust untyping speed (lower is faster)
+        const untypingSpeed = 40; // Adjust untyping speed (lower is faster)
 
         function untypeCharacter() {
             if (content.length > 0) {

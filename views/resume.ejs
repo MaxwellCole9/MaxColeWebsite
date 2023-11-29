@@ -1,18 +1,14 @@
 <main id="resume">
     <h1>RESUME</h1>
-    <a href="./MaxwellColeResume2023.01.pdf" download="ColeMax_Resume_2023" class="resume-title">
-        DOWNLOAD
-    </a>
+    <div id="button-container">
+        <a href="#" class="resume-title">
+            VIEW
+        </a>
+        
+        <a href="./MaxwellColeResume2023.01.pdf" download="ColeMax_Resume_2023" class="resume-title">
+            DOWNLOAD
+        </a>
+    </div>
     
-    <iframe src="./MaxwellColeResume2023.01.pdf" width="100%" height="600px" style="border: none;"></iframe>
+    <iframe id="resume-iframe" src="./MaxwellColeResume2023.01.pdf" width="100%" height="600px" style="border: none; display: none;"></iframe>
 </main>
-
-<script>
-    document.querySelector('.resume-title').addEventListener('mouseenter', function() {
-        this.textContent = '[DOWNLOAD]';
-    });
-
-    document.querySelector('.resume-title').addEventListener('mouseleave', function() {
-        this.textContent = 'DOWNLOAD';
-    });
-</script>

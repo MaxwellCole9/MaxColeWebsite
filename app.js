@@ -44,6 +44,10 @@ app.get('/masm',(req, res) => {
     res.render('masm')
 })
 
+app.get('/artpage',(req, res) => {
+    res.render('artpage')
+})
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
