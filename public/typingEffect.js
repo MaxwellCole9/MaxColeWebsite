@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const text = "MAXWELL COLE"; // Replace with your text
+    const text = "Software Engineer - Web Designer - Digital Artist"; // Replace with your text
     const textElement = document.getElementById('text');
     const cursorElement = document.getElementById('cursor');
     let i = 0;
     let typingDelay = 100; // Adjust for typing speed
     let startDelay = 1000; // Delay before start typing
     let untypingDelay = 100; // Adjust for untyping speed
-    let endDelay = 5000; // Delay before restarting
+    let endDelay = 7000; // Delay before restarting
 
     function typeCharacter() {
         if (i < text.length) {

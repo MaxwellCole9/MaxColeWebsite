@@ -1,6 +1,8 @@
+/* -------GENERAL STYLES-------- */
+
 :root {
-    --primary-color: #0D0D0D;
-    --secondary-color: #B6F2D6;
+    --primary-color: #0A0A0A;
+    --secondary-color: #F2163E;
     --text-color: #F2F2F2;
     --background-color: #050505;
 }
@@ -11,9 +13,9 @@ body, h1, h2, p, ul, li {
 }
 
 body {
-    font-family: 'Fira Code', monospace;
+    font-family: 'IBM Plex Sans', sans-serif;
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 2;
     overflow: hidden;
 
     background-color: var(--background-color);
@@ -25,6 +27,44 @@ body {
     position: relative;
 }
 
+#info-card{
+    margin-left: 15%;
+    margin-right: 15%;
+    height: fit-content;
+    width: fit-content;
+}
+
+#body-elements{
+    display: flex;
+    flex-direction: row;
+}
+
+#body-elements img{
+    width: 50%;
+}
+
+#text-box{
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 30px;
+
+    background-color: var(--primary-color);
+}
+
+#text-box p{
+    margin: 5% 5% 5% 5%;
+}
+
+#page-header{
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--secondary-color);
+    font-weight: 400;
+    font-size: 150px;
+}
+
+
+/* -------BACKGROUND TEXT EFFECT-------- */
 
 #blur-background {
     position: fixed;
@@ -39,8 +79,11 @@ body {
 
 
 #code-background, #code-background-2 {
-    font-family: 'Fira Code', monospace;
-    color: #B6F2D6;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--secondary-color);
+    text-shadow: 0 0 5px rgba(242, 27, 84, 0.5); /* Adjust the values for your desired glow effect */
+    animation: glow-animation2 2s ease-in-out infinite;
+
     font-size: 25px;
     line-height: 25px;
     position: fixed;
@@ -50,6 +93,15 @@ body {
     z-index: -2;
     overflow: hidden;
     white-space: nowrap;
+}
+
+@keyframes glow-animation2 {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(242, 27, 84, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(242, 27, 84, 0.8);
+    }
 }
 
 #code-background {
@@ -62,7 +114,46 @@ body {
     text-align: right; 
 }
 
-/* NAV ELEMENTS */
+/* TITLE + TITLE EFFECTS  + INFO SUBHEADER FOR MAIN PAGE */
+
+#title-info {
+    position: absolute; /* Take it out of the normal flow */
+    top: 40%; /* Position half way down the parent */
+    left: 50%; /* Position half way across the parent */
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title-text h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10vw;
+    font-weight: 400px;
+    color: var(--secondary-color);
+    text-shadow: 0 0 15px rgba(242, 27, 84, 0.5);
+}
+
+#typing {
+    color: var(--text-color);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.5vw;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: -200px;
+}
+
+#text::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* -------NAV BAR + DROPDOWN-------- */
 
 nav {
     margin-top: 100px;
@@ -87,7 +178,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #B6F2D6;
+    color: var(--secondary-color);
 }
 
 nav li {
@@ -108,7 +199,7 @@ nav li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #0D0D0D;
+    background-color: var(--primary-color);
     border-radius: 25px;
     padding-bottom: 25px;
     z-index: 2;
@@ -123,48 +214,11 @@ nav li.dropdown {
 }
 
 .dropdown-content a:hover {
-    color: #B6F2D6;
+    color: var(--secondary-color);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-/* TITLE + TITLE EFFECTS  + INFO SUBHEADER FOR MAIN PAGE */
-
-#title-info {
-    position: absolute; /* Take it out of the normal flow */
-    top: 50%; /* Position half way down the parent */
-    left: 50%; /* Position half way across the parent */
-    transform: translate(-50%, -50%);
-}
-
-#typing {
-    color: var(--text-color);
-    font-family: 'Fira Sans', monospace;
-    font-weight: 300;
-    font-size: 300px;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    width: 2000px;
-}
-
-#text::after {
-    content: '|';
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
-#title-info p {
-    color: var(--text-color);
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 50px;
-    margin-left: 5px;    
-    margin-top: -75px;
 }
 
 /* MAIN CONTENT */
@@ -228,56 +282,7 @@ nav li.dropdown {
     height: 100px; /* Adjust the height as needed */   
 }
 
-/* BIO PAGE */
-
-#bio {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
-    
-    z-index: 4;
-    display: flex;
-    flex-direction: column; /* Change to column to stack items vertically */
-    align-items: left; /* Center align the items horizontally */
-    margin-left: 150px;
-    margin-right: 150px;
-    justify-content: flex-start; /* Center align the items vertically */
-}
-
-#bio p{
-    margin-top: -20px;
-    font-size: 25px;
-}
-
-#bio h1 {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
-    font-size: 100px;
-}
-
 /* RESUME PAGE */
-
-#resume {
-    z-index: 4;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
-    color: var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-iframe {
-    /* Styles for the iframe */
-    width: 200%; /* Adjust the width as needed */
-    margin-top: 20px; /* Space above the iframe */
-}
-
-#resume h1 {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
-    font-size: 100px;
-}
 
 #resume a {
     font-family: 'Fira Sans', sans-serif;
@@ -285,7 +290,7 @@ iframe {
     font-size: 20px;
 }
 
-.resume-title {
+.resume-button {
     margin-right: 20px;
     background-color: #BFD9D4; /* Background color for resume title */
     padding: 10px 20px;
@@ -298,13 +303,9 @@ iframe {
     overflow: hidden; /* Ensures content does not exceed button boundaries */
 }
 
-.resume-title:hover {
+.resume-button:hover {
     background-color: #A0C0B0; /* Slightly different background color on hover */
     color: var(--text-color);
-}
-
-.button-container {
-    display: inline-block;
 }
 
 /* CONTACT PAGE */
