@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="stylesheet" href="styles.css">
     <title>MaxColeWebsite</title>
 </head>
@@ -22,20 +25,27 @@
         <ul>
             <li><a href="./">HOME</a></li>
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">ABOUT</a>
-                <div class="dropdown-content">
+                <a href="javascript:void(0)" class="dropbtn" id="about-btn" onclick="toggleDropdown('about')">ABOUT 
+                    <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="about-symbol">
+                </a>
+                <div id="about-content" class="dropdown-content">
                     <a href="./bio">BIO</a>
                     <a href="./resume">RESUME</a>
                 </div>
             </li>
+
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">PROJECTS</a>
-                <div class="dropdown-content">
+                <a href="javascript:void(0)" class="dropbtn" id="about-btn" onclick="toggleDropdown('projects')">PROJECTS
+                    <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="projects-symbol">
+                </a>
+                <div id="projects-content" class="dropdown-content">
                     <a href="./a-life">A-Life Challenge 2023</a>
                     <a href="./smallsh">Smallsh</a>
                     <a href="./masm">MASM Quest</a>
                     <a href="./recipes">Recipe App</a>
                 </div>
+            </li>
+
             <li><a href="./artpage">MX.CO</a></li>
             <li><a href="./contact">CONTACT</a></li>
         </ul>
@@ -50,5 +60,6 @@
 </body>
 
 <script src="typingEffect.js"></script>
+<script src="buttons.js"></script>
 
 </html>
