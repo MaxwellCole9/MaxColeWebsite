@@ -1,15 +1,14 @@
 /* -------GENERAL STYLES-------- */
 
 :root {
-    --primary-color: #080808;
-    --secondary-color: #0D0D0D;
-    --accent-color: #F2163E;
-    --glow-color: rgba(242, 22, 62, 0.5);
+    --primary-color: #262626;
+    --secondary-color: #595959;
+    --accent-color: #B6F2D6;
+    --glow-color: rgba(191, 217, 212, 0.7);
     --text-color: #F2F2F2;
-    --background-color: #050505;
+    --background-color: #0D0D0D;
+    --card-background-color: rgba(38, 38, 38, 0.7);
 }
-
-/* GPT, I want to make it so that my info card styles are consistent across pages, can you ensure the content box and text box take up equal amounts of the page, and that the overall info card is scaled to fit most of the page*/
 
 body, h1, h2, p, ul, li {
     margin: 0;
@@ -33,6 +32,20 @@ body {
     padding: 0;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/BackgroundPhoto.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Adjust as needed */
+    z-index: -1;
+}
+
 @keyframes dropDown {
     0% {
         transform: translateY(-50px);
@@ -44,8 +57,8 @@ body {
 
 #info-card {
     margin: auto;
-    width: 60%; /* Adjust as needed */
-    height: 100%; /* Adjust as needed */
+    width: 80%; /* Adjust as needed */
+    height: 80%; /* Adjust as needed */
     display: flex;
     flex-direction: column;
     animation: dropDown 1.5s ease-out; /* Use the dropDown animation */
@@ -65,7 +78,7 @@ body {
 }
 
 #body-elements {
-    background-color: var(--primary-color);
+    background-color: var(--card-background-color);
 
     display: flex;
     flex-direction: row;
@@ -144,8 +157,8 @@ body {
 #code-background, #code-background-2 {
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--accent-color);
-    text-shadow: 0 0 5px var(--glow-color); /* Adjust the values for your desired glow effect */
-    animation: glow-animation2 2s ease-in-out infinite;
+    text-shadow: 0 0 10px var(--glow-color); /* Adjust the values for your desired glow effect */
+    opacity: 50%;
 
     font-size: 25px;
     line-height: 25px;
@@ -464,6 +477,55 @@ nav li.dropdown {
     top: -0.05em;
     filter: invert(1);
     height: 1em;
+}
+
+#project-cards-container {
+    position: absolute; /* or 'fixed' if you want it to stay in view on scroll */
+    left: 2.5%;
+    bottom: 2.5%;
+    width: 350px; /* Adjust as needed */
+    height: 350px; /* Adjust as needed */
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.project-card {
+    border-radius: 50px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Initially invisible */
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    
+    justify-content: left;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Card shadow */
+    background-color: var(--primary-color); /* Card background color */
+    background-size: cover; /* Cover the entire card area */
+    background-position: center; /* Center the image in the card */
+    background-repeat: no-repeat;
+}
+
+.project-card:first-child {
+    opacity: 1;
+}
+
+.project-info {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--text-color);
+    font-size: 20px;
+    width: 60%; /* Adjust as needed */
+    margin: 5%;
+}
+
+.project-info h3 {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 30px;
+    width: 60%; /* Adjust as needed */
 }
 
 #footer {
