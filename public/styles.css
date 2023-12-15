@@ -528,10 +528,30 @@ nav li.dropdown {
     width: 60%; /* Adjust as needed */
 }
 
-#footer {
-    background-color: #B0B5BF; /* Your chosen color */
-    color: #0D0D0D;
-    text-align: center;
-    padding: 10px 0; /* Adjust padding as needed */
-    width: 100%;
+#social-media-tab {
+    position: absolute;
+    bottom: 2.5%; /* Adjust this value as needed */
+    right: 2.5%; /* Adjust this value as needed */
+    cursor: pointer;
+}
+
+#tab-button {
+    background: white; /* Or any color of your choice */
+    border-radius: 50%; /* Makes it circular */
+    padding: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+#social-media-icons {
+    display: none; /* Initially hidden */
+    /* Add more styles for your icons */
+}
+
+#social-media-icons.shown {
+    display: flex;
+    /* Add styles for when the tab is expanded */
 }

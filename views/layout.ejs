@@ -17,45 +17,62 @@
 </head>
 
 <!-- Replace code background effects here -->
+<body>
 
-<header id="main-header">
-    <nav>
-        <ul>
-            <li><a href="./">HOME</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn" id="about-btn" onclick="toggleDropdown('about')">ABOUT 
-                    <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="about-symbol">
-                </a>
-                <div id="about-content" class="dropdown-content">
-                    <a href="./bio">BIO</a>
-                    <a href="./resume">RESUME</a>
-                </div>
-            </li>
+    <header id="main-header">
+        <nav>
+            <ul>
+                <li><a href="./">HOME</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" id="about-btn" onclick="toggleDropdown('about')">ABOUT 
+                        <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="about-symbol">
+                    </a>
+                    <div id="about-content" class="dropdown-content">
+                        <a href="./bio">BIO</a>
+                        <a href="./resume">RESUME</a>
+                    </div>
+                </li>
 
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn" id="about-btn" onclick="toggleDropdown('projects')">PROJECTS
-                    <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="projects-symbol">
-                </a>
-                <div id="projects-content" class="dropdown-content">
-                    <a href="./a-life">A-Life Challenge 2023</a>
-                    <a href="./smallsh">Smallsh</a>
-                    <a href="./masm">MASM Quest</a>
-                    <a href="./recipes">Recipe App</a>
-                </div>
-            </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" id="about-btn" onclick="toggleDropdown('projects')">PROJECTS
+                        <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="projects-symbol">
+                    </a>
+                    <div id="projects-content" class="dropdown-content">
+                        <a href="./a-life">A-Life Challenge 2023</a>
+                        <a href="./smallsh">Smallsh</a>
+                        <a href="./masm">MASM Quest</a>
+                        <a href="./recipes">Recipe App</a>
+                    </div>
+                </li>
 
-            <li><a href="./artpage">MX.CO</a></li>
-            <li><a href="./contact">CONTACT</a></li>
-        </ul>
-    </nav>
-</header>
-<body>  
+                <li><a href="./artpage">MX.CO</a></li>
+                <li><a href="./contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <!-- Main content will go here -->
     <main>
         <%- body %>
     </main>
-</body>
 
+
+    <div id="social-media-tab">
+        <button id="tab-button">
+            <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="tab-symbol">
+        </button>
+        <div id="social-media-icons" class="hidden">
+            <!-- Add your social media icons here -->
+            <a href="mailto:max.cole4444@gmail.com" target="_blank"><img src="symbols/icons8-connect.svg" alt="Email Icon" style="vertical-align: middle;"></a>
+            <a href="https://github.com/EatYoCharms9" target="_blank"><img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle;"></a>
+            <a href="https://linkedin.com/in/myusername" target="_blank"><img src="symbols/icons8-linkedin.svg" alt="LinkedIn Icon" style="vertical-align: middle;"></a>
+            <a href="https://www.instagram.com/mx.co.art/" target="_blank"><img src="symbols/icons8-instagram.svg" alt="Instagram Icon" style="vertical-align: middle;"></a>
+
+                <!-- Add more icons as needed -->
+        </div>
+    </div>
+
+</body>
 
 <script src="typingEffect.js"></script>
 <script src="card.js"></script>

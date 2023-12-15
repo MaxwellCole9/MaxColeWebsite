@@ -29,3 +29,23 @@ function toggleDropdown(dropdownId) {
         button.setAttribute('aria-expanded', 'true');
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var tabButton = document.getElementById('tab-button');
+    var tabIcon = document.getElementById('tab-symbol');
+    var socialMediaIcons = document.getElementById('social-media-icons');
+
+    if (tabButton) {
+        tabButton.addEventListener('click', function() {
+            // Rotate the chevron icon
+            tabIcon.style.transform = tabIcon.style.transform === 'rotate(-90deg)' ? 'rotate(0deg)' : 'rotate(-90deg)';
+
+            // Toggle social media icons
+            if (socialMediaIcons.classList.contains('shown')) {
+                socialMediaIcons.classList.remove('shown');
+            } else {
+                socialMediaIcons.classList.add('shown');
+            }
+        });
+    }
+});
