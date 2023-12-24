@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     let currentTopPosition = 0;
     const lineHeight = 20; // Adjust this for more or less space between lines
-    const maxLines = Math.ceil(window.innerHeight / lineHeight);
+    const maxLines = Math.ceil(document.getElementById('code-background').offsetHeight / lineHeight);
     const codeSnippets = [];
     
     function generateRandomCode() {
@@ -132,8 +132,8 @@ document.addEventListener('DOMContentLoaded', function() {
         codeSnippet.style.textAlign = 'right'; // Align text to the right
 
         currentTopPosition2 += lineHeight;
-        if (currentTopPosition2 >= window.innerHeight) {
-            currentTopPosition2 = 0;
+        if (currentTopPosition >= document.getElementById('code-background').offsetHeight) {
+            currentTopPosition = 0;
         }
 
         typeCodeSnippet(codeSnippet, generateRandomCode(), untypeCodeSnippet);

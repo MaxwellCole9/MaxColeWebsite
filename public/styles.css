@@ -7,7 +7,7 @@
     --glow-color: rgba(191, 217, 212, 0.7);
     --text-color: #F2F2F2;
     --background-color: #0D0D0D;
-    --card-background-color: rgba(38, 38, 38, 0.7);
+    --card-background-color: rgba(38, 38, 38, 0.8);
 }
 
 body, h1, h2, p, ul, li {
@@ -19,7 +19,7 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--text-color);
     line-height: 2;
-    overflow: hidden;
+    overflow: auto;
 
     background-color: var(--background-color);
 
@@ -27,6 +27,7 @@ body {
     flex-direction: column;
     align-items: center; /* Centers horizontally */
     height: 100vh; /* Add this line to make the body take full viewport height */
+
     position: relative;
     margin: 0;
     padding: 0;
@@ -57,8 +58,10 @@ body::before {
 
 #info-card {
     margin: auto;
-    width: 80%; /* Adjust as needed */
-    height: 80%; /* Adjust as needed */
+    width: auto; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    margin-right: 15%;
+    margin-left: 15%;
     display: flex;
     flex-direction: column;
     animation: dropDown 1.5s ease-out; /* Use the dropDown animation */
@@ -69,10 +72,8 @@ body::before {
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--accent-color);
     font-weight: 400;
-    font-size: 6vw;
-    width: 100%;
-    height: 20%;
-    margin-bottom: -2.5%;
+    font-size: 5vw;
+    margin-bottom: -2%;
 
     animation: fadeInDropDown 1.5s ease-out;
 }
@@ -82,30 +83,49 @@ body::before {
 
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 80%; /* Adjust as needed */
+    border-radius: 50px;
 }
 
 #text-box {
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--text-color);
-    font-weight: 300;
-    font-size: 1vw;
-    width: 50%; /* Adjust as needed */
     height: 100%;
-    flex: 1;
+    min-width: 50%;
 
     animation: fadeInDropDown 1.5s ease-out;
+    margin: 2% 2% 2% 2%;
+}
 
-    /* Other styles remain the same */
-    display: flex; /* Add this line */
-    justify-content: center; /* Add this line */
-    align-items: center; /* Add this line */
-    flex-direction: column; /* Add this line */
+#text-box img {
+    filter: invert(1);
+    width: 75px;
+    height: 75px;
+    margin-right: 1%;
+    margin-bottom: 1.5%;
+}
+
+#text-box a {
+    color: var(--accent-color);
+    font-size: 1.5vw;
 }
 
 #text-box p{
-    margin: 5% 5% 5% 5%;
+    margin-top: 2.5%;
+    font-weight: 300;
+    font-size: 1vw;
+}
+
+#text-box h2{
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 1.2vw;
+}
+
+#text-box h3{
+    margin-top: 0%;
+    font-weight: 400;
+    font-size: 1.2vw;
+    margin-bottom: 1%;
 }
 
 #text-box a{
@@ -123,7 +143,7 @@ body::before {
 }
 
 #content-box {
-    width: 50%; /* Adjust as needed */
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -131,13 +151,13 @@ body::before {
 }
 
 #content-box img, #resume-iframe {
-    max-width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 #content-box iframe {
-    width: 100vh;
-    height: 50vh;
+    width: 25vw;
+    height: 25vw;
 }
 
 /* -------BACKGROUND TEXT EFFECT-------- */
@@ -192,38 +212,64 @@ body::before {
 
 /* TITLE + TITLE EFFECTS  + INFO SUBHEADER FOR MAIN PAGE */
 
-#profile-picture {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    width: 60%;
-    height: 60%;
-    background-image: url('/images/profile_picture.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1; /* Place it behind the title-info content */
-    transform: translate(-50%, -50%); /* Center the image */
-}
-
-#title-info {
-    position: absolute; /* Take it out of the normal flow */
-    top: 75%; /* Position half way down the parent */
-    left: 50%; /* Position half way across the parent */
-    transform: translate(-50%, -50%);
+#title-content {
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+#title {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+#profile-picture {
+    margin-bottom: -5%;
+    width: 500px;
+    height: auto;
+    animation: fadeInFromRight 1.5s ease-out;
 }
 
 #title-text h1 {
+    margin-left: -7%;
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(200px, 10vw, 300px);
     font-weight: 400px;
     color: var(--accent-color);
     text-shadow: 0 0 15px var(--glow-color);
-    animation: fadeInDropDown 1.5s ease-out;
+    animation: fadeInFromLeft 1.5s ease-out;
     white-space: nowrap;
+}
+
+#title-text h1 {
+    margin-bottom: -35%;
+}
+
+#title-content h2 {
+    margin-top: 5%;
+}
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes fadeInDropDown {
@@ -244,7 +290,6 @@ body::before {
     font-size: clamp(30px, 2vw, 150px);
     white-space: nowrap;
     overflow: hidden;
-    margin-top: -12.5%;
 }
 
 #text::after {
@@ -444,28 +489,29 @@ nav li.dropdown {
 
 .contact-list {
     list-style-type: none;
-    padding: 20px;
-    width: 100%;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items vertically */
 }
 
 .contact-list li {
     margin-bottom: 20px;
-    width: 100%;
+    display: flex; /* Use flexbox */
+    flex-direction: row;
+    align-items: center; /* Center items vertically */
+    text-align: center;
 }
 
 .contact-list li a {
     color: var(--text-color); /* Match the text color with the rest of the document */
     font-size: 70px; /* Make the text larger */
     text-decoration: none;
-    display: inline-block; /* Required for padding to take effect */
+    padding: 10px 20px; /* Add some padding */
 
     background-color: var(--secondary-color);
     transition: background-color 0.3s ease;
     border-radius: 50px;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    text-align: center;
+    width: 20vw;
 }
 
 .contact-list li a:hover {
@@ -473,18 +519,17 @@ nav li.dropdown {
 }
 
 .contact-list li img {
-    position: relative;
-    top: -0.05em;
     filter: invert(1);
     height: 1em;
+    margin-bottom: 10px;
 }
 
 #project-cards-container {
     position: absolute; /* or 'fixed' if you want it to stay in view on scroll */
     left: 2.5%;
     bottom: 2.5%;
-    width: 350px; /* Adjust as needed */
-    height: 350px; /* Adjust as needed */
+    width: 400px; /* Adjust as needed */
+    height: 400px; /* Adjust as needed */
     z-index: 10; /* Ensure it's above other elements */
 }
 
@@ -496,8 +541,10 @@ nav li.dropdown {
     opacity: 0; /* Initially invisible */
     transition: opacity 1s ease-in-out;
     display: flex;
-    
-    justify-content: left;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Card shadow */
     background-color: var(--primary-color); /* Card background color */
     background-size: cover; /* Cover the entire card area */
@@ -517,6 +564,10 @@ nav li.dropdown {
     margin: 5%;
 }
 
+.project-info p {
+    background-color: var(--card-background-color);
+}
+
 .project-info h3 {
     margin: 0;
     padding: 0;
@@ -525,33 +576,71 @@ nav li.dropdown {
     color: var(--accent-color);
     font-weight: 500;
     font-size: 30px;
-    width: 60%; /* Adjust as needed */
+    width: fit-content; /* Adjust as needed */
+
+    background-color: var(--card-background-color);
 }
 
+/* SOCIAL MEDIA FOOTNOTE TAB */
+
 #social-media-tab {
-    position: absolute;
-    bottom: 2.5%; /* Adjust this value as needed */
-    right: 2.5%; /* Adjust this value as needed */
+    position: fixed;
+    bottom: 2.5%;
+    right: 2.5%;
     cursor: pointer;
 }
 
 #tab-button {
-    background: white; /* Or any color of your choice */
-    border-radius: 50%; /* Makes it circular */
+    background: var(--primary-color);
+    border-radius: 50%;
     padding: 10px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-symbol {
+    z-index: 1000;
+    filter: invert(1);
+    transition: transform 0.3s ease-in-out;
+    width: 50px;
+    height: 50px;
 }
 
 #social-media-icons {
-    display: none; /* Initially hidden */
-    /* Add more styles for your icons */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 2.4%;
+    right: 2.5%; /* Initially align with the right side of the button */
+    transform: translateY(0%) translateX(0%); /* Start aligned with the button */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    background: var(--primary-color);
+    border-radius: 50px;
+    padding: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    width: 0; /* Start with no width */
+    overflow: hidden; /* Hide the overflowing content */
+    z-index: 900;
+}
+
+#social-media-icons img {
+    filter: invert(1);
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
 }
 
 #social-media-icons.shown {
-    display: flex;
-    /* Add styles for when the tab is expanded */
+    transform: translateY(-2.5%) translateX(-30%); /* Slide out to the left */
+    opacity: 1;
+    visibility: visible;
+    width: auto; /* Expand to fit content */
+    overflow: visible; /* Show the content */
 }

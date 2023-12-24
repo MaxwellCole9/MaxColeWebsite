@@ -32,20 +32,11 @@ function toggleDropdown(dropdownId) {
 
 document.addEventListener('DOMContentLoaded', function() {
     var tabButton = document.getElementById('tab-button');
-    var tabIcon = document.getElementById('tab-symbol');
     var socialMediaIcons = document.getElementById('social-media-icons');
+    var tabSymbol = document.getElementById('tab-symbol');
 
-    if (tabButton) {
-        tabButton.addEventListener('click', function() {
-            // Rotate the chevron icon
-            tabIcon.style.transform = tabIcon.style.transform === 'rotate(-90deg)' ? 'rotate(0deg)' : 'rotate(-90deg)';
-
-            // Toggle social media icons
-            if (socialMediaIcons.classList.contains('shown')) {
-                socialMediaIcons.classList.remove('shown');
-            } else {
-                socialMediaIcons.classList.add('shown');
-            }
-        });
-    }
+    tabButton.addEventListener('click', function() {
+        socialMediaIcons.classList.toggle('shown');
+        tabSymbol.style.transform = socialMediaIcons.classList.contains('shown') ? 'rotate(90deg)' : 'rotate(0deg)';
+    });
 });
