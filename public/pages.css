@@ -1,19 +1,29 @@
+#project-page {
+    height: 100vh;
+}
+
 #info-card {
-    margin: auto;
-    width: 80vw; /* Adjust as needed */
+    margin-top: 10%;
+
+    background-color: var(--card-background-color);
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+    border-radius: 50px;
+
+    width: auto; /* Adjust as needed */
+    min-width: 80vw;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     animation: dropDown 1.5s ease-out; /* Use the dropDown animation */
 }
 
 #page-header{
-    margin: 12.5% 0% 1% 2.5%;
+    margin: 2% 2.5% 0 2.5%;
     animation: fadeInDropDown 1.5s ease-out;
 }
 
 #body-elements {
-    background-color: var(--card-background-color);
-
     display: flex;
     flex-direction: row;
     border-radius: 50px;
@@ -22,11 +32,10 @@
 #text-box {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
-    height: 100%;
-    min-width: 50%;
 
     animation: fadeInDropDown 1.5s ease-out;
     margin: 2% 2% 2% 2%;
+    width: 50%;
 }
 
 #text-box img {
@@ -43,9 +52,7 @@
 }
 
 #text-box p{
-    margin-top: 2.5%;
-    font-weight: 300;
-    font-size: 1vw;
+    margin: 1% 1% 1% 1%;
 }
 
 #text-box h2{
@@ -58,12 +65,32 @@
     margin-top: 0%;
     font-weight: 400;
     font-size: 1.2vw;
-    margin-bottom: 1%;
 }
 
 #text-box a{
     justify-content: center; /* Add this line */
 
+}
+
+#contributor-section {
+    margin-bottom: 5%;
+}
+
+#contributor-section h3 {
+    margin-bottom: 2.5%;
+}
+
+#github-button {
+    margin-top: 2.5%;
+}
+
+#skills-section {
+    margin-bottom: 5%;
+}
+
+#skills-section p {
+    margin: 1% 1% 1% 1%;
+    line-height: 1.25;
 }
 
 @keyframes fadeIn {
@@ -77,20 +104,50 @@
 
 #content-box {
     width: 50%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     align-items: center;
     animation: fadeIn 1s ease-out; /* Add this line */
+
+    padding: 2.5% 2.5% 2.5% 2.5%;
 }
 
-#content-box img, #resume-iframe {
+#content-box img, video {
     min-width: 100%;
     min-height: 100%;
+    border-radius: 25px;
 }
 
 #content-box iframe {
-    width: 25vw;
-    height: 25vw;
+    min-width: 100%;
+    min-height: 50vh;
+    border-radius: 25px;
+}
+
+#resume-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resume-card {
+    background-color: var(--card-background-color);
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+    border-radius: 50px;
+
+    width: auto; /* Adjust as needed */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    animation: dropDown 1.5s ease-out; /* Use the dropDown animation */
+}
+
+#resume-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* -------BACKGROUND TEXT EFFECT-------- */
@@ -162,7 +219,7 @@
     z-index: 50;
 }
 
-#profile-picture {
+#title-icon {
     margin-left: -7.5%;
     width: 20vw;
     min-width: 300px;
@@ -213,35 +270,70 @@
 
 #information-section {
     height: 100vh;
-    margin-top: 7.5%;
+    margin-top: 2.5%;
+}
+
+#project-example-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#art-example-section{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+#about-me {
+    display: flex;
+    flex-direction: row;
+    margin: 2.5% 25% 5% 15%; 
+}
+
+#about-art {
+    display: flex;
+    flex-direction: row;
+    margin: 10% 25% 5% 15%; 
 }
 
 #about-me p {
     margin-left: 2.5%;
-    margin-right: 2.5%;
+}
+
+#about-picture {
+    width: 300px;
+    height: auto;
 }
 
 /* PROJECT CARD */
+
+#card-header {
+    margin-bottom: 2.5%;
+}
 
 #project-cards-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+
+    width: 100%;
     z-index: 10;
 }
 
 /* Individual project cards */
 .project-card {
-    width: 400px;
-    height: 400px;
+    position: relative;
+    width: 500px;
+    height: 500px;
 
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
     /* Rest of your styling (background, box-shadow, etc.) */
-    border-radius: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: var(--primary-color);
+    border-radius: 25px;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.6);
 
     display: flex;
     flex-direction: column;
@@ -255,10 +347,24 @@
 
 .project-card-info {
     width: 100%; /* Take the full width of the card */
+    height: 100%;
+
+    margin-top: 25%;
+    border-radius: 25px;
+
     background-color: var(--card-background-color);
-    transition: transform 0.5s, opacity 0.5s; /* Smooth transition for hover */
-    transform: translateY(100%); /* Hide initially by pushing it down */
+    transition: transform 0.5s, opacity 0.7s; /* Smooth transition for hover */
+    transform: translateY(10%); /* Hide initially by pushing it down */
     opacity: 0; /* Start as invisible */
+
+    background-color: var(--card-background-color);
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+}
+
+.project-card-info p {
+    margin: 5% 5% 5% 5%;
+    height: 100%;
 }
 
 .project-card:hover .project-card-info {
@@ -266,21 +372,20 @@
     opacity: 1; /* Make it visible */
 }
 
-.project-card-info p {
-    margin-top: 0;
-    margin-left: 7.5%;
-}
-
 .project-card h3 {
-    margin-bottom: 5%;
-    margin-left: 5%;
-    white-space: nowrap;
+    width: auto;
+    margin: 2% 2% 2% 2%;
+    padding: 5% 5% 5% 5%;
+
     font-weight: 500;
-    color: var(--accent-color);
+    color: var(--text-color);
+
     background-color: var(--card-background-color);
-    padding: 5px;
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+
     border-radius: 20px;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 /* RESUME BUTTON */
@@ -310,15 +415,43 @@
 
 /* CONTACT PAGE */
 
+#contact-landing {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact-card {
+    background-color: var(--card-background-color);
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+    border-radius: 50px;
+
+    padding: 7.5% 7.5% 7.5% 7.5%;
+
+    width: auto; /* Adjust as needed */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
 .contact-list {
+    margin-top: 5%;
     list-style-type: none;
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items vertically */
 }
 
+#contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .contact-list li {
-    margin-bottom: 20px;
+    margin-bottom: 4%;
     display: flex; /* Use flexbox */
     flex-direction: row;
     align-items: center; /* Center items vertically */
