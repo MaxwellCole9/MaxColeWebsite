@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 index++;
                 setTimeout(typeCharacter, typingSpeed);
             } else if (callback) {
-                setTimeout(() => callback(codeSnippet), 2500); // Wait a bit before starting to untype
+                setTimeout(() => callback(codeSnippet), 2000); // Wait a bit before starting to untype
             }
         }
 

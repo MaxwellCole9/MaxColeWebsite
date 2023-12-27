@@ -1,11 +1,11 @@
 /* -------GENERAL STYLES-------- */
 
 :root {
-    --primary-color: #262626;
+    --primary-color: #0C0C0C;
     --secondary-color: #595959;
     --accent-color: #B6F2D6;
     --glow-color: rgba(191, 217, 212, 0.7);
-    --text-color: #F2F2F2;
+    --text-color: #FFFAFA;
     --background-color: #0D0D0D;
     --card-background-color: rgba(38, 38, 38, 0.8);
 }
@@ -27,10 +27,8 @@ body {
     flex-direction: column;
     align-items: center; /* Centers horizontally */
     height: 100vh; /* Add this line to make the body take full viewport height */
-
-    position: relative;
     margin: 0;
-    padding: 0;
+    padding-top: 5%;
 }
 
 body::before {
@@ -212,21 +210,37 @@ body::before {
 
 /* TITLE + TITLE EFFECTS  + INFO SUBHEADER FOR MAIN PAGE */
 
-#title-content {
-    margin-top: 10%;
+#home-page {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Centers content vertically in the container */
+    align-items: center; /* Centers content horizontally in the container */
+    height: 80vh;
+    position: relative; /* Ensures proper positioning within the layout */
+}
+
+#title-content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#title-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #title {
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
 }
 
 #profile-picture {
     margin-bottom: -5%;
-    width: 500px;
+    width: 20vw;
+    min-width: 300px;
     height: auto;
     animation: fadeInFromRight 1.5s ease-out;
 }
@@ -234,7 +248,7 @@ body::before {
 #title-text h1 {
     margin-left: -7%;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(200px, 10vw, 300px);
+    font-size: clamp(150px, 10vw, 300px);
     font-weight: 400px;
     color: var(--accent-color);
     text-shadow: 0 0 15px var(--glow-color);
@@ -306,19 +320,18 @@ body::before {
 nav {
     background-color: var(--primary-color);
 
-    margin-top: 5vh; /* Adjust as needed */
-    border-radius: 5vw; /* Adjust as needed */
+    position: fixed;
+    top: 0; /* Add this line */
+    left: 0; /* Add this line */
     display: flex;
     justify-content: center;
     text-align: center;
-    left: 0;
-    right: 0;
-    z-index: 101; /* Ensures the nav bar stays above other content */
-    
-    min-width: 650px;
-    white-space: nowrap;
 
-    padding: 1vh 2vw; /* Adjust as needed */
+    z-index: 101; /* Ensures the nav bar stays above other content */
+    width: 100vw;
+    white-space: nowrap;
+    padding-top: 0.75%;
+    padding-bottom: 0.75%;
 }
 
 nav ul {
@@ -332,6 +345,8 @@ nav ul li {
 nav ul li a {
     font-size: clamp(20px, 2vw, 40px);
     color: var(--text-color);
+    font-weight: 500;
+    text-transform: uppercase;
     margin-right: 0.5vw; /* Adjust as needed */
 }
 
@@ -400,63 +415,12 @@ nav li.dropdown {
     transform: rotate(180deg); /* Add this line */
 }
 
-/* CHEVRON ARROW */
-
-.arrow {
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    bottom: 5%;
-    cursor: pointer;
-}
-
-.arrow span {
-    display: block;
-    width: 1vw;
-    height: 1vw;
-    border-bottom: 2px solid var(--text-color);
-    border-right: 2px solid var(--text-color);
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
-}
-
-.arrow span:nth-child(2) {
-    animation-delay: -0.2s;
-}
-
-.arrow span:nth-child(3) {
-    animation-delay: -0.4s;
-}
-
-@keyframes animate {
-    0% {
-        opacity: 0;
-        transform: rotate(45deg) translate(-20px, -20px);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: rotate(45deg) translate(20px, 20px);
-    }
-}
-
 #subtitle h1 {
     color: var(--text-color);
     z-index: 2;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
-    font-size: 50px;
-    position: absolute; /* Position the element absolutely */
-    bottom: 2%; /* Align it to the bottom */
-    left: 0; /* Align it to the left */
-    width: 100%; /* Stretch it across the full width */
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically if needed */
-    height: 100px; /* Adjust the height as needed */   
+    font-size: 50px;  
 }
 
 /* RESUME BUTTON */
@@ -524,61 +488,87 @@ nav li.dropdown {
     margin-bottom: 10px;
 }
 
+/* PROJECT CARD */
+
 #project-cards-container {
-    position: absolute; /* or 'fixed' if you want it to stay in view on scroll */
-    left: 2.5%;
+    position: fixed;
     bottom: 2.5%;
-    width: 400px; /* Adjust as needed */
-    height: 400px; /* Adjust as needed */
-    z-index: 10; /* Ensure it's above other elements */
+    left: 2.5%;
+
+    width: 14vw;
+    height: 14vw;
+    min-width: 200px;
+    min-height: 200px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    z-index: 10;
 }
 
+/* Individual project cards */
 .project-card {
-    border-radius: 50px;
     position: absolute;
+    bottom: 0;
     width: 100%;
     height: 100%;
-    opacity: 0; /* Initially invisible */
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out, z-index 0s 1s; /* Smooth transition for fading and immediate z-index change after fade */
+    opacity: 0; /* Start with cards invisible */
+    z-index: 1; /* Lower z-index for hidden cards */
+    /* Rest of your styling (background, box-shadow, etc.) */
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: var(--primary-color);
+    overflow: hidden; /* Hide any overflow */
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
 
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Card shadow */
-    background-color: var(--primary-color); /* Card background color */
     background-size: cover; /* Cover the entire card area */
     background-position: center; /* Center the image in the card */
     background-repeat: no-repeat;
 }
 
 .project-card:first-child {
-    opacity: 1;
+    opacity: 1; /* Make only the first card visible initially */
+    z-index: 2; /* Ensure it's above the others initially */
 }
 
-.project-info {
-    font-family: 'IBM Plex Sans', sans-serif;
-    color: var(--text-color);
-    font-size: 20px;
-    width: 60%; /* Adjust as needed */
-    margin: 5%;
-}
-
-.project-info p {
+.project-card-info {
+    position: absolute; /* Position absolutely within the card */
+    top: 0; /* Align to the bottom of the card */
+    width: 100%; /* Take the full width of the card */
     background-color: var(--card-background-color);
+    transition: transform 0.5s, opacity 0.5s; /* Smooth transition for hover */
+    transform: translateY(-100%); /* Hide initially by pushing it down */
+    opacity: 0; /* Start as invisible */
 }
 
-.project-info h3 {
-    margin: 0;
-    padding: 0;
+.project-card:hover .project-card-info {
+    transform: translateY(0); /* Bring content back into view */
+    opacity: 1; /* Make it visible */
+}
+
+.project-card-info p {
+    margin-top: 0;
+    margin-left: 7.5%;
+}
+
+.project-card h3 {
+    margin-bottom: 5%;
+    margin-left: 5%;
     white-space: nowrap;
     font-family: 'IBM Plex Sans', sans-serif;
-    color: var(--accent-color);
     font-weight: 500;
-    font-size: 30px;
-    width: fit-content; /* Adjust as needed */
-
+    color: var(--accent-color);
     background-color: var(--card-background-color);
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 30px;
 }
 
 /* SOCIAL MEDIA FOOTNOTE TAB */

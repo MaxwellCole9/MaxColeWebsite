@@ -1,0 +1,383 @@
+#info-card {
+    margin: auto;
+    width: 80vw; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    animation: dropDown 1.5s ease-out; /* Use the dropDown animation */
+}
+
+#page-header{
+    margin: 12.5% 0% 1% 2.5%;
+    animation: fadeInDropDown 1.5s ease-out;
+}
+
+#body-elements {
+    background-color: var(--card-background-color);
+
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+}
+
+#text-box {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    height: 100%;
+    min-width: 50%;
+
+    animation: fadeInDropDown 1.5s ease-out;
+    margin: 2% 2% 2% 2%;
+}
+
+#text-box img {
+    filter: invert(1);
+    width: 75px;
+    height: 75px;
+    margin-right: 1%;
+    margin-bottom: 1.5%;
+}
+
+#text-box a {
+    color: var(--accent-color);
+    font-size: 1.5vw;
+}
+
+#text-box p{
+    margin-top: 2.5%;
+    font-weight: 300;
+    font-size: 1vw;
+}
+
+#text-box h2{
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 1.2vw;
+}
+
+#text-box h3{
+    margin-top: 0%;
+    font-weight: 400;
+    font-size: 1.2vw;
+    margin-bottom: 1%;
+}
+
+#text-box a{
+    justify-content: center; /* Add this line */
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#content-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 1s ease-out; /* Add this line */
+}
+
+#content-box img, #resume-iframe {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#content-box iframe {
+    width: 25vw;
+    height: 25vw;
+}
+
+/* -------BACKGROUND TEXT EFFECT-------- */
+
+#blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: -1;
+}
+
+
+#code-background, #code-background-2 {
+    font-family: 'Silkscreen', sans-serif;
+    color: var(--text-color);
+    opacity: 5%;
+
+    font-size: 25px;
+    line-height: 25px;
+    position: fixed;
+    top: 0;
+    width: 100%; /* Half width for each */
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes glow-animation2 {
+    0%, 100% {
+        text-shadow: 0 0 5px var(--glow-color);
+    }
+    50% {
+        text-shadow: 0 0 10px var(--glow-color);
+    }
+}
+
+/* HOME PAGE CONTENT */
+
+#landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#title-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#title-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 50;
+}
+
+#profile-picture {
+    margin-left: -7.5%;
+    width: 20vw;
+    min-width: 300px;
+    height: auto;
+    animation: fadeInFromRight 1.5s ease-out;
+}
+
+#title-text1 h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: clamp(150px, 10vw, 300px);
+    color: var(--text-color);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    animation: fadeInFromLeft 1.5s ease-out;
+    white-space: nowrap;
+    margin-bottom: -15%;
+}
+
+#title-text2 h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: clamp(150px, 10vw, 300px);
+    color: var(--text-color);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    animation: fadeInFromLeft 1.5s ease-out;
+    white-space: nowrap;
+}
+
+#typing {
+    margin-top: -1%;
+    margin-left: 2.5%;
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: clamp(30px, 2vw, 50px);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#text::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+#information-section {
+    height: 100vh;
+    margin-top: 7.5%;
+}
+
+#about-me p {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+/* PROJECT CARD */
+
+#project-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    z-index: 10;
+}
+
+/* Individual project cards */
+.project-card {
+    width: 400px;
+    height: 400px;
+
+    margin-left: 1%;
+    margin-right: 1%;
+    /* Rest of your styling (background, box-shadow, etc.) */
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: var(--primary-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-size: cover; /* Cover the entire card area */
+    background-position: center; /* Center the image in the card */
+    background-repeat: no-repeat;
+}
+
+.project-card-info {
+    width: 100%; /* Take the full width of the card */
+    background-color: var(--card-background-color);
+    transition: transform 0.5s, opacity 0.5s; /* Smooth transition for hover */
+    transform: translateY(100%); /* Hide initially by pushing it down */
+    opacity: 0; /* Start as invisible */
+}
+
+.project-card:hover .project-card-info {
+    transform: translateY(0); /* Bring content back into view */
+    opacity: 1; /* Make it visible */
+}
+
+.project-card-info p {
+    margin-top: 0;
+    margin-left: 7.5%;
+}
+
+.project-card h3 {
+    margin-bottom: 5%;
+    margin-left: 5%;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--accent-color);
+    background-color: var(--card-background-color);
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+/* RESUME BUTTON */
+
+#resume a {
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.resume-button {
+    margin-right: 20px;
+    background-color: var(--primary-color); /* Use color variable */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color); /* Use color variable */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 300px; /* Set a fixed width larger than the text */
+    overflow: hidden; /* Ensures content does not exceed button boundaries */
+}
+
+.resume-button:hover {
+    background-color: var(--accent-color); /* Use color variable */
+    color: var(--text-color);
+}
+
+/* CONTACT PAGE */
+
+.contact-list {
+    list-style-type: none;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items vertically */
+}
+
+.contact-list li {
+    margin-bottom: 20px;
+    display: flex; /* Use flexbox */
+    flex-direction: row;
+    align-items: center; /* Center items vertically */
+    text-align: center;
+}
+
+.contact-list li a {
+    color: var(--text-color); /* Match the text color with the rest of the document */
+    font-size: 70px; /* Make the text larger */
+    text-decoration: none;
+    padding: 10px 20px; /* Add some padding */
+
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s ease;
+    border-radius: 50px;
+    width: 20vw;
+}
+
+.contact-list li a:hover {
+    background-color: var(--accent-color);
+}
+
+.contact-list li img {
+    filter: invert(1);
+    height: 1em;
+    margin-bottom: 10px;
+}
+
+/* EFFECTS */
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInDropDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
