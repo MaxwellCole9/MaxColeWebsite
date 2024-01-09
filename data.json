@@ -1,0 +1,46 @@
+[
+    {
+        "url": "a-life",
+        "pageTitle": "A-LIFE CHALLENGE (2023-2024)",
+        "status": "Ongoing",
+        "teamMembers": ["Maxwell Cole", "Ethan Doll", "Wyatt Holliday", "Henry Pfluke", "Sasha Rosenthal", "Myles Scholz"],
+        "githubLink": "https://github.com/MylesScholz/A-Life-Capstone-Project",
+        "languages": ["C++", "Godot"],
+        "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
+        "description": "Working with a small software development team and senior instructor William Pfiel at Oregon State University’s College of Electrical Engineering and Computer Science to produce an artificial life simulation. The simulation will allow researchers and general enthusiasts alike to view basic cellular microbiology as it mutates and evolves through generations, producing complex interactions and interesting developments.",
+        "videoSrc": "images/ALIFEdemoVid.mp4"
+    },
+    {
+        "url": "masm-quest",
+        "pageTitle": "MASM Quest",
+        "status": "Completed",
+        "teamMembers": ["Maxwell Cole", "Julia Yang", "Audrey Au"],
+        "githubLink": "#fill",
+        "languages": ["MASM x86 Assembly"],
+        "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
+        "description": "Embark on a turn-based combat journey from your command prompt with MASM quest, coded in MASM for x86 architecture. The program is designed to exemplify knowledge in MASM through the complex utilization of registers, high-level math, and the display and management of ASCII sprites.",
+        "videoSrc": "images/MASMclip.mp4"
+    },
+    {
+        "url": "dynamic-recipes",
+        "pageTitle": "Dynamic Recipe App",
+        "status": "Completed",
+        "teamMembers": ["Maxwell Cole", "Andrew Dang", "Max Wilde", "Max Cheskin", "Julia Yang", "Tyler Green"],
+        "githubLink": "https://github.com/max-wild/dynamic-recipes",
+        "languages": ["HTML, CSS, JavaScript, Node.js, React"],
+        "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
+        "description": "fill.",
+        "videoSrc": "images/MASMclip.mp4"
+    },
+    {
+        "url": "smallsh",
+        "pageTitle": "Smallsh",
+        "status": "Completed",
+        "teamMembers": ["Maxwell Cole"],
+        "githubLink": "#fill",
+        "languages": ["C++", "Godot"],
+        "skills": ["Software Engineering", "UI development", "testing", "Scrum Development Framework"],
+        "description": "fill.",
+        "videoSrc": "images/MASMclip.mp4"
+    }
+]
