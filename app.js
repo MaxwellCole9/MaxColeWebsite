@@ -13,9 +13,10 @@ app.use(expressLayouts)
 app.set('layout')
 app.set('view engine', 'ejs')
 
-app.get('',(req, res) => {
-    res.render('index')
-})
+app.get('/', (req, res) => {
+    const data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+    res.render('index', { projects: data });
+});
 
 app.get('/bio',(req, res) => {
     res.render('bio')

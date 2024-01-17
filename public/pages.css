@@ -300,13 +300,19 @@
 }
 
 #about-me {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: -5%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-#about-me p {
+#about-info {
+    margin-left: 2.5%;
+    width: 40vw;
+}
+
+#about-info p {
     margin-left: 2.5%;
 }
 
@@ -318,8 +324,8 @@
 /* PROJECT CARD */
 
 #project-example-section{
-    margin-top: 7.5%;
-    margin-bottom: 7.5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #card-header {
@@ -330,46 +336,53 @@
 }
 
 #project-cards-container {
+    width: 80vw;
+    height: 40vh; /* Adjust this to control the height of the container */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     z-index: 10;
+    position: relative; /* Establish a stacking context for z-index */
+    overflow: hidden; /* Hide the cards that are not at the top of the stack */
 }
 
 /* Individual project cards */
 .project-card {
-    position: relative;
-    width: 300px;
-    height: 300px;
-
-    margin-left: 1%;
-    margin-right: 1%;
-    /* Rest of your styling (background, box-shadow, etc.) */
-    border-radius: 25px;
-    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.6);
+    width: 50vw;
+    height: 40vh;
+    position: absolute; /* Add this line */
+    transform: scale(0.9); /* Offset the cards to the right and scale them down */
+    transition: transform 1s, opacity 1s;
+    z-index: 0; /* Start with all cards at the bottom of the stack */
+    opacity: 0;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
 
-    background-size: cover; /* Cover the entire card area */
-    background-position: center; /* Center the image in the card */
-    background-repeat: no-repeat;
+.project-card.active {
+    transform: scale(1); /* Bring the active card to the front and center */
+    z-index: 1;
+    opacity: 1; /* Make the active card fully opaque */
+}
+
+.project-card-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
 }
 
 .project-card-info {
-    width: 100%; /* Take the full width of the card */
-    height: 100%;
+    position: absolute; /* Add this line */
+    bottom: 0;
 
-    margin-top: 15%;
-    border-radius: 25px;
+    height: 40%;
 
-    background-color: var(--card-background-color);
-    transition: transform 0.5s, opacity 0.7s; /* Smooth transition for hover */
-    transform: translateY(10%); /* Hide initially by pushing it down */
-    opacity: 0; /* Start as invisible */
+    border-radius: 20px;
 
     background-color: var(--card-background-color);
     backdrop-filter: blur(7px) saturate(180%);
@@ -377,19 +390,22 @@
 }
 
 .project-card-info p {
-    margin: 5% 5% 5% 5%;
-    height: 100%;
-}
+    padding: 1% 1% 1% 1%;
+    margin: 1% 1% 1% 1%;
 
-.project-card:hover .project-card-info {
-    transform: translateY(0); /* Bring content back into view */
-    opacity: 1; /* Make it visible */
+    display: -webkit-box; /* Add this line */
+    -webkit-line-clamp: 4; /* Add this line, change the number to the number of lines you want */
+    -webkit-box-orient: vertical; /* Add this line */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .project-card h3 {
+
+    height: auto;
     width: auto;
-    margin: 2% 2% 2% 2%;
-    padding: 5% 5% 5% 5%;
+    padding: 1% 1% 1% 1%;
+    margin: 1% 1% 1% 1%;
 
     font-weight: 500;
     color: var(--text-color);
@@ -404,15 +420,24 @@
 
 #about-art {
     margin-top: 10%;
-    margin-left: 5%;
-    margin-right: 5%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#art-info {
+    margin-right: 2.5%;
+    width: 40vw;
+}
+
+#art-info p {
+    margin-left: 2.5%;
 }
 
 #art-example-section {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
 }
 
 .artwork-container {
@@ -427,8 +452,8 @@
     width: 300px;
     height: 300px;
 
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
 }
 
 .artwork-card img {
@@ -475,9 +500,7 @@
     background-color: var(--card-background-color);
     backdrop-filter: blur(7px) saturate(180%);
     -webkit-backdrop-filter: blur(7px) saturate(180%);
-    border-radius: 50px;
-
-    padding: 7.5% 7.5% 7.5% 7.5%;
+    border-radius: 25px;
 
     width: auto; /* Adjust as needed */
     height: fit-content;
@@ -485,22 +508,32 @@
     flex-direction: column;
 }
 
-.contact-list {
+#contact-header {
     margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-list {
+
+    height: 45vh;
+    width: 25vw;
     list-style-type: none;
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items vertically */
 }
 
-#contact-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .contact-list li {
-    margin-bottom: 4%;
+    margin-bottom: 2.5%;
+    width: 20vw;
+
     display: flex; /* Use flexbox */
     flex-direction: row;
     align-items: center; /* Center items vertically */
@@ -508,25 +541,27 @@
 }
 
 .contact-list li a {
+    padding: 2.5% 2.5% 2.5% 2.5%;
+
     color: var(--text-color); /* Match the text color with the rest of the document */
-    font-size: 70px; /* Make the text larger */
+    font-size: 3vw;
     text-decoration: none;
-    padding: 10px 20px; /* Add some padding */
+    width: 100%;
 
     background-color: var(--secondary-color);
-    transition: background-color 0.3s ease;
-    border-radius: 50px;
-    width: 20vw;
+    transition: -color 0.3s ease;
+    border-radius: 25px;
 }
 
 .contact-list li a:hover {
-    background-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .contact-list li img {
     filter: invert(1);
     height: 1em;
-    margin-bottom: 10px;
+    margin-bottom: 2.5%;
+    margin-left: -2.5%;
 }
 
 /* EFFECTS */

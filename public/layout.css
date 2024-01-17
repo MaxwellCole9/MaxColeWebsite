@@ -6,7 +6,7 @@
     --glow-color: rgba(120, 217, 172, 0.7);
     --text-color: #FFFAFA;
     --background-color: #0D0D0D;
-    --card-background-color: rgba(18, 18, 18, 0.8);
+    --card-background-color: rgba(18, 18, 18, 0.7);
 }
 
 html {
@@ -146,12 +146,13 @@ nav li.dropdown {
     z-index: 2;
 
     max-height: 0; /* Add this line */
+    width: fit-content;
     overflow: hidden; /* Add this line */
-    transition: max-height 0.3s ease-out; /* Add this line */
+    transition: max-height 1s ease-out; /* Add this line */
 }
 
 .dropdown:hover .dropdown-content {
-    max-height: 300px; /* Adjust this value as needed */
+    max-height: 100vh; /* Adjust this value as needed */
 }
 
 .dropdown-content a {
