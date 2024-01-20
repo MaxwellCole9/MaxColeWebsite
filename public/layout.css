@@ -7,6 +7,7 @@
     --text-color: #FFFAFA;
     --background-color: #0D0D0D;
     --card-background-color: rgba(18, 18, 18, 0.7);
+    --card-background-color2: rgba(10, 10, 10, 0.8);
 }
 
 html {
@@ -143,6 +144,7 @@ nav li.dropdown {
     background-color: var(--primary-color);
     border-radius: 25px;
     padding-top: 1%;
+    padding-right: 1%;
     z-index: 2;
 
     max-height: 0; /* Add this line */
@@ -167,7 +169,7 @@ nav li.dropdown {
 
 .dropdown-label {
     font-size: 1.7vw;
-    color: var(--text-color);
+    color: var(--accent-color);
     font-weight: 500;
     text-transform: uppercase;
     margin: 5% 0% -2.5% 5%;
@@ -180,7 +182,7 @@ nav li.dropdown {
     color: var(--text-color);
     font-weight: 500;
     text-transform: uppercase;
-    margin: -5% 0% 2.5% 2.5%;
+    margin: -5% 0% 5% 2.5%;
 
     text-align: left;   
 }
@@ -189,7 +191,7 @@ nav li.dropdown {
     font-size: 1.5vw;
     color: var(--text-color);
     font-weight: 400;
-    margin: 0% 0% -5% 1%;
+    margin: 0% 0% -2.5% 5%;
 
     transition: color 0.3s ease-in-out, text-shadow 0.1s ease-in-out;
 }

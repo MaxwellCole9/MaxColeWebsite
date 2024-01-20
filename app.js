@@ -18,17 +18,25 @@ app.get('/', (req, res) => {
     res.render('index', { projects: data });
 });
 
-app.get('/bio',(req, res) => {
-    res.render('bio')
-})
-
-app.get('/resume',(req, res) => {
-    res.render('resume')
+app.get('/about',(req, res) => {
+    res.render('about')
 })
 
 app.get('/contact',(req, res) => {
     res.render('contact')
 })
+
+app.get('/projects', (req, res) => {
+    fs.readFile('data.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('An error occurred');
+        }
+
+        const projects = JSON.parse(data);
+        res.render('projects', { projects });
+    });
+});
 
 app.get('/:page', (req, res) => {
     const data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
@@ -39,10 +47,6 @@ app.get('/:page', (req, res) => {
         res.status(404).send('Page not found');
     }
 });
-
-app.get('/artpage',(req, res) => {
-    res.render('artpage')
-})
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

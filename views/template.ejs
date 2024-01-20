@@ -1,6 +1,9 @@
 <main id="project-page">
     <div id="info-card">
-        <h1 id="page-header"><%= pageTitle %></h1>
+
+        <div id="card-header">
+            <h1><%= pageTitle %></h1>
+        </div>
 
         <div id="body-elements">
 
@@ -10,7 +13,7 @@
                     <h2>Status: <%= status %></h2>
                     <h3>Contributors: <%= teamMembers.join(', ') %></h3>
                     <div id="github-button">
-                        <img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle;"><a href="<%= githubLink %>" target="_blank">Github Repository</a>
+                        <img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle; width: 50px; height: 50px;"><a href="<%= githubLink %>" target="_blank">Github Repository</a>
                     </div>
                 </div>
 

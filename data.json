@@ -2,7 +2,7 @@
     {
         "url": "a-life",
         "pageTitle": "A-LIFE CHALLENGE (2023-2024)",
-        "status": "Ongoing",
+        "status": "Ongoing, ver 0.1.0",
         "teamMembers": ["Maxwell Cole", "Ethan Doll", "Wyatt Holliday", "Henry Pfluke", "Sasha Rosenthal", "Myles Scholz"],
         "githubLink": "https://github.com/MylesScholz/A-Life-Capstone-Project",
         "languages": ["C++", "Godot"],
@@ -13,7 +13,7 @@
     {
         "url": "masm-quest",
         "pageTitle": "MASM Quest",
-        "status": "Completed",
+        "status": "Completed, ver 1.0.0",
         "teamMembers": ["Maxwell Cole", "Julia Yang", "Audrey Au"],
         "githubLink": "#fill",
         "languages": ["MASM x86 Assembly"],
@@ -24,7 +24,7 @@
     {
         "url": "dynamic-recipes",
         "pageTitle": "Dynamic Recipe App",
-        "status": "Completed",
+        "status": "Completed ver 1.0.0",
         "teamMembers": ["Maxwell Cole", "Andrew Dang", "Max Wilde", "Max Cheskin", "Julia Yang", "Tyler Green"],
         "githubLink": "https://github.com/max-wild/dynamic-recipes",
         "languages": ["HTML, CSS, JavaScript, Node.js, React"],
@@ -35,7 +35,7 @@
     {
         "url": "smallsh",
         "pageTitle": "Smallsh",
-        "status": "Completed",
+        "status": "Completed ver 1.0.0",
         "teamMembers": ["Maxwell Cole"],
         "githubLink": "#fill",
         "languages": ["C++", "Godot"],
