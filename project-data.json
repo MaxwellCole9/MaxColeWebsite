@@ -1,7 +1,7 @@
 [
     {
         "url": "a-life",
-        "pageTitle": "A-LIFE CHALLENGE",
+        "pageTitle": "A-LIFE Challenge",
         "status": "Ongoing, ver 0.1.0",
         "teamMembers": ["Maxwell Cole", "Ethan Doll", "Wyatt Holliday", "Henry Pfluke", "Sasha Rosenthal", "Myles Scholz"],
         "githubLink": "https://github.com/MylesScholz/A-Life-Capstone-Project",
@@ -9,7 +9,7 @@
         "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
         "description": "Working with a small software development team and senior instructor William Pfiel at Oregon State University’s College of Electrical Engineering and Computer Science to produce an artificial life simulation. The simulation will allow researchers and general enthusiasts alike to view basic cellular microbiology as it mutates and evolves through generations, producing complex interactions and interesting developments.",
         "videoSrc": "videos/ALIFEdemoVid.mp4",
-        "imageSrc": "#fill",
+        "imageSrc": "project-thumbnails/alife_img.png",
         "tag": "major"
     },
     {
@@ -21,8 +21,8 @@
         "languages": ["MASM x86 Assembly"],
         "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
         "description": "Embark on a turn-based combat journey from your command prompt with MASM quest, coded in MASM for x86 architecture. The program is designed to exemplify knowledge in MASM through the complex utilization of registers, high-level math, and the display and management of ASCII sprites.",
-        "videoSrc": "images/MASMclip.mp4",
-        "imageSrc": "#fill",
+        "videoSrc": "videos/MASMclip.mp4",
+        "imageSrc": "project-thumbnails/masm_img.png",
         "tag": "major"
     },
     {
@@ -34,8 +34,8 @@
         "languages": ["HTML, CSS, JavaScript, Node.js, React"],
         "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
         "description": "fill.",
-        "videoSrc": "videos/MASMclip.mp4",
-        "imageSrc": "#fill",
+        "videoSrc": "videos/Dynamic_recipes_demo.mp4",
+        "imageSrc": "project-thumbnails/dynamic_img.png",
         "tag": "major"
     },
     {
@@ -47,8 +47,8 @@
         "languages": ["HTML, CSS, JavaScript, Node.js framework"],
         "skills": ["Software Engineering", "Graphic Design", "Front-end development"],
         "description": "fill.",
-        "videoSrc": "videos/MASMclip.mp4",
-        "imageSrc": "#fill",
+        "videoSrc": "videos/Website.mp4",
+        "imageSrc": "project-thumbnails/website_img.png",
         "tag": "major"
     },
     {
@@ -60,8 +60,8 @@
         "languages": ["C++", "Godot"],
         "skills": ["Software Engineering", "UI development", "testing", "Scrum Development Framework"],
         "description": "fill.",
-        "videoSrc": "videos/MASMclip.mp4",
-        "imageSrc": "#fill",
+        "videoSrc": "videos/Smallsh_demo.mp4",
+        "imageSrc": "project-thumbnails/smallsh_img.png",
         "tag": "minor"
     },
     {
@@ -74,7 +74,7 @@
         "skills": ["Object-Oriented Programming", "Pointers", "Public/Private Classes", "Inheritance", "Polymorphism", "Testing"],
         "description": "fill.",
         "videoSrc": "videos/OTP_Encryption_demo.mp4",
-        "imageSrc": "#fill",
+        "imageSrc": "project-thumbnails/otp_img.png",
         "tag": "minor"
     }
 ]

@@ -2,7 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="/page-css/index.css">
-    <title>About Page</title>
+    <link rel="stylesheet" href="/page-css/projects.css">
+    <title>Home Page</title>
 </head>
     <body>
 
@@ -32,56 +33,76 @@
                     <img src="images/Profile_Picture.png" id="about-picture"></imgs>
                 </div>
                 <div id="about-info">
-                    <h2>ABOUT ME</h2>
-                    <p>Maxwell Cole is a senior at Oregon State University's Electrical Engineering and Computer Science College, studying Computer Science with an applied option in Artificial Intelligence. At Oregon State he has gained experience in web development, data structures, object-oriented programming,  and collaborative development. Specializing in C/C++, Python, HTML/CSS, Maxwell has a proven track record of delivering creative and efficient solutions for independent clients, research projects, and personal projects.</p>
+                    <h2>Hi! I'm Max,</h2>
+                    <p>a senior at Oregon State University studying Computer Science with a focus in Artificial Intelligence. I have a deep interest in technology and its potential to shape the reality we live in as well as its ability to bring human creativity into the world. As both a software developer and a digital artist I believe that every problem has a creative solution, and that every solution can be improved on.</p>
                 </div>
             </div>
 
             <div id="project-example-section">
-                <h2 id="card-title">PROJECTS</h2>
-                <div id="project-cards-container">
-                    <% projects.forEach(project => { %>
-                        <div class="project-card" onclick="window.location.href='<%= project.url %>'">
-                            <video autoplay loop muted class="project-card-background">
-                                <source src="<%= project.videoSrc %>" type="video/mp4">
-                            </video>
-                            <h3><%= project.pageTitle %></h3>
-                            <div class="project-card-info">
-                                <p><%= project.description %></p>
+                <h2 id="section-title">SOFTWARE PROJECTS</h2>
+                <div id="project-example-section-content">
+
+                    <div id="project-example-info"> 
+                        <p> During my career as a software developer I have worked on a wide array of collaborative and personal projects which have taught me valuable skills. I've developed everything from full-stack websites to machine language-based games, gaining proficiency in multiple programming languages and frameworks. These experiences have sharpened my technical skills, taught me the value of clear, maintainable code, and enhanced my ability to effectively work in diverse teams. Please visit my <a href="./projects">projects page</a> to see a full list of my projects.</p>
+                    </div>
+
+                    <div id="project-cards-rotator-container" class ="slideshow-container">
+                        <% projects.forEach(project => { %>
+                            <div class="project">
+                
+                                <div class="project-image-video-content">
+                                    <img src="<%= project.imageSrc %>" class="project-image" alt="Project Image">
+                                    <video class="project-video" loop muted>
+                                        <source src="<%= project.videoSrc %>" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        <h2><%= project.pageTitle %></h2>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="./<%= project.url %>">Project Page</a>
+                                        <a href="<%= project.githubLink %>">GitHub Link</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    <% }) %>
+                        <% }); %>
+                    </div>
                 </div>
             </div>
 
             <div id="about-art">
+                <div>
+                    <img src="images/MX-art-icon.png" id="about-picture"></imgs>
+                </div>
                 <div id="art-info">
                     <h2>MX.CO ART</h2>
                     <p>As the digital artist behind mx.co, I specialize in creating captivating artwork that ranges from abstract digital paintings to intricate graphic designs. Each piece is a testament to contemporary aesthetics, crafted to evoke emotion and provoke thought. My works, available for purchase, represent the cutting edge of digital artistry, offering collectors and enthusiasts a chance to own a part of the digital renaissance. With a commitment to innovation and quality, mx.co stands at the forefront of the digital art world, continually pushing boundaries and exploring new techniques to bring visionary art to life for a variety of spaces and platforms. </p>
                 </div>
-                <div>
-                    <img src="images/MXiconPoster.jpg" id="about-picture"></imgs>
-                </div>
             </div>
 
             <div id="art-example-section">
-                <h2 id="card-title">ART</h2>
+                <h2 id="section-title">ART</h2>
                 <div class="artwork-container">
                     <div class="artwork-card">
-                        <img src="images/Art_01.jpg" alt="Artwork 1">
+                        <img src="art/Art_02.jpg" alt="Artwork 1">
                     </div>
                     <div class="artwork-card">
-                        <img src="images/Art_02.jpg" alt="Artwork 2">
+                        <img src="art/Art_01.jpg" alt="Artwork 2">
                     </div>
                     <div class="artwork-card">
-                        <img src="images/Art_03.jpg" alt="Artwork 3">
+                        <img src="art/Art_03.jpg" alt="Artwork 3">
                     </div>
                     <div class="artwork-card">
-                        <img src="images/MXiconPoster.jpg" alt="Artwork 4">
+                        <img src="art/Art_04.jpg" alt="Artwork 4">
                     </div>
                 </div>
             </div>
         </div>
 
     </body>
+
+    <script src="/JS-files/slideshow.js"></script>
 </html>

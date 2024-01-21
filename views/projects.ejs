@@ -2,25 +2,41 @@
 <html>
 <head>
     <link rel="stylesheet" href="/page-css/projects.css">
-    <title>About Page</title>
+    <title>Project Page</title>
 </head>
-<body>
+<body id="project-page">
     <h2 id="project-page-title">PROJECTS</h2>
     <div id="projects-container">
         <% projects.forEach(project => { %>
             <div class="project">
-                <video controls loop autoplay muted>
-                    <source src="<%= project.videoSrc %>" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+
+                <div class="project-image-video-content">
+                    <img src="<%= project.imageSrc %>" class="project-image" alt="Project Image">
+                    <video class="project-video" loop muted>
+                        <source src="<%= project.videoSrc %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
                 <div class="project-info">
                     <div class="project-title">
                         <h2><%= project.pageTitle %></h2>
                     </div>
-                    <a href="<%= project.githubLink %>">GitHub Link</a>
+                    <div class="project-links">
+                        <a href="./<%= project.url %>">Project Page</a>
+                        <a href="<%= project.githubLink %>">GitHub Link</a>
+                    </div>
                 </div>
             </div>
         <% }); %>
     </div>
+
+    <script>
+        document.querySelectorAll('.project').forEach(project => {
+            const video = project.querySelector('.project-video');
+            project.addEventListener('mouseover', () => video.play());
+            project.addEventListener('mouseout', () => video.pause());
+        });
+    </script>
 </body>
 </html>

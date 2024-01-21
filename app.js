@@ -37,7 +37,6 @@ app.get('/projects', (req, res) => {
 });
 
 app.get('/artpage', (req, res) => {
-    const artworkData = JSON.parse(fs.readFileSync('art-data.json', 'utf-8'));
     res.render('artpage', { artworks: artworkData });
 });
 
