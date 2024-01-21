@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Artwork Title 1",
+        "image": "art/ART_01.JPG"
+    },
+    {
+        "title": "Artwork Title 2",
+        "image": "art/ART_02.JPG"
+    },
+    {
+        "title": "Artwork Title 3",
+        "image": "art/ART_03.JPG"
+    },
+    {
+        "title": "Artwork Title 4",
+        "image": "art/ART_04.JPG"
+    }
+]

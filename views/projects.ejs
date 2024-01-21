@@ -1,17 +1,26 @@
-<h2 id="project-page-title">PROJECTS</h2>
-<div id="projects-container">
-    <% projects.forEach(project => { %>
-        <div class="project">
-            <video controls loop autoplay muted>
-                <source src="<%= project.videoSrc %>" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="project-info">
-                <div class="project-title">
-                    <h2><%= project.pageTitle %></h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/page-css/projects.css">
+    <title>About Page</title>
+</head>
+<body>
+    <h2 id="project-page-title">PROJECTS</h2>
+    <div id="projects-container">
+        <% projects.forEach(project => { %>
+            <div class="project">
+                <video controls loop autoplay muted>
+                    <source src="<%= project.videoSrc %>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="project-info">
+                    <div class="project-title">
+                        <h2><%= project.pageTitle %></h2>
+                    </div>
+                    <a href="<%= project.githubLink %>">GitHub Link</a>
                 </div>
-                <a href="<%= project.githubLink %>">GitHub Link</a>
             </div>
-        </div>
-    <% }); %>
-</div>
+        <% }); %>
+    </div>
+</body>
+</html>

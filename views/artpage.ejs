@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/page-css/artpage.css">
+    <title>Artwork Gallery</title>
+</head>
+<body>
+    <div class="art-gallery">
+        <% artworks.forEach(art => { %>
+            <div class="art-item">
+                <img src="<%= art.image %>" alt="<%= art.title %>">
+                <p class="art-title"><%= art.title %></p>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

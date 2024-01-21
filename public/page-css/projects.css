@@ -1,0 +1,63 @@
+/* --- GENERAL PROJECTS PAGE STYLES --- */
+
+#project-page-title {
+    margin-top: 12.5%;
+    margin-bottom: 2.5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjust as needed */
+}
+
+.project {
+    margin: 0% 1% 0% 1%;
+    width: 20vw;
+    height: 30vh;
+    position: relative;
+
+    background-color: var(--card-background-color);
+    border-radius: 25px;
+}
+
+.project-info {
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.project-title {
+    width: 100%;
+    background: var(--card-background-color2);
+    border-radius: 25px;
+
+    padding: 2.5% 0% 2.5% 0%;
+}
+
+.project img, .project video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeIn 2s ease-out;
+    border-radius: 25px;
+}
+
+.project h2 {
+    width: 100%;
+    margin-left: 2.5%;
+
+    color: var(--text-color);
+    font-size: 1.5vw;
+}

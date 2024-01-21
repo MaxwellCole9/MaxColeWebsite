@@ -1,42 +1,51 @@
-<main id="project-page">
-    <div id="info-card">
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/page-css/template.css">
+    <title>Project Card Page</title>
+</head>
+<body>
+    <div id="project-page">
+        <div id="info-card">
 
-        <div id="card-header">
-            <h1><%= pageTitle %></h1>
-        </div>
+            <div id="card-header">
+                <h1><%= pageTitle %></h1>
+            </div>
 
-        <div id="body-elements">
+            <div id="body-elements">
 
-            <div id ="text-box">
+                <div id ="text-box">
 
-                <div id="contributor-section">
-                    <h2>Status: <%= status %></h2>
-                    <h3>Contributors: <%= teamMembers.join(', ') %></h3>
-                    <div id="github-button">
-                        <img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle; width: 50px; height: 50px;"><a href="<%= githubLink %>" target="_blank">Github Repository</a>
+                    <div id="contributor-section">
+                        <h2>Status: <%= status %></h2>
+                        <h3>Contributors: <%= teamMembers.join(', ') %></h3>
+                        <div id="github-button">
+                            <img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle; width: 50px; height: 50px;"><a href="<%= githubLink %>" target="_blank">Github Repository</a>
+                        </div>
+                    </div>
+
+                    <div id="skills-section">
+                        <h2>Languages used</h2>
+                        <p><%= languages.join(', ') %></p>
+                    
+                        <h2>Skills used</h2>
+                        <p><%= skills.join(', ') %></p>
+                    </div>
+
+                    <div id="description-section">
+                        <h2>Description</h2>
+                        <p><%= description %></p>
                     </div>
                 </div>
-
-                <div id="skills-section">
-                    <h2>Languages used</h2>
-                    <p><%= languages.join(', ') %></p>
-                
-                    <h2>Skills used</h2>
-                    <p><%= skills.join(', ') %></p>
+                    
+                <div id = "content-box">
+                    <video controls loop autoplay muted>
+                        <source src="<%= videoSrc %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-
-                <div id="description-section">
-                    <h2>Description</h2>
-                    <p><%= description %></p>
-                </div>
-            </div>
-                
-            <div id = "content-box">
-                <video controls loop autoplay muted>
-                    <source src="<%= videoSrc %>" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
             </div>
         </div>
     </div>
-</main>
+</body>
+</html>

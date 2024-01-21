@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="stylesheet" href="layout.css">
-    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="/page-css/effects.css">
     <title>MaxColeWebsite</title>
 </head>
 
@@ -33,18 +33,22 @@
                     <div id="projects-content" class="dropdown-content">
 
                         <p class="dropdown-label">Major Projects</p>
-                        <a href="./a-life" class="drop-button">A-Life Challenge</a>
-                        <a href="./masm-quest" class="drop-button">MASM Quest</a>
-                        <a href="./dynamic-recipes" class="drop-button">Dynamic Recipe App</a>
-                        <a href="./this-website" class="drop-button">This Website</a>
+                        <% projects.forEach(project => { %>
+                            <% if (project.tag === 'major') { %>
+                                <a href="./<%= project.url %>" class="drop-button"><%= project.pageTitle %></a>
+                            <% } %>
+                        <% }); %>
 
                         <p class="dropdown-label">Minor Projects</p>
-                        <a href="./smallsh" class="drop-button">Smallsh</a>
-                        <a href="./ants-vs-bees" class="drop-button">Ants VS Bees</a>
+                        <% projects.forEach(project => { %>
+                            <% if (project.tag !== 'major') { %>
+                                <a href="./<%= project.url %>" class="drop-button"><%= project.pageTitle %></a>
+                            <% } %>
+                        <% }); %>
                     </div>
                 </li>
 
-                <li><a href="./#fill">MX.CO ART</a></li>
+                <li><a href="./artpage">MX.CO ART</a></li>
                 <li><a href="./contact">CONTACT</a></li>
             </ul>
         </nav>
@@ -73,7 +77,7 @@
 
 </body>
 
-<script src="typingEffect.js"></script>
-<script src="buttons.js"></script>
+<script src="JS-files/typingEffect.js"></script>
+<script src="JS-files/buttons.js"></script>
 
 </html>
