@@ -32,10 +32,10 @@ body {
     align-items: center; /* Centers horizontally */
     
     min-height: 100%;
+    height: auto;
     margin-left: 7.5%;
     margin-right: 7.5%;
-    padding: 0;
-
+    
     background-image: linear-gradient(rgba(18, 12, 18, 0.8), rgba(18, 12, 18, 0.8)), url('images/BackgroundPhoto.jpg');
     background-size: cover;
     background-attachment: fixed;

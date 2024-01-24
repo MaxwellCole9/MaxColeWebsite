@@ -6,6 +6,7 @@ const app = express ()
 const port = 5000
 
 const data = JSON.parse(fs.readFileSync('project-data.json', 'utf-8'));
+const artworkData = JSON.parse(fs.readFileSync('art-data.json', 'utf-8'));
 
 app.use(express.static('public'))
 app.use('./css', express.static(__dirname + 'public/css'))
@@ -16,7 +17,8 @@ app.set('layout')
 app.set('view engine', 'ejs')
 
 app.use((req, res, next) => {
-    res.locals.projects = data;  // 'projects' will be available in all EJS templates
+    res.locals.projects = data;
+    res.locals.artworks = artworkData;
     next();
 });
 
@@ -37,7 +39,7 @@ app.get('/projects', (req, res) => {
 });
 
 app.get('/artpage', (req, res) => {
-    res.render('artpage', { artworks: artworkData });
+    res.render('artpage');
 });
 
 app.get('/:page', (req, res) => {

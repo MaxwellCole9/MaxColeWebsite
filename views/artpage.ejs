@@ -5,12 +5,13 @@
     <title>Artwork Gallery</title>
 </head>
 <body>
-    <div class="art-gallery">
+    <div id="art-title-content">
+        <h2> MX.CO ART </h2>
+        <p> Welcome to my art gallery! </p>
+    </div>
+    <div id="artwork-container">
         <% artworks.forEach(art => { %>
-            <div class="art-item">
-                <img src="<%= art.image %>" alt="<%= art.title %>">
-                <p class="art-title"><%= art.title %></p>
-            </div>
+            <img class="art-card" src="<%= art.image %>" alt="<%= art.title %>">
         <% }) %>
     </div>
 </body>

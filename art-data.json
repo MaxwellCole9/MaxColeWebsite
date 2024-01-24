@@ -1,18 +1,38 @@
 [
     {
         "title": "Artwork Title 1",
-        "image": "art/ART_01.JPG"
+        "image": "art/Art_01.JPG"
     },
     {
         "title": "Artwork Title 2",
-        "image": "art/ART_02.JPG"
+        "image": "art/Art_02.JPG"
     },
     {
         "title": "Artwork Title 3",
-        "image": "art/ART_03.JPG"
+        "image": "art/Art_03.JPG"
     },
     {
         "title": "Artwork Title 4",
-        "image": "art/ART_04.JPG"
+        "image": "art/Art_04.JPG"
+    },
+    {
+        "title": "Artwork Title 5",
+        "image": "art/Art_05.PNG"
+    },
+    {
+        "title": "Artwork Title 6",
+        "image": "art/Art_06.JPG"
+    },
+    {
+        "title": "Artwork Title 7",
+        "image": "art/Art_07.PNG"
+    },
+    {
+        "title": "Artwork Title 8",
+        "image": "art/Art_08.JPG"
+    },
+    {
+        "title": "Artwork Title 9",
+        "image": "art/Art_09.JPG"
     }
 ]
