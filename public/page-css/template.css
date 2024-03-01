@@ -152,9 +152,3 @@
     object-fit: cover; /* Add this line */
     border-radius: 25px;
 }
-
-#content-box iframe {
-    min-width: 100%;
-    min-height: 50vh;
-    border-radius: 25px;
-}
