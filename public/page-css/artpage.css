@@ -37,8 +37,10 @@
     border-radius: 50px;
     animation: fadeInDropDown 1.5s ease-out;
 
-    width: 40vw;
-    height: 60vh;
+    width: fit-content;
+    height: fit-content;
+
+    padding: 5%;
 
     display: flex;
     flex-direction: row;
@@ -50,8 +52,8 @@
 
 #slideshow {
     margin-left: 10%;
-    width: 20vw;
-    height: 100%;
+    width: 30vw;
+    height: 30vw;
     position: relative;
     overflow: hidden;
 }
