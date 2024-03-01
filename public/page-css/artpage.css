@@ -102,10 +102,15 @@
     border-radius: 25px;
     padding: 5%;
     margin: 0% 1% 0% 1%;
+    transition: background-color 0.3s ease;
 }
 
 #button-container button img {
    filter: invert(1);
+}
+
+#button-container button:hover {
+    background-color: var(--glow-color);
 }
 
 #prev img{ 

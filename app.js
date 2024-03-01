@@ -3,7 +3,6 @@ const expressLayouts = require('express-ejs-layouts')
 const fs = require('fs');
 
 const app = express ()
-const port = 5000
 
 const data = JSON.parse(fs.readFileSync('project-data.json', 'utf-8'));
 const artworkData = JSON.parse(fs.readFileSync('art-data.json', 'utf-8'));
@@ -51,6 +50,10 @@ app.get('/:page', (req, res) => {
     }
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });

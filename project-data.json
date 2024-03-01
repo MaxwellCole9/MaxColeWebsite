@@ -33,7 +33,7 @@
         "githubLink": "https://github.com/max-wild/dynamic-recipes",
         "languages": ["HTML, CSS, JavaScript, Node.js, React"],
         "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
-        "description": "fill.",
+        "description": "Worked in a small software engineering group focused on the Scrum development framework to produce a recipe app which allows users to dynamically import and export recipes as well as create shopping lists.",
         "videoSrc": "videos/Dynamic_recipes_demo.mp4",
         "imageSrc": "project-thumbnails/dynamic_img.png",
         "tag": "major"
@@ -45,8 +45,8 @@
         "teamMembers": ["Maxwell Cole"],
         "githubLink": "https://github.com/EatYoCharms9/MaxColeWebsite",
         "languages": ["HTML, CSS, JavaScript, Node.js framework"],
-        "skills": ["Software Engineering", "Graphic Design", "Front-end development"],
-        "description": "fill.",
+        "skills": ["Software Engineering", "Web Hosting", "Graphic Design", "Full-stack development"],
+        "description": "This website was created to showcase my portfolio and to demonstrate my skills in web development and graphic design. It is programmed by me using no templates or frameworks in HTML and CSS, with a little JavaScript for interactivity. The website is hosted on a Node.js server.",
         "videoSrc": "videos/Website.mp4",
         "imageSrc": "project-thumbnails/website_img.png",
         "tag": "major"
@@ -58,8 +58,8 @@
         "teamMembers": ["Maxwell Cole"],
         "githubLink": "https://github.com/EatYoCharms9/Smallsh",
         "languages": ["C++", "Godot"],
-        "skills": ["Software Engineering", "UI development", "testing", "Scrum Development Framework"],
-        "description": "fill.",
+        "skills": ["Software Engineering", "testing", "UNIX", "Pointers", "Object-Oriented Programming"],
+        "description": "Created a lightweight smallshell program in C to demonstrate knowledge in system calls, signal handling, and file redirection in UNIX. The program is designed to mimic the functionality of a bash shell.",
         "videoSrc": "videos/Smallsh_demo.mp4",
         "imageSrc": "project-thumbnails/smallsh_img.png",
         "tag": "minor"
@@ -71,8 +71,8 @@
         "teamMembers": ["Maxwell Cole"],
         "githubLink": "https://github.com/EatYoCharms9/OTP-Encryption",
         "languages": ["C"],
-        "skills": ["Object-Oriented Programming", "Pointers", "Public/Private Classes", "Inheritance", "Polymorphism", "Testing"],
-        "description": "fill.",
+        "skills": ["Object-Oriented Programming", "Security", "Public/Private Classes", "Inheritance", "Polymorphism", "Testing"],
+        "description": "Developed a one-time pad encryption program in C to demonstrate knowledge in security and object-oriented programming. The program is designed to encrypt and decrypt messages using a one-time pad cipher.",
         "videoSrc": "videos/OTP_Encryption_demo.mp4",
         "imageSrc": "project-thumbnails/otp_img.png",
         "tag": "minor"
