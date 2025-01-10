@@ -2,89 +2,126 @@
 <html>
 <head>
     <link rel="stylesheet" href="/page-css/index.css">
-    <link rel="stylesheet" href="/page-css/projects.css">
+    <link rel="stylesheet" href="/page-css/layout.css">
+    <link rel="stylesheet" href="/page-css/page.css">
+
+
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
     <title>Home Page</title>
 </head>
-    <body>
+<body>  
 
-        <div id ="landing">
-            <div id="title-content">
-                <div id="title">
-                    <div id="title-text-content">
-                        <div id="title-text1">
-                            <h1>MAX</h1>
-                        </div>
-                        <div id="title-text2">
-                            <h1>COLE</h1>
-                        </div>
-                    </div>
-                    <img src="images/MXicon.png" id="title-icon"></imgs>
-                </div>
+    <div id="landing">
+        <div class="spacer"></div>
+        <div class="container">
+            <h1 class="title">MAXWELL COLE</h1>
+        </div>
+        <div class="color-boxes"><div class="horizontal-line"></div><div class="accent1"></div><div class="accent2"></div><div class="accent3"></div></div>
+        <h2 id="typing"><span id="text"></span><span id="cursor"></span></h2>
+    </div>
 
-                <h2 id="typing"><span id="text"></span><span id="cursor"></span></h2>
+
+    <div class="horizontal-container background-gray">
+        <div class="vertical-container margin-right-large">
+            <h2 class="text-accent-dark">What I Do</h2>
+
+            <div class="text-content text-gap text-pretty padding-top-bottom padding-left-right">
+
+                <p>I’m a freelance software engineer and full-stack developer based in Boise, Idaho, with a passion for blending creativity and technical expertise to craft innovative and impactful solutions. I thrive on pushing the boundaries of what’s possible, believing that the most meaningful problems are solved through curiosity, ingenuity, and bold experimentation.</p>
+                <p>My current focus lies in exploring artificial intelligence and its profound impact on individuals, society, and the broader sense of purpose we define as humans. As we continue to expand the horizons of possibility, I believe this technology holds the potential to liberate us from repetitive patterns, enabling us to pursue greater creativity and freedom, rather than being confined by it.</p>
             </div>
         </div>
 
-
-        <div id = "information-section">
-
-            <div id="about-me">
-                <div>
-                    <img src="images/Profile_Picture.png" id="about-picture"></imgs>
+        <div class="center-container">
+            <div class="fit-container">
+                <div class="horizontal-container">
+                    <h3 class="text-accent3 text-bold">What I'm Best At</h3>
+                    <a href="./about" class="button-link">
+                        <button class="button button-accent1">View About</button>
+                    </a>
                 </div>
-                <div id="about-info">
-                    <h2>Hi! I'm Max,</h2>
-                    <p>a senior at Oregon State University studying Computer Science with a focus in Artificial Intelligence. I have a deep interest in technology and its potential to shape the reality we live in as well as its ability to bring human creativity into the world. As both a software developer and a digital artist I believe that every problem has a creative solution, and that every solution can be improved on.</p>
-                </div>
-            </div>
 
-            <div id="project-example-section">
-                <h2 id="section-title">SOFTWARE PROJECTS</h2>
-                <div id="project-example-section-content">
+                <div class="icon-container-format">
 
-                    <div id="project-example-info"> 
-                        <p> During my career as a software developer I have worked on a wide array of collaborative and personal projects which have taught me valuable skills. I've developed everything from full-stack websites to machine language-based games, gaining proficiency in multiple programming languages and frameworks. These experiences have sharpened my technical skills, taught me the value of clear, maintainable code, and enhanced my ability to effectively work in diverse teams. Please visit my <a href="./projects">projects page</a> to see a full list of my projects.</p>
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-c-plain"></i>
+                            <i class="devicon-cplusplus-plain"></i>
+                        </div>
+                        <p>C / C++</p>
                     </div>
 
-                    <div id="project-cards-rotator-container" class ="slideshow-container">
-                        <% projects.forEach(project => { %>
-                            <div class="project">
-                
-                                <div class="project-image-video-content">
-                                    <img src="<%= project.imageSrc %>" class="project-image" alt="Project Image">
-                                    <video class="project-video" loop muted>
-                                        <source src="<%= project.videoSrc %>" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                
-                                <div class="project-info">
-                                    <div class="project-title">
-                                        <h2><%= project.pageTitle %></h2>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="./<%= project.url %>">Project Page</a>
-                                        <a href="<%= project.githubLink %>">GitHub Link</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <% }); %>
+                    <div class="icon-group">
+                        <i class="devicon-python-plain"></i>
+                        <p>Python</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-html5-plain"></i>
+                            <i class="devicon-css3-plain"></i>
+                        </div>
+                        <p>HTML / CSS</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-nodejs-plain"></i>
+                            <i class="devicon-googlecloud-plain"></i>
+                        </div>
+                        <p>NodeJS / Gcloud</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-photoshop-plain"></i>
+                            <i class="devicon-figma-plain"></i>
+                        </div>
+                        <p>Photoshop / Figma</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <i class="devicon-photoshop-plain"></i>
+                        <p>MASM</p>
                     </div>
                 </div>
-            </div>
+            </div>  
+        </div>
+    </div>
 
-            <div id="about-art">
-                <div>
-                    <img src="images/MX-art-icon.png" id="about-picture"></imgs>
-                </div>
-                <div id="art-info">
-                    <h2>MX.CO ART</h2>
-                    <p>As the digital artist behind mx.co, I specialize in creating captivating artwork that ranges from abstract digital paintings to intricate graphic designs. Each piece is a testament to contemporary aesthetics, crafted to evoke emotion and provoke thought. My works, available for purchase, represent the cutting edge of digital artistry, offering collectors and enthusiasts a chance to own a part of the digital renaissance. With a commitment to innovation and quality, mx.co stands at the forefront of the digital art world, continually pushing boundaries and exploring new techniques to bring visionary art to life for a variety of spaces and platforms. </p>
-                </div>
+    <div class="spacer"></div>
+
+    <div class="horizontal-container background-gray">
+
+        <div class="vertical-container margin-right-large">
+            <h2 class="text-accent-dark">Portfolio</h2>
+            <div class="text-content text-gap text-pretty padding-top-bottom padding-left-right">
+                <p>My portfolio is a collection of projects that highlight my expertise in software development and digital design. From building scalable, high-performing software applications to crafting engaging, user-centered websites and creating unique custom artwork, each project reflects my commitment to innovation and precision.</p>
+                <p>As both a developer and designer, I am deeply passionate about merging technical excellence with artistic creativity. Within this portfolio, you’ll discover projects that showcase my ability to solve complex problems and deliver groundbreaking solutions that challenge conventions and inspire new possibilities.</p>
             </div>
         </div>
 
-    </body>
+        <div class="vertical-container padding-large">
+            <div class="horizontal-container">
+                <h3 class="text-accent3 text-bold">Portfolio Snapshot</h3>
+        
+                <a href="./portfolio" class="button-link">
+                    <button class="button button-accent1">View Portfolio</button>
+                </a>
+            </div>
 
-    <script src="/JS-files/slideshow.js"></script>
+            <div class="projects-section" data-projects='["vrc-web-scraper", "doc-page", "this-website", "protobiota"]'>
+                <div class="grid-container-format"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <script src="JS-files/slides.js"></script>
+    <script>
+        const allProjects = <%- JSON.stringify(allProjects) %>;
+    </script>
+</body>
 </html>

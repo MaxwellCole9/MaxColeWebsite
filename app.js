@@ -22,29 +22,52 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { allProjects: data });
 });
 
 app.get('/about',(req, res) => {
     res.render('about')
 })
 
+app.get('/resume',(req, res) => {
+    res.render('resume')
+})
+
 app.get('/contact',(req, res) => {
     res.render('contact')
 })
 
-app.get('/projects', (req, res) => {
-    res.render('projects');
+app.get('/portfolio', (req, res) => {
+    res.render('portfolio', { allProjects: data });
+});
+
+app.get('/blog', (req, res) => {
+    res.render('blog');
 });
 
 app.get('/artpage', (req, res) => {
     res.render('artpage');
 });
 
+app.get('/against', (req, res) => {
+    res.render('against');
+});
+
+app.get('/freelance', (req, res) => {
+    res.render('freelance');
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects');
+});
+
+
 app.get('/:page', (req, res) => {
     const pageData = data.find(d => d.url === req.params.page);
+
     if (pageData) {
-        res.render('template', pageData);
+        const allProjects = data.map(d => d.url);
+        res.render('template', { ...pageData, allProjects });
     } else {
         res.status(404).send('Page not found');
     }

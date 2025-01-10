@@ -1,51 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="/page-css/template.css">
-    <title>Project Card Page</title>
+    <link rel="stylesheet" href="/page-css/page.css">
+    <link rel="stylesheet" href="layout.css">
+    <title><%= pageTitle %> - Project Card Page</title>
 </head>
 <body>
-    <div id="project-page">
-        <div id="info-card">
+    <div class="landing-section">
+        <h1>Project Overview</h1>
+        <div class="color-boxes">
+            <div class="horizontal-line"></div>
+            <div class="accent1"></div>
+            <div class="accent2"></div>
+            <div class="accent3"></div>
+        </div>
 
-            <div id="card-header">
-                <h1><%= pageTitle %></h1>
+        <div class="spacer"></div>
+
+        <div class="vertical-container background-gray">
+
+            <!-- Header Content -->
+            <h2 class="text-accent-dark"><%= pageTitle %></h2>
+
+            <h3 class="text-accent-hero padding-left-right"><%= subtitle %></h3>
+
+            <div class="text-content text-pretty padding-top-bottom">
+                <h3 class="text-accent-dark text-bold"><%= typeof shortDescription !== 'undefined' && shortDescription ? shortDescription : "Description" %></h3>
+                <p class="padding-left-right"><%= description || "No description available." %></p>
             </div>
 
-            <div id="body-elements">
-
-                <div id ="text-box">
-
-                    <div id="contributor-section">
-                        <h2>Status: <%= status %></h2>
-                        <h3>Contributors: <%= teamMembers.join(', ') %></h3>
-                        <div id="github-button">
-                            <img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle; width: 50px; height: 50px;"><a href="<%= githubLink %>" target="_blank">Github Repository</a>
-                        </div>
-                    </div>
-
-                    <div id="skills-section">
-                        <h2>Languages used</h2>
-                        <p><%= languages.join(', ') %></p>
-                    
-                        <h2>Skills used</h2>
-                        <p><%= skills.join(', ') %></p>
-                    </div>
-
-                    <div id="description-section">
-                        <h2>Description</h2>
-                        <p><%= description %></p>
-                    </div>
+            <div class="vertical-container padding-top-bottom">
+                <div class="horizontal-container center-align">
+                    <h3 class="text-accent1 text-bold">Technologies Used</h3>
+                    <p class="text-indent"><%= languages && languages.length > 0 ? languages.join(', ') : "N/A" %></p>
                 </div>
-                    
-                <div id = "content-box">
-                    <video loop autoplay muted>
-                        <source src="<%= videoSrc %>" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+            
+                <div class="horizontal-container center-align">
+                    <h3 class="text-accent2 text-bold">Skills Gained</h3>
+                    <p class="text-indent"><%= skills && skills.length > 0 ? skills.join(', ') : "N/A" %></p>
                 </div>
             </div>
         </div>
+
+        <div class="carousel padding-top-bottom">
+            <div class="carousel-main">
+                <% if (Array.isArray(imageSrc)) { %>
+                    <% imageSrc.forEach(function(image, index) { %>
+                        <img src="<%= image %>" alt="Project Image" class="carousel-image" data-index="<%= index %>" <% if (index !== 0) { %> style="display:none;" <% } %>>
+                    <% }); %>
+                <% } else { %>
+                    <img src="<%= imageSrc %>" alt="Project Image" class="carousel-image">
+                <% } %>
+            </div>
+            <div class="carousel-thumbnails-container">
+                <button class="carousel-arrow left-arrow">&lt;</button>
+                <div class="carousel-thumbnails">
+                    <% if (Array.isArray(imageSrc)) { %>
+                        <% imageSrc.forEach(function(image, index) { %>
+                            <img src="<%= image %>" alt="Project Thumbnail" class="carousel-thumbnail" data-index="<%= index %>">
+                        <% }); %>
+                    <% } else { %>
+                        <img src="<%= imageSrc %>" alt="Project Thumbnail" class="carousel-thumbnail">
+                    <% } %>
+                </div>
+                <button class="carousel-arrow right-arrow">&gt;</button>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <% if ((typeof status !== 'undefined' && status) || 
+            (typeof teamMembers !== 'undefined' && teamMembers.length > 0) || 
+            (typeof githubLink !== 'undefined' && githubLink && githubLink !== "NA")) { %>
+            <div class="vertical-container background-gray">
+                <h3 class="text-bold">Project Information</h3>
+                
+                <% if (typeof status !== 'undefined' && status) { %>
+                    <p>Status: <%= status %></p>
+                <% } %>
+                
+                <% if (typeof teamMembers !== 'undefined' && teamMembers.length > 0) { %>
+                    <p>Contributors: <%= teamMembers.join(', ') %></p>
+                <% } %>
+                
+                <% if (typeof githubLink !== 'undefined' && githubLink && githubLink !== "NA") { %>
+                    <div class="button-icon-container">
+                        <i class="devicon-github-original"></i>
+                        <a href="<%= githubLink %>" class="button-link" target="_blank">
+                            <button class="button button-accent2">GitHub Repository</button>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
     </div>
+
+    <script src="JS-files/thumbnail.js"></script>
+    <script src="JS-files/slides.js"></script>
+    <script>
+        const allProjects = <%- JSON.stringify(allProjects) %>;
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const thumbnails = document.querySelectorAll(".carousel-thumbnail");
+            const images = document.querySelectorAll(".carousel-image");
+            const leftArrow = document.querySelector(".left-arrow");
+            const rightArrow = document.querySelector(".right-arrow");
+            let currentIndex = 0;
+        
+            // Function to update active image
+            const updateCarousel = (newIndex) => {
+                images.forEach((img, index) => {
+                    img.style.display = index === newIndex ? "block" : "none";
+                });
+                thumbnails.forEach((thumb, index) => {
+                    thumb.classList.toggle("active", index === newIndex);
+                });
+                currentIndex = newIndex;
+            };
+        
+            // Thumbnail click handler
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener("click", () => {
+                    updateCarousel(index);
+                });
+            });
+        
+            // Arrow click handlers
+            leftArrow.addEventListener("click", () => {
+                const newIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel(newIndex);
+            });
+        
+            rightArrow.addEventListener("click", () => {
+                const newIndex = (currentIndex + 1) % images.length;
+                updateCarousel(newIndex);
+            });
+        
+            // Initialize active thumbnail
+            updateCarousel(currentIndex);
+        });
+    </script>
 </body>
 </html>

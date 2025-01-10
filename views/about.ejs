@@ -1,54 +1,208 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/page-css/about.css">
+    <link rel="stylesheet" href="/page-css/page.css">
     <link rel="stylesheet" href="/page-css/template.css">
+    <link rel="stylesheet" href="layout.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=monitoring,record_voice_over,groups,engineerin,brush,draw_abstract,polyline,groups_3" />
+
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <title>About Page</title>
 </head>
 <body>
-    <div id="about-page">
-        <div id="info-card">
-            <div id="card-header">
-                <h1>BIO</h1>
-            </div>
-            <div id="body-elements">
-                <div id ="bio-text-box">
-                    <p>Growing up in Boise, Idaho in the early 2000’s I gained a huge passion for the outdoors, anything Star Wars, and of course computers. I built my first computer in 2013 and since then have fallen in love with optimizing my build, coding, and graphic design. This led to my eventual attendance at Oregon State University for Computer Science and applied Artificial Intelligence.</p>
-                    <p>My goal in software engineering is to create easy-to-use technology which deepens the connection between people and the understanding of the world around them. This goal, along with my greater interest in technology stem from a childhood growing up alongside the age of information. I have seen technology shift to become more intuitive and natural, and now with developments in AI, the potential for everything to shift in new and interesting ways inspires me.</p>
-                    <p>I believe I have a unique skillset in that I am graphically minded and creative while still possessing deep knowledge in different computer science fields. To me software is naturally linked with design, and many of the issues that are considered technical may become more simple when considered from a visual standpoint.</p>
-                    <p>If you are interested in reading more about my technical experience, please view my resume below. If you are interested in my work experience, see the contacts page for my LinkedIn.</p>
-                </div>
-                <div id ="content-box">
-                    <img src="/images/max.jpg" alt="Max">
+    <div class="landing-section">
+        <h1>About</h1>
+        <div class="color-boxes"><div class="horizontal-line"></div><div class="accent1"></div><div class="accent2"></div><div class="accent3"></div></div>
 
-                    
-                </div>
-            </div>
-        </div>
+        <div class="spacer"></div>
 
-        <div id="info-card">
-            <div id="card-header">
-                <h1>RESUME</h1>
-            </div>
-
-            <div id="body-elements">
-                <div id ="resume-text-box">
-                    <div id="resume-button-container">
-                        <a href="./MaxwellColeResume2023.01.pdf#zoom=150" download="ColeMax_Resume_2023" id="resume-button">
-                            DOWNLOAD RESUME
-                        </a>
-                        <a href="/contact" id="resume-button">
-                            CONTACT PAGE
-                        </a>
+        <div class="vertical-container background-gray">
+            <div class="horizontal-container">
+                <div class="vertical-container">
+                    <h3 class="text-accent-hero">Designing Software That Simplifies, Connects, and Innovates</h3>
+                    <div class="text-content text-pretty padding-top-bottom padding-left-right text-gap">
+                        <p> As a software engineer, my passion lies in creating intuitive, user-friendly technology that fosters deeper connections between people and enriches their understanding of the world. Growing up in the dynamic era of the Information Age, I witnessed firsthand how technology evolved—becoming increasingly intuitive and seamlessly integrated into our daily lives. Now, with groundbreaking advancements in AI, I’m inspired by the endless possibilities for innovation and transformation, and I’m committed to contributing to these exciting developments. </p>
+                        <p> What sets me apart is my unique blend of creativity and technical expertise. With a strong foundation in computer science and a keen eye for design, I view software as more than just functional—it’s a form of expression. To me, technology and design are inseparably linked, and I believe that many technical challenges can be simplified or even solved when approached through a visual and creative lens. </p>
+                        <p> If you’d like to learn more about my technical background and professional journey, please visit my <a href="./portfolio">portfolio page</a> or view my <a href="./resume">resume</a>. For collaborations, inquiries, or just a conversation, feel free to reach out through my <a href="./contact">contact page</a>. I look forward to connecting with you! </p>
                     </div>
                 </div>
-                <div id ="resume-content-box">
-                    <iframe id="resume-iframe" src="MaxwellColeResume2023.01.pdf"></iframe>
 
-                    
+                <div class="img-content">
+                    <img src="images/portrait_new.jpeg" alt="About Image">
                 </div>
             </div>
         </div>
+
+        <div class="spacer"></div>
+
+        <div class="horizontal-container background-gray">
+            <div class="vertical-container half margin-right-large">
+                <h2 class="text-accent-dark">Skills</h2>
+
+                <div class="text-content padding-top-bottom padding-left-right">
+                    <p> I bring a distinctive skill set that bridges creativity and technical expertise. With a strong foundation in computer science and a naturally graphic-minded approach, I excel at viewing complex problems through a creative lens. For me, software development is inherently intertwined with design—each enhancing the other to create intuitive, impactful solutions. I believe that many technical challenges can be reframed and simplified when approached visually, allowing for innovative, elegant results that resonate with users.</p>
+                </div>
+            </div>
+
+            <div class="vertical-container justify-align">
+                <h3 class="text-accent1 text-bold">Languages</h3>
+                <div class="icon-container-format">
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-c-plain"></i>
+                            <i class="devicon-cplusplus-plain"></i>
+                        </div>
+                        <p>C / C++</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <i class="devicon-python-plain"></i>
+                        <p>Python</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-html5-plain"></i>
+                            <i class="devicon-css3-plain"></i>
+                        </div>
+                        <p>HTML / CSS</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-wasm-original"></i>
+                        </div>
+                        <p>Assembly</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-nodejs-plain"></i>
+                            <i class="devicon-flask-original"></i>
+                            <i class="devicon-react-original"></i>
+                        </div>
+                        <p>NodeJS / React / Flask</p>
+                    </div>
+                </div>
+
+
+                <h3 class="text-accent2 text-bold">Tools</h3>
+                <div class="icon-container-format">
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-vscode-plain"></i>
+                        </div>
+                        <p>VS Code</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-git-plain"></i>
+                            <i class="devicon-github-original"></i>
+                        </div>
+                        <p>CI / CD</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-postman-plain"></i>
+                            <i class="devicon-docker-plain"></i>
+                        </div>
+                        <p>Postman / Docker</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-photoshop-plain"></i>
+                            <i class="devicon-illustrator-plain"></i>
+                        </div>
+                        <p>Adobe Apps</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <i class="devicon-figma-plain"></i>
+                        </div>
+                        <p>Figma</p>
+                    </div>
+                </div>
+
+
+                <h3 class="text-accent3">Skills</h3>
+                <div class="icon-container-format">
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <span class="material-symbols-outlined">
+                                monitoring
+                            </span>
+                            <span class="material-symbols-outlined">
+                                polyline
+                            </span>
+                        </div>
+                        <p>Data Driven Insights</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <span class="material-symbols-outlined">
+                                record_voice_over
+                            </span>
+                            <span class="material-symbols-outlined">
+                                groups_3
+                            </span>
+                        </div>
+                        <p>Communication</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <span class="material-symbols-outlined">
+                            groups
+                        </span>
+                        <p>Teamwork</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <span class="material-symbols-outlined">
+                            engineering
+                        </span>
+                        <p>Critical Thinking</p>
+                    </div>
+
+                    <div class="icon-group">
+                        <div class="icon-group-inner">
+                            <span class="material-symbols-outlined">
+                                brush
+                            </span>
+                            <span class="material-symbols-outlined">
+                                draw_abstract
+                            </span>
+                        </div>
+                        <p>Design Thinking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="horizontal-container center-align background-gray">
+            <h3 class="text-bold">I hope we can work together!</h3>
+
+            <div class="grow-spacer"></div>
+
+            <a href="./resume" class="button-link">
+                <button class="button button-accent2">View Resume</button>
+            </a>
+
+            <a href="./contact" class="button-link">
+                <button class="button button-accent2">Contact Me</button>
+            </a>
+        </div>
     </div>
+
 </body>
 </html>

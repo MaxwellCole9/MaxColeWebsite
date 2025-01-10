@@ -1,5 +1,92 @@
-#project-page {
-    height: 100vh;
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+.carousel-main {
+    width: 100%;
+    max-width: 70vw;
+    height: 40vw; /* Set a fixed height for the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure content doesn't overflow the container */
+    position: relative;
+    text-align: center;
+}
+
+.carousel-image {
+    max-width: 100%; /* Scale image to fit horizontally */
+    max-height: 100%; /* Scale image to fit vertically */
+    object-fit: contain; /* Ensure the image retains its aspect ratio */
+    border-radius: 5px;
+}
+
+.carousel-thumbnails-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 80vw;
+}
+
+.carousel-thumbnails {
+    display: flex;
+    gap: 1.5vw;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE 10+ */
+}
+
+.carousel-thumbnails::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+.carousel-thumbnail {
+    width: 5vw;
+    height: auto;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-thumbnail:hover,
+.carousel-thumbnail.active {
+    opacity: 1;
+    border: 2px solid #000;
+}
+
+.carousel-arrow {
+    background-color: var(--text-color);
+    color: var(--tertiary-color);
+    border: none;
+    width: 3vw;
+    height: 3vw;
+    font-size: 2vw;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-color3);
+}
+
+.left-arrow {
+    order: -1; /* Place before the thumbnails */
+}
+
+.right-arrow {
+    order: 1; /* Place after the thumbnails */
 }
 
 /* INDIVIDUAL PROJECT PAGE STYLES */
@@ -49,7 +136,6 @@
 #body-elements {
     display: flex;
     flex-direction: row;
-    border-radius: 50px;
 }
 
 #text-box {
@@ -57,8 +143,11 @@
     color: var(--text-color);
 
     animation: fadeInDropDown 1.5s ease-out;
-    margin: 2% 2% 2% 2%;
+    margin: 2.5% 2.5% 2.5% 2.5%;
     width: 50%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 #text-box img {
@@ -70,7 +159,8 @@
 }
 
 #text-box p{
-    margin: 1% 1% 1% 1%;
+    margin-bottom: 1em; /* Add space between paragraphs */
+    line-height: 1.5; /* Increase line height for better readability */
 }
 
 #text-box h2{
@@ -83,6 +173,15 @@
     margin-top: 0%;
     font-weight: 400;
     font-size: 1.2vw;
+}
+
+#text-box ul {
+    list-style-type: disc; /* Use disc bullets for list items */
+    padding-left: 1.5em; /* Add padding to the left of the list */
+}
+
+#text-box li {
+    margin-bottom: 0.5em; /* Add space between list items */
 }
 
 #contributor-section {
@@ -98,15 +197,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    width: 15vw;
-    white-space: nowrap;
+    gap: 1.5vw;
+    padding: 1vw;
 
     background-color: var(--primary-color);
     transition: background-color 0.3s ease;
-    padding: 5px 20px 5px 10px;
-    border-radius: 20px;
-    margin-top: 2.5%;
-    margin-left: 2.5%;
 }
 
 #github-button img {
@@ -118,11 +213,12 @@
     font-size: 1.5vw;
     margin-bottom: 1%;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--accent-color);
 }
 
 #github-button:hover {
-    background-color: var(--glow-color);
+    background-color: var(--accent-color3);
+    color: var(--primary-color);
 }
 
 #skills-section {
@@ -151,4 +247,75 @@
     height: 100%;
     object-fit: cover; /* Add this line */
     border-radius: 25px;
+}
+
+#projects-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0% 5% 5% 5%;
+}
+
+#project {
+    margin-top: 5%;
+}
+
+#project-header {
+    margin: 1% 1% 1% 1%;
+    padding: 2.5% 2.5% 2.5% 2.5%;
+}
+
+#project-header2 {
+    margin: 1% 1% 1% 1%;
+    padding: 2.5% 2.5% 2.5% 2.5%;
+    float: right;
+}
+
+#project-body-elements {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5%;
+}
+
+#project-sub-elements {
+    margin-top: 5%;
+}
+
+#project-sub-body-elements {
+    display: flex;
+    flex-direction: row;
+}
+
+#project-button {
+    text-decoration: none;
+    background-color: var(--card-background-color2);
+    color: var(--accent-color2);
+    padding: 1% 1.5% 1% 1.5%;
+    margin: 2% 2% 2% 2%;
+    border-radius: 25px;
+    width: fit-content;
+}
+
+#project-element-container {
+    width: 50%; /* Set width to 50% of the parent */
+    height: 300px; /* Set a fixed height, adjust as necessary */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Necessary for positioning images absolutely within */
+    overflow: hidden; /* Hide overflow to only show one image at a time */
+}
+
+.project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image maintains aspect ratio and covers the container */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.project-image.active {
+    opacity: 1;
 }

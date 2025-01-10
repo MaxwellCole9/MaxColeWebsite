@@ -11,70 +11,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bilbo&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/c2a0df19f4.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="/page-css/page.css">
     <link rel="stylesheet" href="/page-css/effects.css">
+
     <title>MaxColeWebsite</title>
 </head>
 
 <!-- Replace code background effects here -->
 <body>
-    <header id="main-header">
-        <nav>
-            <ul>
-                <li><a href="./">MAX COLE</a></li>
-                <li><a href="./about">ABOUT</a></li>
-
-                <li class="dropdown">
-                    <a href="./projects" class="dropbtn">PROJECTS</a>
-                    <div id="projects-content" class="dropdown-content">
-
-                        <p class="dropdown-label">Major Projects</p>
-                        <% projects.forEach(project => { %>
-                            <% if (project.tag === 'major') { %>
-                                <a href="./<%= project.url %>" class="drop-button"><%= project.pageTitle %></a>
-                            <% } %>
-                        <% }); %>
-
-                        <p class="dropdown-label">Minor Projects</p>
-                        <% projects.forEach(project => { %>
-                            <% if (project.tag !== 'major') { %>
-                                <a href="./<%= project.url %>" class="drop-button"><%= project.pageTitle %></a>
-                            <% } %>
-                        <% }); %>
-                    </div>
-                </li>
-
-                <li><a href="./artpage">MX.CO ART</a></li>
-                <li><a href="./contact">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <ul class ="nav-menu">
+        <a class="home-button" href="./">Maxwell Cole</a>
+        <div class="grow-spacer"></div>
+        <div class="main-menu">
+            <a class="menu-button" href="./about">About</a>
+            <a class="menu-button" href="./resume">Resume</a>
+            <a class="menu-button" href="./portfolio">Portfolio</a>
+            <a class="menu-button" href="./contact">Contact</a>
+        </div>
+    </ul>
     <!-- Main content will go here -->
     <main>
         <%- body %>
     </main>
 
+    <div class="footer">
+        <div class="container">
+            <p class="text-accent-dark"> Website custom programmed using HTML, CSS, and Node.js</p>
+            <p class="text-accent-dark">&copy; 2024 Max Cole.</p>
+        </div>
 
-    <div id="social-media-tab">
-        <button id="tab-button">
-            <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" id="tab-symbol">
-        </button>
-        <div id="social-media-icons" class="hidden">
-            <!-- Add your social media icons here -->
-            <a href="mailto:max.cole4444@gmail.com" target="_blank"><img src="symbols/icons8-connect.svg" alt="Email Icon" style="vertical-align: middle;"></a>
-            <a href="https://github.com/EatYoCharms9" target="_blank"><img src="symbols/icons8-github.svg" alt="GitHub Icon" style="vertical-align: middle;"></a>
-            <a href="https://linkedin.com/in/myusername" target="_blank"><img src="symbols/icons8-linkedin.svg" alt="LinkedIn Icon" style="vertical-align: middle;"></a>
-            <a href="https://www.instagram.com/mx.co.art/" target="_blank"><img src="symbols/icons8-instagram.svg" alt="Instagram Icon" style="vertical-align: middle;"></a>
+        <div class="grow-spacer"></div>
 
-                <!-- Add more icons as needed -->
+        <div class="footer-links background-accent-dark">
+            <a href="https://linkedin.com/in/maxwell-cole-722534265" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/maxwellcole9" target="_blank">
+                <i class="fa-brands fa-square-github"></i>
+            </a>
+            <a href="https://www.instagram.com/mx.co.art/" target="_blank">
+                <i class="fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="./contact">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
         </div>
     </div>
-
 </body>
 
 <script src="/JS-files/typingEffect.js"></script>

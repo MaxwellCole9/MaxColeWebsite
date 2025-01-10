@@ -1,29 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const slideshowContainer = document.querySelector('.slideshow-container');
-    if (!slideshowContainer) {
-        console.error('Slideshow container not found.');
-        return;
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const slideshows = document.querySelectorAll('.slideshow-container');
 
-    const projects = slideshowContainer.querySelectorAll('.project');
-    let currentProjectIndex = 0;
+    slideshows.forEach(slideshow => {
+        let images = slideshow.querySelectorAll('.project-image');
+        let currentIndex = 0;
 
-    // Function to show a specific project card
-    const showProject = index => {
-        projects.forEach((proj, idx) => {
-            proj.style.opacity = idx === index ? '1' : '0';
-        });
-    };
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
 
-    // Initially show the first project
-    showProject(currentProjectIndex);
-
-    // Function to rotate to the next project
-    const rotateProjects = () => {
-        currentProjectIndex = (currentProjectIndex + 1) % projects.length;
-        showProject(currentProjectIndex);
-    };
-
-    // Set interval for automatic rotation
-    setInterval(rotateProjects, 5000); // Rotate every 5000 milliseconds (5 seconds)
+        images[currentIndex].classList.add('active');
+        setInterval(showNextImage, 4500); // Change image every 6 seconds
+    });
 });

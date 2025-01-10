@@ -1,76 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/page-css/artpage.css">
+    <link rel="stylesheet" href="/page-css/page.css">
+    <link rel="stylesheet" href="/page-css/template.css">
     <title>Artwork Gallery</title>
-
-    <script>
-        function setupImageNavigation() {
-            const images = Array.from(document.querySelectorAll('.art-card'));
-            const previews = Array.from(document.querySelectorAll('#preview-container img'));
-            let currentImageIndex = 0;
-    
-            function updatePreviews() {
-                for (let i = 0; i < previews.length; i++) {
-                    let previewIndex = (currentImageIndex + i + 1) % images.length;
-                    previews[i].src = images[previewIndex].src;
-                    previews[i].alt = images[previewIndex].alt;
-                }
-            }
-    
-            document.getElementById('next').addEventListener('click', () => {
-                images[currentImageIndex].classList.remove('visible');
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                images[currentImageIndex].classList.add('visible');
-                updatePreviews();
-            });
-    
-            document.getElementById('prev').addEventListener('click', () => {
-                images[currentImageIndex].classList.remove('visible');
-                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                images[currentImageIndex].classList.add('visible');
-                updatePreviews();
-            });
-    
-            updatePreviews();
-        }
-    
-        document.addEventListener('DOMContentLoaded', setupImageNavigation);
-    </script>
 </head>
 <body>
-        <div id="art-title-content">
-            <div id ="title-element">
-                <h2> MX.CO ART </h2>
-            </div>
 
-            <div id="title-element">
-                <a href="https://www.instagram.com/mx.co.art/" target="_blank" id="art-button">
-                    INSTAGRAM
-                </a>
-            </div>
+    <div class="landing-section">
+        <h1>Artwork Gallery</h1>
+        <div class="color-boxes"><div class="horizontal-line"></div><div class="accent1"></div><div class="accent2"></div><div class="accent3"></div></div>
+        
+        <div class="artwork-container">
+            <% artworks.forEach(artwork => { %>
+                <div class="artwork">
+                    <div class="artwork-title"><h2><%= artwork.pageTitle %></h2></div>
+                    <img src="<%= artwork.imageSrc %>" class="artwork-image" alt="Artwork Image">
+                </div>
+            <% }); %>
         </div>
-            <div id="artwork-container">
-                <div id = "nav-section">
-                    <div id="preview-container">
-                        <% artworks.slice(0, 3).forEach(art => { %>
-                            <img src="<%= art.image %>" alt="<%= art.title %>">
-                        <% }) %>
-                    </div>
-                    <div id="button-container">
-                        <button id="prev">
-                            <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" class="tab-symbol">
-                        </button>
-                        <button id="next">
-                            <img src="symbols/expand_more_FILL0_wght400_GRAD0_opsz24.svg" class="tab-symbol">
-                        </button>
-                    </div>
-                </div>
-                <div id="slideshow">
-                    <% let i = 0; artworks.forEach(art => { %>
-                        <img class="art-card <%= i++ === 0 ? 'visible' : '' %>" src="<%= art.image %>" alt="<%= art.title %>">
-                    <% }) %>
-                </div>
-            </div>
+    </div>
 </body>
 </html>
