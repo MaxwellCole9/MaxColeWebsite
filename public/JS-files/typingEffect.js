@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const messages = [
         "Creative Technologist",
+        "Cognitive Architect",
         "Full-stack Web Designer",
         "Graphic Artist",
-        "AI Philosopher"
+        "AI Researcher and Philosopher"
     ]; // Replace with your messages
     const textElement = document.getElementById('text');
     const cursorElement = document.getElementById('cursor');
