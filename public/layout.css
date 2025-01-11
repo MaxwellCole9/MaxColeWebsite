@@ -10,6 +10,7 @@
     --background-color: #FFFAFA;
     --card-background-color: rgba(18, 18, 18, 0.7);
     --card-background-color2: rgba(10, 10, 10, 0.8);
+    --navbar-height: 10vh;
 }
 
 /* -------GENERAL STYLES-------- */
@@ -81,11 +82,10 @@ body {
 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers horizontally */
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
 
-    height: 100%;
-    height: auto;
+    min-height: 100vh;
     
     background-color: var(--background-color);
 }
@@ -95,8 +95,15 @@ body {
 }
 
 main {
-    padding: 8vw 5vw 0 5vw;
-    height: 100%;
+    padding: calc(3vw + var(--navbar-height, 10px)) 5vw 0 5vw; /* Adjusted padding */
+    width: 100%;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: calc(6vw + var(--navbar-height, 10px)) 5vw 0 5vw; /* Adjusted padding for mobile */
+    }
 }
 
 /* ELEMENTS */
@@ -175,7 +182,8 @@ main {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 9vh;
+    height: var(--navbar-height);
+    padding: 1vw;
 
     display: flex;
     flex-direction: row;
@@ -199,32 +207,10 @@ main {
     position: relative; /* Required for positioning the pseudo-element */
 }
 
-.home-button{
-    padding: 0.5vw 1vw 0.5vw 1vw;
-    margin: 0 0.75vw 0 0.75vw;
-    background-color: var(--text-color);
-    color: var(--tertiary-color);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
-
-    margin: 0 0 0 2vw;
-}
-
-.home-button:hover {
-    background-color: var(--accent-color3);
-    color: var(--background-color);
-    transform: scale(1.05);
-}
-
-.main-menu {
-    display: flex;
-    justify-content: flex-end;
-
-    margin: 0 2vw 0 0;
-}
-
 .menu-button {
-    height: 100%;
-    padding: 0.5vw 1vw 0.5vw 1vw;
+
+    height: fit-content;
+    padding: 0.75vw 1.5vw 0.75vw 1.5vw;
     margin: 0 0.75vw 0 0.75vw;
     background-color: var(--text-color);
     color: var(--tertiary-color);
@@ -233,6 +219,22 @@ main {
 
 .menu-button:hover {
     background-color: var(--accent-color3);
+    color: var(--background-color);
+    transform: scale(1.05);
+}
+
+.menu-button2 {
+
+    height: fit-content;
+    padding: 0.75vw 1.5vw 0.75vw 1.5vw;
+    margin: 0 0.75vw 0 0.75vw;
+    background-color: var(--text-color);
+    color: var(--tertiary-color);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.menu-button2:hover {
+    background-color: var(--accent-color2);
     color: var(--background-color);
     transform: scale(1.05);
 }

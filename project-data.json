@@ -79,7 +79,9 @@
         "skills": ["Software Engineering", "UI development", "Testing", "Scrum Development Framework"],
         "description": "Collaborated with a team to develop Protobiota, an artificial life simulation that enables observation of microbiological cells as they mutate and evolve. The project combined complex software engineering principles with user-friendly UI design using C++ and the Godot engine. The simulation allowed researchers and enthusiasts to explore evolutionary dynamics, fostering insights into genetic mutation and cellular behavior in a visually compelling and interactive manner.",
         "videoSrc": "videos/ALIFEdemoVid.mp4",
-        "imageSrc": ["project-thumbnails/alife_img3.png", "project-thumbnails/alife_img2.png", "project-thumbnails/alife_img.png"],
+        "imageDesc":["Final Release", "Beta Version", "Alpha Version", "Alpha Version", "Final Release Menus", "Genome Functionality"],
+        "imageSrc": ["project-imgs/protobiota/alife1.png", "project-imgs/protobiota/alife2.png", "project-imgs/protobiota/alife3.png", "project-imgs/protobiota/alife4.png", "project-imgs/protobiota/alife5.png", "project-imgs/protobiota/alife6.png"],
+        "filesSrc": "files/protobiota",
         "tag": "coding"
     },
     {
@@ -108,6 +110,7 @@
         "description": "Led a team to create the Dynamic Recipe App, a platform for users to manage, import, export, and share recipes. The app featured an intuitive interface built with React and Node.js, allowing users to organize their recipes dynamically and generate shopping lists seamlessly. Following the Scrum development framework, the project emphasized collaborative engineering, iterative testing, and responsive UI design to deliver a practical and user-centric solution for culinary enthusiasts.",
         "videoSrc": "videos/Dynamic_recipes_demo.mp4",
         "imageSrc": "project-thumbnails/dynamic_img.png",
+        "filesSrc": "files/dynamic-recipe",
         "tag": "coding"
     },
     {

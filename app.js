@@ -1,6 +1,7 @@
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const fs = require('fs');
+const path = require('path');
 
 const app = express ()
 
@@ -67,7 +68,20 @@ app.get('/:page', (req, res) => {
 
     if (pageData) {
         const allProjects = data.map(d => d.url);
-        res.render('template', { ...pageData, allProjects });
+
+        // Retrieve files if filesSrc exists
+        let files = [];
+        if (pageData.filesSrc) {
+            const filesPath = path.join(__dirname, 'public', pageData.filesSrc);
+            try {
+                files = fs.readdirSync(filesPath); // Read all files in the directory
+            } catch (err) {
+                console.error(`Error reading files from ${filesPath}:`, err);
+            }
+        }
+
+        // Pass the data to the EJS template
+        res.render('template', { ...pageData, allProjects, files });
     } else {
         res.status(404).send('Page not found');
     }

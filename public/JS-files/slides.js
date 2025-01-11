@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="/${project.url}" class="grid-link">
                 <div class="grid-container">
                     <img src="${getThumbnail(project.imageSrc)}" alt="${project.pageTitle}" class="grid-img">
-                    <div class="grid-container-inner center-algin">
-                        <h3 class="text-accent-dark">${project.pageTitle}</h3>
+                    <h3 class="grid-title">${project.pageTitle}</h3>
+                    <div class="grid-container-inner">
                         <p class="project-description">${project.description}</p>
                         <p class="click-to-view">View Project Page</p>
                     </div>
