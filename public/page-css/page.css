@@ -466,11 +466,12 @@
 /* IMAGE CONTENT */
 
 .about-image {
-    width: 50%;
+    flex: 0 0 auto;
+    max-width: 35%;
     height: auto;
-
-    padding: 2vw;
+    object-fit: cover;
 }
+
 
 .vertical-banner {
     display: flex;
