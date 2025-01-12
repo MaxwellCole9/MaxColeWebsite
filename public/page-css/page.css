@@ -740,13 +740,28 @@
 .contact {
     display: flex;
     flex-direction: row;
-    gap: 0.5vw;
+    gap: 1.5vw;
 
     text-decoration: none;
     color: var(--text-color);
     align-items: center;
 
+    width: fit-content;
+    padding: 1.5vw;
+    background-color: var(--tertiary-color);
+
     margin: 0.25% 0 0.25% 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.email {
+    background-color: var(--tertiary-color);
+    width: fit-content;
+    padding: 1.5vw;
+}
+
+.contact:hover {
+    transform: scale(1.1)
 }
 
 .contact i {
@@ -770,6 +785,7 @@
     display: flex;
     flex-direction: row;
     height: 15vw;
+    width: 100%;
     box-sizing: border-box;
     overflow: hidden; /* Prevent content overflow */
     transition: transform 0.3s ease-in-out; /* Smooth hover scaling */
