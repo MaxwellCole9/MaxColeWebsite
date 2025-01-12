@@ -58,19 +58,20 @@
 .landing {
     display: flex;
     flex-direction: column;
-
-    height: 90vh; /* Take up the full viewport height on desktop */
+    justify-content: center;
+    height: 80vh; /* Take up 90% of the viewport height on desktop */
     padding: 2rem 1rem;
     box-sizing: border-box;
 }
 
-/* Mobile Adjustments */
+/* Mobile-specific adjustments */
 @media (max-width: 768px) {
     .landing {
-        height: auto; /* Allow the content to define the height */
-        padding: 3rem 1rem; /* Add spacing for better visuals */
+        height: 30vh; /* Take up the full viewport height on mobile */
+        padding: 1rem; /* Adjust padding for mobile */
     }
 }
+
 
 .section {
     min-height: 90vh;
