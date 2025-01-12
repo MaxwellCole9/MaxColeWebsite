@@ -55,10 +55,21 @@
 
 /* TEMPLATES */
 
-.landing{
-    min-height: 90vh;
-    align-items: center;
-    justify-content: center;
+.landing {
+    display: flex;
+    flex-direction: column;
+
+    height: 90vh; /* Take up the full viewport height on desktop */
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .landing {
+        height: auto; /* Allow the content to define the height */
+        padding: 3rem 1rem; /* Add spacing for better visuals */
+    }
 }
 
 .section {

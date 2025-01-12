@@ -184,8 +184,7 @@ main {
     width: 100%;
     height: var(--navbar-height);
 
-    padding: 0 2.5vw 0 2.5vw;
-
+    padding: 0 2.5vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -198,7 +197,7 @@ main {
 }
 
 .nav-menu a {
-    font-size: 1.5vw;
+    font-size: 1.2rem; /* Base size for desktop */
     font-weight: 600;
     font-family: 'Hanken Grotesk', sans-serif;
 
@@ -206,21 +205,55 @@ main {
     text-decoration: none;
 
     position: relative; /* Required for positioning the pseudo-element */
+    color: var(--text-color);
 }
 
 .menu-button {
     height: fit-content;
-    padding: 0.5vw 1vw 0.5vw 1vw;
-    margin: 0 0.5vw 0 0.5vw;
+    padding: 0.6rem 1.2rem; /* Larger padding for better usability */
+    margin: 0 0.75rem;
     background-color: var(--secondary-color);
     color: var(--text-color);
+    font-size: 1.2rem; /* Matches link font size */
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .menu-button:hover {
     background-color: var(--accent-color3);
     color: var(--light-text-color);
-    transform: scale(1.05);
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column; /* Stack menu items vertically */
+        height: auto; /* Let height adjust dynamically */
+        padding: 1rem 2rem; /* Reduce padding for smaller viewports */
+    }
+
+    .nav-menu a {
+        font-size: 1.4rem; /* Slightly larger font for better readability */
+        margin: 0.5rem 0; /* Add spacing between stacked links */
+    }
+
+    .menu-button {
+        font-size: 1.3rem; /* Increase size for touch targets */
+        padding: 0.8rem 1.5rem; /* Increase padding for better touch usability */
+        width: 100%; /* Full-width buttons for easier taps */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu a {
+        font-size: 1.6rem; /* Further increase font size for small screens */
+    }
+
+    .menu-button {
+        font-size: 1.5rem; /* Ensure buttons are large enough */
+        padding: 1rem 2rem; /* Ample padding for touch screens */
+    }
 }
 
 /* FOOTER */
