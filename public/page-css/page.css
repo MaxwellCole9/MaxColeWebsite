@@ -793,7 +793,6 @@
     flex-direction: row;
     width: 100%; /* Ensure the row stretches to the bounding box width */
     height: auto; /* Let the height adjust based on the content */
-    min-height: 15vw;
     box-sizing: border-box;
     overflow: hidden; /* Prevent content overflow */
     transition: transform 0.3s ease-in-out; /* Smooth hover scaling */
