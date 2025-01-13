@@ -774,7 +774,6 @@
 }
 
 /* SLIDE CONTAINERS */
-
 /* Container for All Grid Items (Stacked Rows) */
 .grid-container-format {
     display: flex;
@@ -788,10 +787,9 @@
 /* Individual Grid Item */
 .grid-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Horizontal layout */
     width: 100%; /* Ensure the row stretches to the bounding box width */
-    min-height: 15vw; /* Set a minimum height to handle one-line titles */
-    height: auto; /* Allow height to adjust dynamically */
+    height: 250px; /* Set a fixed height for all grid items */
     box-sizing: border-box; /* Include padding in width/height calculations */
     overflow: hidden; /* Prevent content overflow */
     transition: transform 0.3s ease-in-out; /* Smooth hover scaling */
@@ -805,14 +803,14 @@
 .grid-title {
     flex: 0 0 35%; /* Fixed width for the title section */
     display: flex;
-    align-items: center; /* Align text to the top of the container */
-    justify-content: flex-start; /* Align text to the left */
+    align-items: center; /* Center title vertically */
+    justify-content: flex-start; /* Align title to the left */
     background-color: var(--accent-dark);
-    padding: 1.5vw; /* Inner padding */
+    padding: 1.5vw; /* Use rem for consistent padding */
     box-sizing: border-box; /* Include padding in width calculations */
     overflow: hidden; /* Prevent content overflow */
     text-overflow: ellipsis; /* Add ellipsis for long text */
-    min-height: 4vw; /* Ensure enough height for a one-line title */
+    height: 100%; /* Match the container height */
 }
 
 .grid-title h3 {
@@ -829,12 +827,11 @@
     position: relative; /* For overlay positioning */
     overflow: hidden; /* Prevent image overflow */
     background-color: var(--accent-dark); /* Fallback background color */
-    height: auto; /* Let height adjust dynamically */
+    height: 100%; /* Match the container height */
     box-sizing: border-box;
-    aspect-ratio: 16 / 9; /* Maintain consistent image aspect ratio */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .grid-img {
@@ -861,7 +858,7 @@
     flex-direction: column; /* Stack text and button */
     justify-content: center; /* Center content vertically */
     align-items: flex-start; /* Align text to the left */
-    padding: 2vw; /* Inner padding for overlay */
+    padding: 1.5vw; /* Inner padding for overlay */
     transition: opacity 0.3s ease-in-out; /* Smooth fade-in */
 }
 
@@ -872,23 +869,24 @@
 /* Project Description */
 .project-description {
     color: var(--secondary-color);
-    font-size: 1vw; /* Font size for description */
+    font-size: 0.9rem; /* Adjust font size for better scalability */
     text-align: left; /* Align text to the left */
-    line-height: 1.5; /* Spacing between lines */
-    margin: 0 0 0.5vw; /* Add space below the description */
-    overflow: hidden; /* Prevent content overflow */
+    line-height: 1.4; /* Spacing between lines */
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Prevent text overflow */
     text-overflow: ellipsis; /* Add ellipsis for overflow */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* Limit to 4 lines */
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
 }
 
 /* "Click to View" */
 .click-to-view {
     color: var(--secondary-color); /* Button text color */
-    font-size: 1.2vw; /* Match other h3 font size */
+    font-size: 1.2vw; /* Adjust font size */
     font-weight: 600; /* Bold text */
-    margin: 0; /* Remove default margin */
+    margin: 0.5rem 0 0; /* Add slight spacing above */
+    text-align: center; /* Center-align button text */
 }
 
 /* General Link Styles */
