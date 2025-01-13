@@ -787,9 +787,9 @@
 /* Individual Grid Item */
 .grid-container {
     display: flex;
-    flex-direction: row; /* Horizontal layout */
+    flex-direction: row; /* Horizontal layout for desktop */
     width: 100%; /* Ensure the row stretches to the bounding box width */
-    height: 250px; /* Set a fixed height for all grid items */
+    height: 250px; /* Set a fixed height for each grid item */
     box-sizing: border-box; /* Include padding in width/height calculations */
     overflow: hidden; /* Prevent content overflow */
     transition: transform 0.3s ease-in-out; /* Smooth hover scaling */
@@ -806,7 +806,7 @@
     align-items: center; /* Center title vertically */
     justify-content: flex-start; /* Align title to the left */
     background-color: var(--accent-dark);
-    padding: 1.5vw; /* Use rem for consistent padding */
+    padding: 1rem; /* Use rem for consistent padding */
     box-sizing: border-box; /* Include padding in width calculations */
     overflow: hidden; /* Prevent content overflow */
     text-overflow: ellipsis; /* Add ellipsis for long text */
@@ -815,7 +815,7 @@
 
 .grid-title h3 {
     color: var(--light-text-color);
-    font-size: 2.5vw; /* Adjust font size for visibility */
+    font-size: 1.5rem; /* Adjust font size for visibility */
     font-weight: 600; /* Bold text */
     margin: 0; /* Remove default margin */
     line-height: 1.2; /* Control line spacing for multi-line titles */
@@ -858,7 +858,7 @@
     flex-direction: column; /* Stack text and button */
     justify-content: center; /* Center content vertically */
     align-items: flex-start; /* Align text to the left */
-    padding: 1.5vw; /* Inner padding for overlay */
+    padding: 1rem; /* Inner padding for overlay */
     transition: opacity 0.3s ease-in-out; /* Smooth fade-in */
 }
 
@@ -883,7 +883,7 @@
 /* "Click to View" */
 .click-to-view {
     color: var(--secondary-color); /* Button text color */
-    font-size: 1.2vw; /* Adjust font size */
+    font-size: 1rem; /* Adjust font size */
     font-weight: 600; /* Bold text */
     margin: 0.5rem 0 0; /* Add slight spacing above */
     text-align: center; /* Center-align button text */
@@ -893,4 +893,34 @@
 a.grid-link {
     text-decoration: none; /* Remove underline from links */
     color: inherit; /* Inherit text color */
+}
+
+/* Responsive Media Query */
+@media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column; /* Stack title and image vertically */
+        height: auto; /* Allow flexible height on smaller screens */
+    }
+
+    .grid-title {
+        flex: 0 0 auto; /* Allow title to adjust dynamically */
+        padding: 0.8rem; /* Adjust padding for smaller screens */
+    }
+
+    .grid-title h3 {
+        font-size: 1.2rem; /* Scale down font size */
+    }
+
+    .grid-img-container {
+        aspect-ratio: auto; /* Allow image to resize naturally */
+        height: auto; /* Let height adjust dynamically */
+    }
+
+    .grid-img {
+        object-fit: contain; /* Ensure the whole image fits within the container */
+    }
+
+    .project-description {
+        font-size: 0.8rem; /* Adjust font size for readability */
+    }
 }
