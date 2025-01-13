@@ -48,40 +48,74 @@
 
         <div class="carousel padding-top-bottom">
             <div class="carousel-main">
-                <% if (Array.isArray(imageSrc)) { %>
-                    <% imageSrc.forEach(function(image, index) { %>
-                        <div class="carousel-slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
-                            <img src="<%= image %>" alt="Project Image" class="carousel-image">
-                            <% if (typeof imageDesc !== 'undefined' && Array.isArray(imageDesc) && imageDesc[index]) { %>
-                                <h3 class="image-desc"><%= imageDesc[index] %></h3>
-                            <% } %>
+                <!-- Render Images -->
+                <% if (imageSrc) { %>
+                    <% if (Array.isArray(imageSrc)) { %>
+                        <% imageSrc.forEach(function (image, index) { %>
+                            <div class="carousel-slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+                                <img src="<%= image %>" alt="Project Image" class="carousel-image">
+                                <% if (typeof imageDesc !== 'undefined' && Array.isArray(imageDesc) && imageDesc[index]) { %>
+                                    <h3 class="image-desc"><%= imageDesc[index] %></h3>
+                                <% } %>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="carousel-slide active" data-index="0">
+                            <img src="<%= imageSrc %>" alt="Project Image" class="carousel-image">
                         </div>
-                    <% }); %>
-                <% } else { %>
+                    <% } %>
+                <% } %>
+        
+                <!-- Render Video -->
+                <% if (typeof videoSrc !== 'undefined' && videoSrc) { %>
+                    <div class="carousel-slide <%= !imageSrc ? 'active' : '' %>" data-index="<%= Array.isArray(imageSrc) ? imageSrc.length : 1 %>">
+                        <video class="carousel-video" controls>
+                            <source src="<%= videoSrc %>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <% if (typeof imageDesc !== 'undefined' && Array.isArray(imageDesc) && imageDesc[imageDesc.length - 1]) { %>
+                            <h3 class="image-desc"><%= imageDesc[imageDesc.length - 1] %></h3>
+                        <% } %>
+                    </div>
+                <% } %>
+        
+                <!-- Handle Case Where No Media -->
+                <% if (!imageSrc && !videoSrc) { %>
                     <div class="carousel-slide active">
-                        <img src="<%= imageSrc %>" alt="Project Image" class="carousel-image">
+                        <p>No media available.</p>
                     </div>
                 <% } %>
             </div>
+        
+            <!-- Thumbnails -->
             <div class="carousel-thumbnails-container">
                 <button class="carousel-arrow left-arrow">&lt;</button>
                 <div class="carousel-thumbnails">
-                    <% if (Array.isArray(imageSrc)) { %>
-                        <% imageSrc.forEach(function(image, index) { %>
-                            <img src="<%= image %>" alt="Project Thumbnail" class="carousel-thumbnail <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
-                        <% }); %>
-                    <% } else { %>
-                        <img src="<%= imageSrc %>" alt="Project Thumbnail" class="carousel-thumbnail active">
+                    <!-- Image Thumbnails -->
+                    <% if (imageSrc) { %>
+                        <% if (Array.isArray(imageSrc)) { %>
+                            <% imageSrc.forEach(function (image, index) { %>
+                                <img src="<%= image %>" alt="Thumbnail" class="carousel-thumbnail <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+                            <% }); %>
+                        <% } else { %>
+                            <img src="<%= imageSrc %>" alt="Thumbnail" class="carousel-thumbnail active" data-index="0">
+                        <% } %>
+                    <% } %>
+        
+                    <!-- Video Thumbnail -->
+                    <% if (typeof videoSrc !== 'undefined' && videoSrc) { %>
+                        <div class="carousel-thumbnail video-thumbnail" data-index="<%= Array.isArray(imageSrc) ? imageSrc.length : 1 %>">
+                            <span class="video-label">Video</span>
+                        </div>
                     <% } %>
                 </div>
                 <button class="carousel-arrow right-arrow">&gt;</button>
             </div>
         </div>
-        
+
         <div class="spacer"></div>
 
         <% if (typeof filesSrc !== 'undefined' && filesSrc.length > 0 && files && files.length > 0) { %>
-            <div class="file-section">
                 <h3 class="text-accent3 text-bold">Project Files</h3>
                 <div class="file-list padding-top-bottom">
                     <% files.forEach(file => { %>
@@ -144,39 +178,45 @@
             const leftArrow = document.querySelector(".left-arrow");
             const rightArrow = document.querySelector(".right-arrow");
             let currentIndex = 0;
-    
+        
             const updateCarousel = (newIndex) => {
+                // Pause any videos currently playing
+                const currentSlideVideo = slides[currentIndex].querySelector("video");
+                if (currentSlideVideo) {
+                    currentSlideVideo.pause();
+                }
+        
                 // Update active slide
                 slides.forEach((slide, index) => {
                     slide.classList.toggle("active", index === newIndex);
                 });
-    
+        
                 // Update active thumbnail
                 thumbnails.forEach((thumb, index) => {
                     thumb.classList.toggle("active", index === newIndex);
                 });
-    
+        
                 currentIndex = newIndex;
             };
-    
+        
             // Thumbnail click handler
             thumbnails.forEach((thumbnail, index) => {
                 thumbnail.addEventListener("click", () => {
                     updateCarousel(index);
                 });
             });
-    
+        
             // Arrow click handlers
             leftArrow.addEventListener("click", () => {
                 const newIndex = (currentIndex - 1 + slides.length) % slides.length;
                 updateCarousel(newIndex);
             });
-    
+        
             rightArrow.addEventListener("click", () => {
                 const newIndex = (currentIndex + 1) % slides.length;
                 updateCarousel(newIndex);
             });
-    
+        
             // Initialize the carousel
             updateCarousel(currentIndex);
         });

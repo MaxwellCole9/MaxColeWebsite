@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             src="${getThumbnail(project.imageSrc)}" 
                             alt="${project.pageTitle}" 
                             class="grid-img"
+                            loading="lazy"
                         >
                         <div class="grid-container-inner">
                             <p class="project-description">${project.description}</p>

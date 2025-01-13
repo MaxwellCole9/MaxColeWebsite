@@ -67,7 +67,7 @@
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
     .landing {
-        height: 30vh; /* Take up the full viewport height on mobile */
+        height: 20vh; /* Take up the full viewport height on mobile */
         padding: 1rem; /* Adjust padding for mobile */
     }
 }
@@ -345,6 +345,13 @@
 
 .text-accent-hero {
     font-style: italic;
+}
+
+.text-accent-test {
+    color: var(--accent-color);
+    width: fit-content;
+    padding: 0.5vw 1.25vw 0.5vw 1.25vw;
+    text-transform: uppercase;
 }
 
 
@@ -784,35 +791,34 @@
 .grid-container {
     display: flex;
     flex-direction: row;
-    height: 15vw;
-    width: 100%;
+    width: 100%; /* Ensure the row stretches to the bounding box width */
+    height: auto; /* Let the height adjust based on the content */
+    min-height: 15vw;
     box-sizing: border-box;
     overflow: hidden; /* Prevent content overflow */
     transition: transform 0.3s ease-in-out; /* Smooth hover scaling */
 }
 
 .grid-container:hover {
-    transform: scale(1.02); /* Slight zoom effect on hover */
+    transform: scale(1.01); /* Slight zoom effect on hover */
 }
 
 /* Title Section */
 .grid-title {
-    flex: 0 0 35%; /* 30% width */
+    flex: 0 0 35%; /* Fixed width for the title section */
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: var(--accent-dark); /* Dark background */
-    padding: 1vw;
+    background-color: var(--accent-dark);
+    padding: 2.5vw; /* Adjust padding to match the design */
     box-sizing: border-box;
     overflow: hidden;
-    white-space: normal; /* Allow wrapping */
-    text-overflow: ellipsis; /* Ellipsis for long text */
-    padding: 2.5vw;
+    text-overflow: ellipsis;
 }
 
 .grid-title h3 {
     color: var(--light-text-color);
-    font-size: 2.5vw;
+    font-size: 2.25vw;
     font-weight: 600;
     margin: 0;
 }
@@ -823,21 +829,24 @@
 
 /* Image Section */
 .grid-img-container {
-    flex: 1; /* 70% width */
+    flex: 1; /* Take up remaining width not used by the title */
+    position: relative; /* For maintaining aspect ratio */
+    overflow: hidden;
+    background-color: var(--accent-dark); /* Fallback background */
+    height: auto; /* Adjust height dynamically */
+    box-sizing: border-box;
+
+    /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Adjust to match the desired ratio of images */
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* For overlay positioning */
-    overflow: hidden;
-    background-color: var(--accent-dark); /* Optional background */
-    height: 100%; /* Match row height */
-    box-sizing: border-box;
 }
 
 .grid-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
+    width: 100%; /* Scale the image to fit the container width */
+    height: 100%; /* Maintain the aspect ratio */
+    object-fit: cover; /* Prevent distortion and ensure the whole image displays */
     transition: filter 0.3s ease-in-out; /* Smooth hover effect */
 }
 

@@ -17,7 +17,6 @@
     max-width: 100%; /* Scale the image to fit within the container */
     max-height: 100%; /* Ensure the image doesn't overflow vertically */
     object-fit: contain; /* Prevent distortion and maintain aspect ratio */
-    border-radius: 5px;
     z-index: 1; /* Ensure the image is behind the description */
 }
 
@@ -89,7 +88,6 @@
 .carousel-thumbnail:hover,
 .carousel-thumbnail.active {
     opacity: 1;
-    border: 2px solid #000;
 }
 
 .carousel-arrow {
@@ -121,6 +119,44 @@
     order: 1; /* Place after the thumbnails */
 }
 
+.carousel-video {
+    width: 100%; /* Make the video fill the width of the container */
+    height: 100%; /* Make the video fill the height of the container */
+    object-fit: contain; /* Ensure the video maintains its aspect ratio without stretching */
+    background-color: black; /* Optional: Add a background for videos */
+}
+
+.video-thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vw; /* Same size as image thumbnails */
+    height: 5vw; /* Ensure it's square like image thumbnails */
+    background-color: var(--primary-color); /* Match the thumbnail background */
+    color: var(--text-color); /* Text color for "Video" label */
+    cursor: pointer;
+    opacity: 0.7; /* Consistent with image thumbnails */
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-size: 0.8rem; /* Adjust text size for the "Video" label */
+    text-align: center;
+}
+
+.video-thumbnail:hover,
+.video-thumbnail.active {
+    opacity: 1; /* Fully opaque when active or hovered */
+    background-color: var(--accent-color); /* Highlight active state */
+    color: var(--light-text-color); /* Contrast text color for hover state */
+}
+
+.video-label {
+    font-family: 'Karman Grotesk', sans-serif;
+    font-weight: 450;
+
+    text-transform: uppercase; /* Make the text stand out */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Prevent text overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
 /* INDIVIDUAL PROJECT PAGE STYLES */
 
 #info-card {
