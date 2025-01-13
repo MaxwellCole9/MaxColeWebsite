@@ -347,10 +347,8 @@
     font-style: italic;
 }
 
-.text-accent-test {
-    color: var(--accent-color);
-    width: fit-content;
-    padding: 0.5vw 1.25vw 0.5vw 1.25vw;
+.title-text-accent {
+    color: var(--accent-color2);
     text-transform: uppercase;
 }
 
@@ -782,8 +780,8 @@
     display: flex;
     flex-direction: column; /* Stacked rows */
     gap: 1vw; /* Space between rows */
-    width: 100%;
-    padding: 0 1.5vw 0 1.5vw;
+    width: 100%; /* Full width of the bounding box */
+    padding: 0 1.5vw; /* Padding for inner content */
     box-sizing: border-box; /* Include padding and borders in width */
 }
 
@@ -792,8 +790,9 @@
     display: flex;
     flex-direction: row;
     width: 100%; /* Ensure the row stretches to the bounding box width */
-    height: auto; /* Let the height adjust based on the content */
-    box-sizing: border-box;
+    min-height: 15vw; /* Set a minimum height to handle one-line titles */
+    height: auto; /* Allow height to adjust dynamically */
+    box-sizing: border-box; /* Include padding in width/height calculations */
     overflow: hidden; /* Prevent content overflow */
     transition: transform 0.3s ease-in-out; /* Smooth hover scaling */
 }
@@ -806,69 +805,64 @@
 .grid-title {
     flex: 0 0 35%; /* Fixed width for the title section */
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: center; /* Align text to the top of the container */
+    justify-content: flex-start; /* Align text to the left */
     background-color: var(--accent-dark);
-    padding: 2.5vw; /* Adjust padding to match the design */
-    box-sizing: border-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 1.5vw; /* Inner padding */
+    box-sizing: border-box; /* Include padding in width calculations */
+    overflow: hidden; /* Prevent content overflow */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    min-height: 4vw; /* Ensure enough height for a one-line title */
 }
 
 .grid-title h3 {
     color: var(--light-text-color);
-    font-size: 2.25vw;
-    font-weight: 600;
-    margin: 0;
-}
-
-.grid-title h3:hover {
-    text-decoration: none; /* No underline on hover */
+    font-size: 2.5vw; /* Adjust font size for visibility */
+    font-weight: 600; /* Bold text */
+    margin: 0; /* Remove default margin */
+    line-height: 1.2; /* Control line spacing for multi-line titles */
 }
 
 /* Image Section */
 .grid-img-container {
-    flex: 1; /* Take up remaining width not used by the title */
-    position: relative; /* For maintaining aspect ratio */
-    overflow: hidden;
-    background-color: var(--accent-dark); /* Fallback background */
-    height: auto; /* Adjust height dynamically */
+    flex: 1; /* Take up the remaining width */
+    position: relative; /* For overlay positioning */
+    overflow: hidden; /* Prevent image overflow */
+    background-color: var(--accent-dark); /* Fallback background color */
+    height: auto; /* Let height adjust dynamically */
     box-sizing: border-box;
-
-    /* Maintain aspect ratio */
-    aspect-ratio: 16 / 9; /* Adjust to match the desired ratio of images */
+    aspect-ratio: 16 / 9; /* Maintain consistent image aspect ratio */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .grid-img {
-    width: 100%; /* Scale the image to fit the container width */
-    height: 100%; /* Maintain the aspect ratio */
-    object-fit: cover; /* Prevent distortion and ensure the whole image displays */
+    width: 100%; /* Scale to fill the container width */
+    height: 100%; /* Scale to fill the container height */
+    object-fit: cover; /* Maintain aspect ratio without distortion */
     transition: filter 0.3s ease-in-out; /* Smooth hover effect */
 }
 
 .grid-container:hover .grid-img {
-    filter: brightness(25%); /* Dim image on hover */
+    filter: brightness(25%); /* Dim the image on hover */
 }
 
 /* Hoverable Content (Overlay) */
 .grid-container-inner {
-    position: absolute; /* Overlay on the image */
+    position: absolute; /* Overlay on top of the image */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Cover the full width of the image */
+    height: 100%; /* Cover the full height of the image */
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     opacity: 0; /* Hidden by default */
     display: flex;
-    flex-direction: column;
-    gap: 0.5vw;
-    justify-content: center; /* Align content at the top */
-    align-items: flex-start; /* Align items to the left */
-    padding: 2vw; /* Padding inside overlay */
-    transition: opacity 0.3s ease-in-out; /* Smooth fade-in effect */
+    flex-direction: column; /* Stack text and button */
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align text to the left */
+    padding: 2vw; /* Inner padding for overlay */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in */
 }
 
 .grid-container:hover .grid-container-inner {
@@ -878,29 +872,27 @@
 /* Project Description */
 .project-description {
     color: var(--secondary-color);
-    font-size: 1vw;
-    text-align: left; /* Align text to the start */
-    line-height: 1.5;
-    margin: 0 0 1vw; /* Spacing below description */
-    padding: 0; /* Reset padding */
-    overflow: hidden; /* Prevent text overflow */
-    text-overflow: ellipsis; /* Ellipsis for overflow text */
+    font-size: 1vw; /* Font size for description */
+    text-align: left; /* Align text to the left */
+    line-height: 1.5; /* Spacing between lines */
+    margin: 0 0 0.5vw; /* Add space below the description */
+    overflow: hidden; /* Prevent content overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* Restrict to 4 lines */
+    -webkit-line-clamp: 4; /* Limit to 4 lines */
 }
 
 /* "Click to View" */
 .click-to-view {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Button text color */
     font-size: 1.2vw; /* Match other h3 font size */
-    font-weight: 600;
-    text-align: left; /* Align with description */
-    margin: 0; /* No extra margin */
+    font-weight: 600; /* Bold text */
+    margin: 0; /* Remove default margin */
 }
 
 /* General Link Styles */
 a.grid-link {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use inherited text color */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
 }

@@ -390,54 +390,55 @@
 
 /* FILE SECTION */
 
-/* FILE SECTION */
 .file-section {
-    padding: 1.5vw;
-    background-color: var(--tertiary-color);
+    padding: 1rem; /* Use rem for better scalability across devices */
+    background-color: var(--tertiary-color); /* Background color for section */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
 .file-list {
     display: flex;
-    flex-direction: column;
-    gap: 1vw;
+    flex-direction: column; /* Stack items vertically */
+    gap: 1vw; /* Space between rows */
+    width: 100%; /* Ensure full width of the container */
 }
 
 .file-row {
-    background-color: var(--secondary-color);
-    padding: 1.5vw;
+    background-color: var(--tertiary-color); /* Row background color */
+    padding: 1vw; /* Use rem for consistent padding */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack content in small screens */
     align-items: center; /* Center align all content */
-    transition: all 0.3s ease; /* Smooth transition */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .file-info {
     display: flex;
-    justify-content: space-between; /* Spread elements evenly */
-    align-items: center; /* Center vertically */
-    width: 100%; /* Ensure full-width alignment */
-    gap: 1vw; /* Spacing between items */
-    padding: 0.5vw; /* Padding for better alignment */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    align-items: center; /* Center content vertically */
+    width: 100%; /* Ensure content spans the full row width */
+    gap: 0.5rem; /* Space between items */
+    padding: 0.5rem; /* Padding for alignment */
 }
 
-/* Ensure file name is on one line */
+/* File name styling */
 .file-info h3 {
-    flex: 1; /* Take up remaining space */
-    text-align: left; /* Align file name to the left */
-    margin: 0;
-    color: var(--text-color);
-    white-space: nowrap; /* Prevent wrapping */
+    text-align: left; /* Align text to the left */
+    margin-right: 1.5vw; /* Remove default margin */
+    color: var(--text-color); /* Text color */
+    white-space: nowrap; /* Prevent wrapping of file name */
     overflow: hidden; /* Hide overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    text-overflow: ellipsis; /* Show ellipsis for overflow */
 }
 
+/* Toggle button styling */
 .file-toggle {
-    background: none;
-    border: none;
-    color: var(--text-color); /* Accent color for toggle arrow */
-    font-size: 1.5rem; /* Slightly larger for better visibility */
-    cursor: pointer;
-    transition: transform 0.3s ease; /* Smooth rotation */
+    background: none; /* No background for button */
+    border: none; /* Remove border */
+    color: var(--text-color); /* Accent color for toggle */
+    font-size: 1.5vw; /* Adjust font size for visibility */
+    cursor: pointer; /* Pointer cursor for button */
+    transition: transform 0.3s ease; /* Smooth rotation on active */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -447,30 +448,31 @@
     transform: rotate(180deg); /* Rotate arrow when active */
 }
 
+/* Collapsible content viewer */
 .file-viewer {
-    max-height: 0;
-    overflow: hidden;
-    margin-top: 1rem;
+    max-height: 0; /* Start collapsed */
+    overflow: hidden; /* Hide overflowing content */
+    margin-top: 1rem; /* Space above the viewer */
     padding: 0;
-    background-color: var(--background-color-light);
-    color: var(--text-color);
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    opacity: 0; /* Smooth fade-in */
+    background-color: var(--background-color-light); /* Light background */
+    color: var(--text-color); /* Text color */
+    transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+    opacity: 0; /* Start hidden */
     display: flex;
     justify-content: center;
-    align-items: center; /* Center iframe content */
+    align-items: center; /* Center the iframe content */
     width: 100%;
 }
 
 .file-viewer.active {
-    max-height: 40vw; /* Maximum expanded height */
-    opacity: 1;
-    padding: 1vw; /* Add padding when expanded */
+    max-height: 60vh; /* Set a responsive max height */
+    opacity: 1; /* Fully visible */
+    padding: 1rem; /* Add padding when expanded */
 }
 
+/* Iframe inside viewer */
 .file-viewer iframe {
     width: 100%;
-    height: 40vw;
-    border: none;
-    border-radius: 0.5vw; /* Rounded edges for better visuals */
+    height: 60vh; /* Adjust height for responsiveness */
+    border: none; /* Remove iframe border */
 }

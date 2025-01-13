@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="landing-section">
-        <h1>Project Overview</h1>
+        <h1 class="title-text-accent">Project Overview</h1>
         <div class="color-boxes">
             <div class="horizontal-line"></div>
             <div class="accent1"></div>
@@ -122,11 +122,11 @@
                         <div class="file-row">
                             <div class="file-info">
                                 <h3><%= file %></h3>
+                                <button class="file-toggle" data-file="<%= file %>">▼</button>
+                                <div class="grow-spacer"></div>
                                 <a href="/<%= filesSrc %>/<%= file %>" download>
                                     <button class="button button-accent3">Download</button>
                                 </a>
-                                <div class="grow-spacer"></div>
-                                <button class="file-toggle" data-file="<%= file %>">▼</button>
                             </div>
                             <div class="file-viewer hidden" id="viewer-<%= file.replace(/[^a-zA-Z0-9]/g, '-') %>">
                                 <iframe src="/<%= filesSrc %>/<%= file %>" frameborder="0"></iframe>
