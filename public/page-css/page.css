@@ -815,7 +815,7 @@
 
 .grid-title h3 {
     color: var(--light-text-color);
-    font-size: 1.5rem; /* Adjust font size for visibility */
+    font-size: 2.5rem; /* Adjust font size for visibility */
     font-weight: 600; /* Bold text */
     margin: 0; /* Remove default margin */
     line-height: 1.2; /* Control line spacing for multi-line titles */
@@ -828,6 +828,8 @@
     overflow: hidden; /* Prevent image overflow */
     background-color: var(--accent-dark); /* Fallback background color */
     height: 100%; /* Match the container height */
+    width: 100%;
+    flex: 1;
     box-sizing: border-box;
     display: flex;
     align-items: center; /* Center content vertically */
@@ -858,7 +860,7 @@
     flex-direction: column; /* Stack text and button */
     justify-content: center; /* Center content vertically */
     align-items: flex-start; /* Align text to the left */
-    padding: 1rem; /* Inner padding for overlay */
+    padding: 2.5rem; /* Inner padding for overlay */
     transition: opacity 0.3s ease-in-out; /* Smooth fade-in */
 }
 
