@@ -153,15 +153,6 @@
     justify-content: stretch;
 }
 
-.project-title {
-    font-size: 0.75em;
-    margin-bottom: 2.5%;
-
-    white-space: nowrap;
-    text-align: center;
-    margin-top: auto;
-}
-
 .project-image {
     width: 100%;
     max-width: 400px;
