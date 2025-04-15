@@ -42,8 +42,8 @@ app.get('/portfolio', (req, res) => {
     res.render('portfolio', { allProjects: data });
 });
 
-app.get('/blog', (req, res) => {
-    res.render('blog');
+app.get('/ai', (req, res) => {
+    res.render('ai', { allProjects: data });
 });
 
 app.get('/artpage', (req, res) => {
