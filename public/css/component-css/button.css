@@ -1,0 +1,113 @@
+/* ===== Button System ===== */
+
+:root{
+  /* tune these if you want */
+  --btn-radius: 10px;
+  --btn-gap: .55rem;
+  --btn-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* Base */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:var(--btn-gap);
+  padding:.625rem 1rem;
+  border-radius:var(--btn-radius);
+  border:1px solid transparent;
+  font:600 1rem/1.2 'Hanken Grotesk', system-ui, sans-serif;
+  color:var(--text-color);
+  background:var(--secondary-color);
+  text-decoration:none;
+  cursor:pointer;
+  box-shadow:var(--btn-shadow);
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
+}
+
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+.btn:focus-visible{ outline:3px solid color-mix(in oklab, var(--accent-color), white 35%); outline-offset:2px; }
+
+/* Sizes */
+.btn--sm{ padding:.45rem .75rem; font-size:.95rem; }
+.btn--md{ padding:.625rem 1rem; font-size:1rem; } /* default */
+.btn--lg{ padding:.85rem 1.15rem; font-size:1.05rem; }
+
+.btn--block{ display:flex; width:100%; }
+
+/* Variants */
+.btn--primary{
+  background:var(--accent-color);
+  color:#fff;
+  border-color:color-mix(in oklab, var(--accent-color), black 10%);
+}
+.btn--primary:hover{ background:var(--accent-color2); }
+
+.btn--secondary{
+  background:var(--secondary-color);
+  color:var(--accent-dark);
+  border-color:#dcdcdc;
+}
+.btn--secondary:hover{ background:#f4f4f4; border-color:#cfcfcf; }
+
+.btn--ghost{
+  background:transparent;
+  color:var(--accent-dark);
+  border-color:#dcdcdc;
+  box-shadow:none;
+}
+.btn--ghost:hover{ background:#f7f7f7; border-color:#cfcfcf; }
+
+.btn--link{
+  background:transparent;
+  border-color:transparent;
+  box-shadow:none;
+  padding:0;
+  color:var(--accent-color);
+}
+.btn--link:hover{ text-decoration:underline; transform:none; }
+
+/* Icon-only button */
+.btn--icon{
+  padding:.55rem;
+  aspect-ratio:1/1;
+}
+.btn i{ font-size:1.1em; }
+
+/* Disabled */
+.btn[disabled], .btn[aria-disabled="true"]{
+  opacity:.55; cursor:not-allowed; transform:none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .btn{ transition:none; }
+}
+
+/* ===== NAV VARIANT ===== */
+.btn--nav{
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  color: var(--accent-dark);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+/* use small size for nav unless you prefer md */
+.btn--sm.btn--nav{ padding: .4rem .75rem; font-size: .95rem; }
+
+.btn--nav:hover{
+  background: #f5f5f5;
+  border-color: #e8e8e8;
+  text-decoration: none;
+}
+
+/* Active/current page */
+.btn--nav.is-active{
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: color-mix(in oklab, var(--accent-color) 10%, white 90%);
+}

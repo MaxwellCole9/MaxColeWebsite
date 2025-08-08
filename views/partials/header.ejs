@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="header__inner container">
+    <a class="header__brand" href="/">MX.CO</a>
+
+    <nav class="header__nav" aria-label="Primary">
+      <a class="header__link <%= currentPath==='/' ? 'is-active' : '' %>" href="/">Home</a>
+      <a class="header__link <%= currentPath.startsWith('/portfolio') ? 'is-active' : '' %>" href="/portfolio">Portfolio</a>
+      <a class="header__link <%= currentPath==='/about' ? 'is-active' : '' %>" href="/about">About</a>
+      <a class="header__link <%= currentPath==='/resume' ? 'is-active' : '' %>" href="/resume">Resume</a>
+      <a class="header__link <%= currentPath==='/contact' ? 'is-active' : '' %>" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('.header');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      header.classList.toggle('header--scrolled', (window.scrollY||0) > 12);
+      ticking = false;
+    });
+    ticking = true;
+  });
+</script>

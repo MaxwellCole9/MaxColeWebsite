@@ -1,0 +1,33 @@
+<%
+  // SAFELY read possibly-undefined locals
+  const Tag         = (typeof href      !== 'undefined' && href)      ? 'a' : 'button';
+  const variantClass= (typeof variant   !== 'undefined' && variant)   ? variant : 'btn--primary';
+  const sizeClass   = (typeof size      !== 'undefined' && size)      ? size    : 'btn--md';
+  const blockClass  = (typeof block     !== 'undefined' && block)     ? 'btn--block' : '';
+  const extra       = (typeof extraClass!== 'undefined' && extraClass)? extraClass : '';
+  const iconClass   = (typeof icon      !== 'undefined' && icon)      ? icon : null;
+  const isDisabled  = (typeof disabled  !== 'undefined' && disabled);
+  const isNewTab    = (typeof newtab    !== 'undefined' && newtab);
+  const btnType     = (typeof type      !== 'undefined' && type)      ? type : 'button';
+
+  const classes = ['btn', variantClass, sizeClass, blockClass, extra].filter(Boolean).join(' ');
+%>
+
+<% if (Tag === 'a') { %>
+  <a
+    class="<%= classes %>"
+    href="<%= href %>"
+    <%= isNewTab ? 'target="_blank" rel="noopener"' : '' %>
+    <%= isDisabled ? 'aria-disabled="true" tabindex="-1"' : '' %>>
+    <% if (iconClass) { %><i class="<%= iconClass %>"></i><% } %>
+    <span><%= text %></span>
+  </a>
+<% } else { %>
+  <button
+    class="<%= classes %>"
+    type="<%= btnType %>"
+    <%= isDisabled ? 'disabled aria-disabled="true"' : '' %>>
+    <% if (iconClass) { %><i class="<%= iconClass %>"></i><% } %>
+    <span><%= text %></span>
+  </button>
+<% } %>

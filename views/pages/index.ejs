@@ -1,0 +1,158 @@
+<style>
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--text-color);
+        padding: 4rem 2rem;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .main-heading {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .subtext {
+        font-size: 1.2rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        margin-bottom: 2rem;
+    }
+
+    .carousel-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carousel-card {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+    }
+
+    .carousel-card.visible {
+        opacity: 1;
+    }
+
+    .carousel-card h2 {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .carousel-card ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        color: var(--text-color);
+        opacity: 0.9;
+    }
+
+    .carousel-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+
+    /* Responsive: stack on mobile */
+    @media (max-width: 768px) {
+        .hero-section {
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero-content, .carousel-container {
+            max-width: 100%;
+        }
+    }
+</style>
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="main-heading">AI-Powered Solutions</h1>
+        <p class="subtext">
+            I deliver AI-driven solutions that propel businesses into the new age of efficiency and innovation. By automating complex processes, integrating intelligent tools, and optimizing workflows, I help teams outperform the competition and focus on what truly matters.
+        </p>
+        
+        <%- include('../partials/button', {
+            href: 'https://github.com/maxwellcole9',
+            text: 'GitHub',
+            icon: 'fa-brands fa-github',
+            variant: 'btn--secondary',
+            newtab: true
+        }) %>
+
+
+
+    </div>
+
+    <div class="carousel-container">
+        <div id="carousel-card" class="carousel-card">
+            <!-- JS will populate this -->
+        </div>
+    </div>
+</div>
+
+<script>
+  const services = [
+    {
+      title: "Custom AI Integration",
+      description: [
+        "Integrating GPT/LLM tools into internal workflows.",
+        "Automating repetitive tasks using AI.",
+        "Connecting AI models to business tools like CRMs or support platforms."
+      ]
+    },
+    {
+      title: "AI-Enabled Applications",
+      description: [
+        "Webscrapers with intelligent parsing and summarization.",
+        "Custom dashboards with AI-powered insights.",
+        "Smart internal tools for startups and teams."
+      ]
+    },
+    {
+      title: "Tech Stack Strategy & Consulting",
+      description: [
+        "Helping clients figure out what to build — and how.",
+        "Choosing the right AI models and frameworks.",
+        "Designing prompt flows, guardrails, and interaction UX."
+      ]
+    }
+  ];
+
+  let current = 0;
+  const card = document.getElementById("carousel-card");
+
+  function renderCard(index) {
+    const service = services[index];
+    card.classList.remove('visible'); // Start fade out
+    setTimeout(() => {
+      card.innerHTML = `
+        <h2>${service.title}</h2>
+        <ul>
+          ${service.description.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      `;
+      card.classList.add('visible'); // Fade in
+    }, 300);
+  }
+
+  renderCard(current);
+  setInterval(() => {
+    current = (current + 1) % services.length;
+    renderCard(current);
+  }, 6000);
+</script>
