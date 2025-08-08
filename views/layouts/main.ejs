@@ -22,13 +22,16 @@
     <link rel="stylesheet" href="/css/page-css/template.css">
 
     <!-- Per-page -->
-    <link rel="stylesheet" href="/css/page-css/index.css">
+    <% if (Array.isArray(pageStyles)) { %>
+      <% pageStyles.forEach(style => { %>
+        <link rel="stylesheet" href="<%= style %>">
+      <% }) %>
+    <% } %>
 
     <!-- Reusable UI components -->
     <link rel="stylesheet" href="/css/component-css/header.css">
     <link rel="stylesheet" href="/css/component-css/footer.css">
     <link rel="stylesheet" href="/css/component-css/button.css">
-    <link rel="stylesheet" href="/css/component-css/header.css">
     <link rel="stylesheet" href="/css/component-css/card.css">
 
   <title><%= title || "Max Cole" %></title>

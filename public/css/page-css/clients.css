@@ -1,0 +1,7 @@
+/* Styles for the Clients page */
+
+.clients-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
