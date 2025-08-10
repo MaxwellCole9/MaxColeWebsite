@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
         "Full-stack Web Designer",
         "Human-Centered Software Designer",
         "AI Research and Development Specialist",
-        "Graphic Artist"
     ]; // Replace with your messages
 
     const container = document.getElementById('typing-container'); // Parent container for stacked lines

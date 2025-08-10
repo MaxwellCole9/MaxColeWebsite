@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/page-css/page.css">
+    <link rel="stylesheet" href="/page-css/template.css">
+    <link rel="stylesheet" href="layout.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=computer" />
+
+    <title>About Page</title>
+</head>
+<body>
+    
+    <div class="landing-section">
+
+        <h1 class="title-text-accent">Portfolio</h1>
+        <div class="color-boxes"><div class="horizontal-line"></div><div class="accent1"></div><div class="accent2"></div><div class="accent3"></div></div>
+
+        <div class="section">
+
+            
+
+            <div class="spacer"></div>
+
+            <div class="vertical-container background-gray">  
+                <div class="vertical-container">
+                    <div class="horizontal-container center-align">
+                        <h2>MX.CO Software Design</h2>
+                        <div class="image-icon-content">
+                            <img src="images/MXCO_LogoNew.png" alt="Project Image">
+                        </div>
+                    </div>
+                    <h3 class="text-accent-hero">From websites to webscrapers</h3>
+                </div>
+
+                <div class="text-content text-pretty padding-top-bottom padding-left-right">
+                    <p>From building complex web scrapers to developing and deploying fully functional websites, I have successfully managed a diverse range of software engineering projects for both local businesses and corporate partners. These experiences have allowed me to deepen my expertise in various coding languages, experiment with cutting-edge tools and technologies, and deliver innovative solutions tailored to each client’s unique needs.</p>
+                    <p>Beyond the technical aspects, my freelance work has also sharpened my project management skills. I’ve consistently navigated tight deadlines, balanced evolving requirements, and maintained clear communication to ensure that timelines and expectations are met. Each project has been an opportunity to grow, innovate, and create impactful software that solves real-world problems.</p>
+                </div>
+
+                <div class="center-container padding-top-bottom">
+                    <div class="projects-section" data-projects="freelance"></div>
+                </div>
+            </div>
+
+
+
+            <div class="spacer"></div>
+
+
+
+            <div class="vertical-container background-gray">
+                <div class="vertical-container">
+                    <div class="horizontal-container center-align">
+                        <h2>Against</h2>
+                        <div class="image-icon-content">
+                            <img src="images/AgainstIcon.png" alt="Project Image">
+                        </div>
+                    </div>
+                    <h3 class="text-accent-hero">Bringing Data Insights to Marketing Campaigns</h3>
+                </div>
+
+                <div class="text-content text-pretty padding-top-bottom padding-left-right">
+                    <p>Seeking to broaden my skill set beyond the traditional scope of a Computer Science major and expand my horizons, I applied for an internship at a strategy and marketing company called Against. What began as an opportunity to step out of my comfort zone quickly became a transformative experience. During the internship, I gained invaluable expertise in contextualizing problems, analyzing complex data, and crafting data-driven solutions. These skills enabled me to design impactful ad campaigns for local clients, contribute to research-driven website projects, and develop innovative creative media concepts that aligned with client goals.</p>
+                    <a href="https://goagainst.com" class="button-link" target="_blank" rel="noopener noreferrer">
+                        <button class="button button-accent2">Company Website</button>
+                    </a>
+    
+                </div>
+
+                <div class="center-container padding-top-bottom">
+                    <div class="projects-section" data-projects="against"></div>
+                </div>
+            </div>
+
+
+
+            <div class="spacer"></div>
+
+
+
+            <div class="vertical-container background-gray">
+                <div class="vertical-container">
+                    <div class="horizontal-container center-align">
+                        <h2>Coding Projects</h2>
+                        <span class="material-symbols-outlined">
+                            computer
+                        </span>
+                    </div>
+                    <h3 class="text-accent-hero">Explorations in Concepts of Computer Science</h3>
+                </div>
+    
+                <div class="text-content text-pretty padding-top-bottom padding-left-right">
+                    <p>Throughout my academic journey and personal exploration in software development, I immersed myself in a variety of challenging coding projects that pushed me to tackle complex problems and continually refine my technical expertise. From designing a feature-rich recipe app with dynamic functionalities to developing an artificial life simulation for research purposes, these projects were more than technical exercises—they were opportunities to embrace collaboration, master iterative development, and unlock creative solutions to intricate challenges.</p>
+                </div>
+
+                <div class="center-container padding-top-bottom">
+                    <div class="projects-section" data-projects="coding"></div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="JS-files/slides.js"></script>
+    <script src="JS-files/list.js"></script>
+    <script>
+        const allProjects = <%- JSON.stringify(allProjects) %>;
+    </script>
+</body>
+</html>

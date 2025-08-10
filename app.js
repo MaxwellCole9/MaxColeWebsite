@@ -1,30 +1,22 @@
-const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
+const express = require('express')
+const expressLayouts = require('express-ejs-layouts')
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config(); // Optional: for environment vars like PORT
 
-const app = express();
+const app = express ()
 
-// Load JSON data
-const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/project-data.json'), 'utf-8'));
-const artworkData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/art-data.json'), 'utf-8'));
+const data = JSON.parse(fs.readFileSync('project-data.json', 'utf-8'));
+const artworkData = JSON.parse(fs.readFileSync('art-data.json', 'utf-8'));
 
-// Middleware for static assets
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
+app.use('./css', express.static(__dirname + 'public/css'))
+app.use('./js', express.static(__dirname + 'public/js'))
 
-// EJS + Layouts
-app.use(expressLayouts);
-app.set('layout', 'layouts/main'); // views/layouts/main.ejs
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.use(expressLayouts)
+app.set('layout')
+app.set('view engine', 'ejs')
 
-// Make data available in all views
 app.use((req, res, next) => {
-<<<<<<< HEAD
-  res.locals.currentPath = req.path;
-  next();
-=======
     res.locals.projects = data;
     res.locals.artworks = artworkData;
     next();
@@ -50,8 +42,8 @@ app.get('/portfolio', (req, res) => {
     res.render('portfolio', { allProjects: data });
 });
 
-app.get('/blog', (req, res) => {
-    res.render('blog');
+app.get('/ai', (req, res) => {
+    res.render('ai', { allProjects: data });
 });
 
 app.get('/artpage', (req, res) => {
@@ -68,43 +60,37 @@ app.get('/freelance', (req, res) => {
 
 app.get('/projects', (req, res) => {
     res.render('projects');
->>>>>>> parent of 7c3abd7 (changed styles)
 });
 
-// Routes
-const mainRoutes = require('./routes/main');
-app.use('/', mainRoutes);
 
-// Dynamic project pages (based on project-data.json `url` field)
 app.get('/:page', (req, res) => {
-  const pageData = data.find(d => d.url === req.params.page);
+    const pageData = data.find(d => d.url === req.params.page);
 
-  if (pageData) {
-    const allProjects = data.map(d => d.url);
+    if (pageData) {
+        const allProjects = data.map(d => d.url);
 
-    let files = [];
-    if (pageData.filesSrc) {
-      const filesPath = path.join(__dirname, 'public', pageData.filesSrc);
-      try {
-        files = fs.readdirSync(filesPath);
-      } catch (err) {
-        console.error(`Error reading files from ${filesPath}:`, err);
-      }
+        // Retrieve files if filesSrc exists
+        let files = [];
+        if (pageData.filesSrc) {
+            const filesPath = path.join(__dirname, 'public', pageData.filesSrc);
+            try {
+                files = fs.readdirSync(filesPath); // Read all files in the directory
+            } catch (err) {
+                console.error(`Error reading files from ${filesPath}:`, err);
+            }
+        }
+
+        // Pass the data to the EJS template
+        res.render('template', { ...pageData, allProjects, files });
+    } else {
+        res.status(404).send('Page not found');
     }
-
-    res.render('pages/template', { ...pageData, allProjects, files });
-  } else {
-    res.status(404).render('pages/404', { title: "Page Not Found" });
-  }
 });
 
-// 404 Fallback
-app.use((req, res) => {
-  res.status(404).render('pages/404', { title: "Page Not Found" });
-});
-
-// Server
-const port = process.env.PORT || 5000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

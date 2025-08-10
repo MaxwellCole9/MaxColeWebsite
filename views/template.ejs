@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="/page-css/template.css">
+    <link rel="stylesheet" href="/page-css/page.css">
+    <link rel="stylesheet" href="layout.css">
+    <title><%= pageTitle %> - Project Card Page</title>
+</head>
+<body>
+    <div class="landing-section">
+        <h1 class="title-text-accent">Project Overview</h1>
+        <div class="color-boxes">
+            <div class="horizontal-line"></div>
+            <div class="accent1"></div>
+            <div class="accent2"></div>
+            <div class="accent3"></div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="vertical-container background-gray">
+
+            <!-- Header Content -->
+            <h2 class="text-accent-dark"><%= pageTitle %></h2>
+
+            <h3 class="text-accent-hero padding-left-right"><%= subtitle %></h3>
+
+            <div class="text-content text-pretty padding-top-bottom">
+                <h3 class="text-accent-dark text-bold"><%= typeof shortDescription !== 'undefined' && shortDescription ? shortDescription : "Description" %></h3>
+                <p class="padding-left-right"><%= description || "No description available." %></p>
+            </div>
+
+            <div class="vertical-container padding-top-bottom">
+                <div class="horizontal-container center-align">
+                    <h3 class="text-accent1 text-bold">Technologies Used</h3>
+                    <p class="text-indent"><%= languages && languages.length > 0 ? languages.join(', ') : "N/A" %></p>
+                </div>
+            
+                <div class="horizontal-container center-align">
+                    <h3 class="text-accent2 text-bold">Skills Gained</h3>
+                    <p class="text-indent"><%= skills && skills.length > 0 ? skills.join(', ') : "N/A" %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="carousel padding-top-bottom">
+            <div class="carousel-main">
+                <!-- Render Images -->
+                <% if (imageSrc) { %>
+                    <% if (Array.isArray(imageSrc)) { %>
+                        <% imageSrc.forEach(function (image, index) { %>
+                            <div class="carousel-slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+                                <img src="<%= image %>" alt="Project Image" class="carousel-image">
+                                <% if (typeof imageDesc !== 'undefined' && Array.isArray(imageDesc) && imageDesc[index]) { %>
+                                    <h3 class="image-desc"><%= imageDesc[index] %></h3>
+                                <% } %>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="carousel-slide active" data-index="0">
+                            <img src="<%= imageSrc %>" alt="Project Image" class="carousel-image">
+                        </div>
+                    <% } %>
+                <% } %>
+        
+                <!-- Render Video -->
+                <% if (typeof videoSrc !== 'undefined' && videoSrc) { %>
+                    <div class="carousel-slide <%= !imageSrc ? 'active' : '' %>" data-index="<%= Array.isArray(imageSrc) ? imageSrc.length : 1 %>">
+                        <video class="carousel-video" controls>
+                            <source src="<%= videoSrc %>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <% if (typeof imageDesc !== 'undefined' && Array.isArray(imageDesc) && imageDesc[imageDesc.length - 1]) { %>
+                            <h3 class="image-desc"><%= imageDesc[imageDesc.length - 1] %></h3>
+                        <% } %>
+                    </div>
+                <% } %>
+        
+                <!-- Handle Case Where No Media -->
+                <% if (!imageSrc && !videoSrc) { %>
+                    <div class="carousel-slide active">
+                        <p>No media available.</p>
+                    </div>
+                <% } %>
+            </div>
+        
+            <!-- Thumbnails -->
+            <div class="carousel-thumbnails-container">
+                <button class="carousel-arrow left-arrow">&lt;</button>
+                <div class="carousel-thumbnails">
+                    <!-- Image Thumbnails -->
+                    <% if (imageSrc) { %>
+                        <% if (Array.isArray(imageSrc)) { %>
+                            <% imageSrc.forEach(function (image, index) { %>
+                                <img src="<%= image %>" alt="Thumbnail" class="carousel-thumbnail <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+                            <% }); %>
+                        <% } else { %>
+                            <img src="<%= imageSrc %>" alt="Thumbnail" class="carousel-thumbnail active" data-index="0">
+                        <% } %>
+                    <% } %>
+        
+                    <!-- Video Thumbnail -->
+                    <% if (typeof videoSrc !== 'undefined' && videoSrc) { %>
+                        <div class="carousel-thumbnail video-thumbnail" data-index="<%= Array.isArray(imageSrc) ? imageSrc.length : 1 %>">
+                            <span class="video-label">Video</span>
+                        </div>
+                    <% } %>
+                </div>
+                <button class="carousel-arrow right-arrow">&gt;</button>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <% if (typeof filesSrc !== 'undefined' && filesSrc.length > 0 && files && files.length > 0) { %>
+                <h3 class="text-accent3 text-bold">Project Files</h3>
+                <div class="file-list padding-top-bottom">
+                    <% files.forEach(file => { %>
+                        <div class="file-row">
+                            <div class="file-info">
+                                <h3><%= file %></h3>
+                                <button class="file-toggle" data-file="<%= file %>">▼</button>
+                                <div class="grow-spacer"></div>
+                                <a href="/<%= filesSrc %>/<%= file %>" download>
+                                    <button class="button button-accent3">Download</button>
+                                </a>
+                            </div>
+                            <div class="file-viewer hidden" id="viewer-<%= file.replace(/[^a-zA-Z0-9]/g, '-') %>">
+                                <iframe src="/<%= filesSrc %>/<%= file %>" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %>
+
+        <div class="spacer"></div>
+
+        <% if ((typeof status !== 'undefined' && status) || 
+            (typeof teamMembers !== 'undefined' && teamMembers.length > 0) || 
+            (typeof githubLink !== 'undefined' && githubLink && githubLink !== "NA")) { %>
+            <div class="vertical-container background-gray">
+                <div class="text-content">
+                    <h3 class="text-bold">Project Information</h3>
+                    
+                    <% if (typeof status !== 'undefined' && status) { %>
+                        <p>Status: <%= status %></p>
+                    <% } %>
+                    
+                    <% if (typeof teamMembers !== 'undefined' && teamMembers.length > 0) { %>
+                        <p>Contributors: <%= teamMembers.join(', ') %></p>
+                    <% } %>
+                    
+                    <% if (typeof githubLink !== 'undefined' && githubLink && githubLink !== "NA") { %>
+
+                        <a href="<%= githubLink %>" class="button-link" target="_blank">
+                            <button class="button button-accent2">GitHub Repository</button>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="JS-files/thumbnail.js"></script>
+    <script src="JS-files/slides.js"></script>
+    <script>
+        const allProjects = <%- JSON.stringify(allProjects) %>;
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".carousel-slide");
+            const thumbnails = document.querySelectorAll(".carousel-thumbnail");
+            const leftArrow = document.querySelector(".left-arrow");
+            const rightArrow = document.querySelector(".right-arrow");
+            let currentIndex = 0;
+        
+            const updateCarousel = (newIndex) => {
+                // Pause any videos currently playing
+                const currentSlideVideo = slides[currentIndex].querySelector("video");
+                if (currentSlideVideo) {
+                    currentSlideVideo.pause();
+                }
+        
+                // Update active slide
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle("active", index === newIndex);
+                });
+        
+                // Update active thumbnail
+                thumbnails.forEach((thumb, index) => {
+                    thumb.classList.toggle("active", index === newIndex);
+                });
+        
+                currentIndex = newIndex;
+            };
+        
+            // Thumbnail click handler
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener("click", () => {
+                    updateCarousel(index);
+                });
+            });
+        
+            // Arrow click handlers
+            leftArrow.addEventListener("click", () => {
+                const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel(newIndex);
+            });
+        
+            rightArrow.addEventListener("click", () => {
+                const newIndex = (currentIndex + 1) % slides.length;
+                updateCarousel(newIndex);
+            });
+        
+            // Initialize the carousel
+            updateCarousel(currentIndex);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggles = document.querySelectorAll(".file-toggle");
+        
+            toggles.forEach(toggle => {
+                toggle.addEventListener("click", (e) => {
+                    const fileName = e.target.getAttribute("data-file");
+                    const viewer = document.querySelector(`#viewer-${fileName.replace(/[^a-zA-Z0-9]/g, '-')}`);
+        
+                    // Toggle active class for the viewer and arrow
+                    viewer.classList.toggle("active");
+                    toggle.classList.toggle("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
