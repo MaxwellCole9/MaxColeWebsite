@@ -21,8 +21,54 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Make data available in all views
 app.use((req, res, next) => {
+<<<<<<< HEAD
   res.locals.currentPath = req.path;
   next();
+=======
+    res.locals.projects = data;
+    res.locals.artworks = artworkData;
+    next();
+});
+
+app.get('/', (req, res) => {
+    res.render('index', { allProjects: data });
+});
+
+app.get('/about',(req, res) => {
+    res.render('about')
+})
+
+app.get('/resume',(req, res) => {
+    res.render('resume')
+})
+
+app.get('/contact',(req, res) => {
+    res.render('contact')
+})
+
+app.get('/portfolio', (req, res) => {
+    res.render('portfolio', { allProjects: data });
+});
+
+app.get('/blog', (req, res) => {
+    res.render('blog');
+});
+
+app.get('/artpage', (req, res) => {
+    res.render('artpage');
+});
+
+app.get('/against', (req, res) => {
+    res.render('against');
+});
+
+app.get('/freelance', (req, res) => {
+    res.render('freelance');
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects');
+>>>>>>> parent of 7c3abd7 (changed styles)
 });
 
 // Routes

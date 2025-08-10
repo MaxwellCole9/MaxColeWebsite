@@ -10,6 +10,42 @@
     padding: 1vw;
 }
 
+#typing-container {
+    display: flex;
+    flex-direction: column; /* Stack lines vertically */
+    gap: 0.25vw; /* Space between lines */
+    position: relative; /* Keep it in flow */
+    overflow: hidden;
+    height: 20vw; /* Reserved space to prevent layout shifting */
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px; /* Width of the cursor */
+    height: 1.75vw; /* Match the text's line height */
+    background-color: var(--text-color); /* Match text color */
+    margin-left: 5px; /* Add space between text and cursor */
+    animation: blink 0.7s steps(1) infinite; /* Default blinking during typing */
+    vertical-align: baseline; /* Align with the text baseline */
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.typing-line {
+    font-size: 1.75vw; /* Matches your h3 styling */
+    font-weight: 450;
+    font-family: 'Karman Grotesk', sans-serif;
+    color: var(--text-color);
+    line-height: 1.5; /* Ensures consistent spacing */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Prevent overflow */
+    position: relative; /* Ensure proper cursor positioning */
+}
+
 /* ALIGNMENTS */
 
 .center {
@@ -23,7 +59,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 90vh;
+    height: 80vh; /* Take up 90% of the viewport height on desktop */
+    padding: 2rem 1rem;
     box-sizing: border-box;
 }
 

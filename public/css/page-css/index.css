@@ -1,51 +1,110 @@
 /* HOME PAGE CONTENT - LANDING */
 
-.title {
-    font-size: 10vw;
-    color: var(--accent-color2);
-    height: min-content;
-    display: inline-block; /* Ensures the background matches the text width */
-    line-height: 1; /* Ensures no extra space above or below the text */
+#landing {
+    height: 90vh
 }
 
+/* TITLE ICON AND TEXT */
+
+#title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 7.5% 2.5% 0 2.5%; 
+}
+
+.landing-image {
+    width: 50%;
+    height: auto;
+}
 
 /* TYPING EFFECT UNDER TITLE */
 
-#typing-container {
-    display: flex;
-    flex-direction: column; /* Stack lines vertically */
-    gap: 0.25vw; /* Space between lines */
-    position: relative; /* Keep it in flow */
-    overflow: hidden;
-    height: 20vw; /* Reserved space to prevent layout shifting */
+#typing {
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: clamp(20px, 2vw, 100px);
+
+    margin: 0 0 0 0.5%;
 }
 
-.cursor {
-    display: inline-block;
-    width: 2px; /* Width of the cursor */
-    height: 1.75vw; /* Match the text's line height */
-    background-color: var(--text-color); /* Match text color */
-    margin-left: 5px; /* Add space between text and cursor */
-    animation: blink 0.7s steps(1) infinite; /* Default blinking during typing */
-    vertical-align: baseline; /* Align with the text baseline */
+#text::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-    50% {
+    50% { opacity: 0; }
+}
+
+@keyframes fadeInFromRight {
+    0% {
         opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-.typing-line {
-    font-size: 1.75vw; /* Matches your h3 styling */
-    font-weight: 900;
-    font-family: 'Doto', sans-serif;
-    color: var(--text-color);
-    line-height: 1.5; /* Ensures consistent spacing */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Prevent overflow */
-    position: relative; /* Ensure proper cursor positioning */
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
+
+/* ==== ARROW ==== */
+
+.arrow {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-75%, -50%);
+    cursor: pointer;
+}
+
+.arrow span {
+    display: block;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+/* SKILLS SECTION */
 
 /* -! About Part */
 
